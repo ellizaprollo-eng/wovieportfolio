@@ -29,11 +29,13 @@ export function Hero() {
           {profile.name}
         </h1>
 
-        <p className="mt-4 text-lg text-body/85 sm:text-xl">{profile.role}</p>
+<p className="mt-4 text-lg font-medium text-white/90 sm:text-xl">
+  {profile.role}
+</p>
 
-        <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-body-dim sm:text-base">
-          {profile.intro}
-        </p>
+<p className="mt-6 max-w-2xl text-[15px] leading-7 text-white/75 sm:text-base">
+  {profile.intro}
+</p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
