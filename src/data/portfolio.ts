@@ -222,7 +222,7 @@ export const skillGroups = [
 export const testimonials = [
   {
     quote:
-      "Working with Wovie has been an absolute relief—she's incredibly reliable, detail-oriented, and always delivers with professionalism and integrity. He adapts quickly to any task, communicates proactively, and consistently proves herself as a trusted, high-performing partner.",
+      "Working with Wovie has been an absolute relief—he's incredibly reliable, detail-oriented, and always delivers with professionalism and integrity. He adapts quickly to any task, communicates proactively, and consistently proves herself as a trusted, high-performing partner.",
     name: 'Elor Kahalanay',
     title: 'Business Owner',
   },
