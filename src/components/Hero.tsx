@@ -46,7 +46,7 @@ export function Hero() {
           </a>
           <a
             href="#services"
-            className="rounded-full border border-white/15 bg-white/[0.03] px-7 py-3 text-sm font-semibold text-white transition-colors hover:border-accent/50 hover:bg-white/[0.07]"
+            className="rounded-full border border-white/20 bg-[#0b0616]/80 px-7 py-3 text-sm font-semibold text-white shadow-lg backdrop-blur-md transition-all hover:border-accent/60 hover:bg-[#151020]"
           >
             View Services
           </a>
