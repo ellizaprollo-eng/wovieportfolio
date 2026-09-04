@@ -170,3 +170,57 @@
     animation: none;
   }
 }
+
+/* =========================
+   CUSTOM CURSOR
+========================= */
+
+@media (pointer: fine) {
+  html,
+  body,
+  a,
+  button {
+    cursor: none;
+  }
+
+  .custom-cursor {
+    position: fixed;
+
+    width: 12px;
+    height: 12px;
+
+    background: #f472e8;
+
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+
+    pointer-events: none;
+    z-index: 99999;
+
+    transform: translate(-50%, -50%);
+
+    box-shadow:
+      0 0 8px rgba(244, 114, 232, 0.9),
+      0 0 20px rgba(233, 53, 216, 0.6);
+
+    transition:
+      width 0.18s ease,
+      height 0.18s ease,
+      background 0.18s ease,
+      border 0.18s ease;
+  }
+
+  /* When hovering buttons and links */
+  .custom-cursor.cursor-hover {
+    width: 32px;
+    height: 32px;
+
+    background: rgba(233, 53, 216, 0.15);
+
+    border: 1px solid #f472e8;
+
+    box-shadow:
+      0 0 12px rgba(244, 114, 232, 0.8),
+      0 0 30px rgba(233, 53, 216, 0.4);
+  }
+}
