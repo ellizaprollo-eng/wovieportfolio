@@ -3,13 +3,13 @@
  */
 
 export const profile = {
-  name: 'Sahara Marie Kris Magcaling',
-  shortName: 'Marie Magcaling',
+  name: 'Wovie Prollo',
+  shortName: 'Wovie',
   role: 'Workflow and AI Automation Specialist',
   intro:
     'Transforming business processes through intelligent automation. Specialized in Zapier, Make, n8n, and API integrations to streamline workflows and boost efficiency.',
   avatar: '/profile.jpg',
-  location: 'Manila, Philippines',
+  location: 'Butuan City, Philippines',
   locationNote: 'Available for remote work across all time zones',
 }
 
@@ -222,20 +222,20 @@ export const skillGroups = [
 export const testimonials = [
   {
     quote:
-      "Working with Marie has been an absolute relief—she's incredibly reliable, detail-oriented, and always delivers with professionalism and integrity. She adapts quickly to any task, communicates proactively, and consistently proves herself as a trusted, high-performing partner.",
-    name: 'Ivan Artiles',
+      "Working with Wovie has been an absolute relief—she's incredibly reliable, detail-oriented, and always delivers with professionalism and integrity. He adapts quickly to any task, communicates proactively, and consistently proves herself as a trusted, high-performing partner.",
+    name: 'Elor Kahalanay',
     title: 'Business Owner',
   },
   {
     quote:
-      'Working with Marie on our property management automation was a game-changer. She set up seamless integrations that handle everything from guest communication to scheduling. Highly recommend!',
-    name: 'Ayush Singh',
+      'Working with Wovie on our property management automation was a game-changer. He set up seamless integrations that handle everything from guest communication to scheduling. Highly recommend!',
+    name: 'John Pancerzewski',
     title: 'Property Manager',
   },
   {
     quote:
-      "Marie's attention to detail and deep understanding of automation tools is impressive. She created custom workflows that perfectly fit our business needs. Professional and results-driven.",
-    name: 'Stefan Grützmacher',
+      "Wovie's attention to detail and deep understanding of automation tools is impressive. He created custom workflows that perfectly fit our business needs. Professional and results-driven.",
+    name: 'Trey Pinkerman',
     title: 'Small Business Owner',
   },
 ]
@@ -252,30 +252,30 @@ export const contactChannels: Array<{
     icon: 'whatsapp',
     label: 'WhatsApp',
     value: 'Click Me to Connect',
-    href: 'https://wa.me/',
+    href: 'https://wa.me/639063425144',
   },
   {
     icon: 'mail',
     label: 'Email',
-    value: 'smkstudiocreatives@gmail.com',
-    href: 'mailto:smkstudiocreatives@gmail.com',
+    value: 'wovieprollo42@gmail.com',
+    href: 'mailto:wovieprollo42@gmail.com',
   },
   {
     icon: 'linkedin',
     label: 'LinkedIn',
-    value: 'sahara-marie-kris',
-    href: 'https://www.linkedin.com/in/sahara-marie-kris',
+    value: 'wovie-prollo',
+    href: 'https://www.linkedin.com/in/wovie-prollo-3102a5308/',
   },
   {
     icon: 'globe',
     label: 'Upwork',
-    value: 'mariemagcaling',
-    href: 'https://www.upwork.com/freelancers/mariemagcaling',
+    value: 'wovie-prollo',
+    href: 'https://www.upwork.com/freelancers/~016098766f2632c3f0',
   },
   {
     icon: 'globe',
     label: 'OnlineJobs.ph',
-    value: 'marie-kris',
-    href: 'https://www.onlinejobs.ph/jobseekers/info/marie-kris',
+    value: 'wovie-prollo',
+    href: 'https://www.onlinejobs.ph/jobseekers/info/2977654',
   },
 ]
