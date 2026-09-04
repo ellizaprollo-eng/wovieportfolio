@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Form registration</title>
+  </head>
+  <body>
+    <!--
+      This file exists only so Netlify's build-time form detection registers the
+      "contact" form. It is never shown to visitors — the real form is the React
+      component in src/components/Contact.tsx, which POSTs here.
+      Every field the React form submits must be listed below.
+    -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="firstName" />
+      <input type="text" name="lastName" />
+      <input type="text" name="company" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
+  </body>
+</html>
