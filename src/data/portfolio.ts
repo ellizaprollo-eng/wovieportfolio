@@ -263,19 +263,19 @@ export const contactChannels: Array<{
   {
     icon: 'linkedin',
     label: 'LinkedIn',
-    value: 'wovie-prollo',
+    value: 'Wovie Prollo',
     href: 'https://www.linkedin.com/in/wovie-prollo-3102a5308/',
   },
   {
     icon: 'globe',
     label: 'Upwork',
-    value: 'wovie-prollo',
+    value: 'Wovie Prollo',
     href: 'https://www.upwork.com/freelancers/~016098766f2632c3f0',
   },
   {
     icon: 'globe',
     label: 'OnlineJobs.ph',
-    value: 'wovie-prollo',
+    value: 'Wovie Galceran Prollo',
     href: 'https://www.onlinejobs.ph/jobseekers/info/2977654',
   },
 ]
