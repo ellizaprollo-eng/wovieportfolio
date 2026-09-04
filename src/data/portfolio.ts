@@ -4,7 +4,7 @@
 
 export const profile = {
   name: 'Wovie Prollo',
-  shortName: 'Wovie',
+  shortName: 'Wovie Prollo',
   role: 'Workflow and AI Automation Specialist',
   intro:
     'Transforming business processes through intelligent automation. Specialized in Zapier, Make, n8n, and API integrations to streamline workflows and boost efficiency.',
