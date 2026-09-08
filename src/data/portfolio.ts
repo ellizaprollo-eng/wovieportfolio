@@ -7,7 +7,7 @@ export const profile = {
   shortName: 'Wovie Prollo',
   role: 'Workflow and AI Automation Specialist',
   intro:
-    'Transforming business processes through intelligent automation. Specialized in Zapier, Make, n8n, and API integrations to streamline workflows and boost efficiency.',
+    'Transforming business processes through intelligent automation. Specialized in Gohighlevel, Zapier, Make, n8n, and API integrations to streamline workflows and boost efficiency.',
   avatar: '/profile.jpg',
   location: 'Butuan City, Philippines',
   locationNote: 'Available for remote work across all time zones',
