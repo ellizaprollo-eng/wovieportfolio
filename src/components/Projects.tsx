@@ -10,12 +10,12 @@ function CaseStudy({ project, delay }: { project: Project; delay: number }) {
       as="article"
       className="overflow-hidden rounded-lg border border-white/[0.07] bg-card/60 lg:grid lg:grid-cols-[0.85fr_1.15fr]"
     >
-      <div className="overflow-hidden border-b border-white/[0.06] bg-black/40 lg:border-r lg:border-b-0">
+      <div className="flex items-center overflow-hidden border-b border-white/[0.06] bg-black/40 lg:border-r lg:border-b-0">
         <img
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="aspect-[281/160] w-full object-cover lg:h-full lg:aspect-auto"
+          className="aspect-[281/160] w-full object-cover"
         />
       </div>
 
