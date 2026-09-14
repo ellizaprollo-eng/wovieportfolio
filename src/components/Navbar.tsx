@@ -43,8 +43,10 @@ export function Navbar() {
           ))}
           <a
             href="#contact"
-            className="ml-3 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright"
+            className="btn-primary ml-3"
+            style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
           >
+            <span className="btn-node" aria-hidden="true" />
             Get In Touch
           </a>
         </div>
@@ -76,8 +78,9 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-semibold text-ink"
+              className="btn-primary mt-2 justify-center"
             >
+              <span className="btn-node" aria-hidden="true" />
               Get In Touch
             </a>
           </div>

@@ -184,7 +184,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-7 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright disabled:cursor-not-allowed disabled:opacity-70"
+                  className="btn-primary w-full justify-center"
                 >
                   {status === 'sending' && (
                     <Loader2 className="size-4 animate-spin" />
