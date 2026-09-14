@@ -1,3 +1,4 @@
+import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { projects } from '@/data/portfolio'
@@ -48,6 +49,14 @@ export function Projects() {
                     </li>
                   ))}
                 </ul>
+
+                <a
+                  href="#contact"
+                  className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright"
+                >
+                  Discuss this project
+                  <ArrowRight className="size-4" />
+                </a>
               </div>
             </Reveal>
           ))}

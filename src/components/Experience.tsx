@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { cn } from '@/lib/utils'
@@ -25,6 +26,14 @@ function ExperienceCard({ role }: { role: (typeof experience)[number] }) {
           </li>
         ))}
       </ul>
+
+      <a
+        href="#contact"
+        className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright"
+      >
+        Discuss a project like this
+        <ArrowRight className="size-4" />
+      </a>
     </article>
   )
 }
@@ -74,13 +83,14 @@ function ScrollThrough() {
       <div className="sticky top-20 flex h-[calc(100svh-5rem)] items-center">
         <div className="container-x grid grid-cols-[10rem_1fr] items-center gap-16">
           <span
+            key={active}
             aria-hidden="true"
-            className="heading-display select-none text-[8rem] leading-none font-extrabold text-white/[0.04]"
+            className="content-fade heading-display select-none text-[8rem] leading-none font-extrabold text-white/[0.04]"
           >
             {String(active + 1).padStart(2, '0')}
           </span>
 
-          <div key={role.title} className="max-w-xl">
+          <div key={role.title} className="content-fade max-w-xl">
             <p className="text-xs font-bold tracking-[0.14em] text-accent uppercase">
               {String(active + 1).padStart(2, '0')} •{' '}
               {role.meta.split('|')[0].trim()}
@@ -101,6 +111,14 @@ function ScrollThrough() {
                 </li>
               ))}
             </ul>
+
+            <a
+              href="#contact"
+              className="mt-6 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright"
+            >
+              Discuss a project like this
+              <ArrowRight className="size-4" />
+            </a>
           </div>
         </div>
 
