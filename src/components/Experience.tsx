@@ -29,7 +29,7 @@ function ExperienceCard({ role }: { role: (typeof experience)[number] }) {
 
       <a
         href="#contact"
-        className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-accent-bright"
+        className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright"
       >
         Discuss a project like this
         <ArrowRight className="size-4" />
@@ -114,7 +114,7 @@ function ScrollThrough() {
 
             <a
               href="#contact"
-              className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-accent-bright"
+              className="mt-6 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright"
             >
               Discuss a project like this
               <ArrowRight className="size-4" />
