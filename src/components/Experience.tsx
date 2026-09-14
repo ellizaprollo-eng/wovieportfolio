@@ -29,10 +29,11 @@ function ExperienceCard({ role }: { role: (typeof experience)[number] }) {
 
       <a
         href="#contact"
-        className="mt-5 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright"
+        className="btn-primary mt-5"
+        style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
       >
         Discuss a project like this
-        <ArrowRight className="size-4" />
+        <ArrowRight className="btn-arrow size-4" />
       </a>
     </article>
   )
@@ -114,10 +115,11 @@ function ScrollThrough() {
 
             <a
               href="#contact"
-              className="mt-6 inline-flex items-center gap-1.5 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright"
+              className="btn-primary mt-6"
+              style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
             >
               Discuss a project like this
-              <ArrowRight className="size-4" />
+              <ArrowRight className="btn-arrow size-4" />
             </a>
           </div>
         </div>

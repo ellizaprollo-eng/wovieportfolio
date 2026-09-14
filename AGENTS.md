@@ -58,9 +58,19 @@ must stay in sync with `navLinks` in `src/data/portfolio.ts`.
   `rounded-lg border border-white/[0.07] bg-card/60`. Reuse it so the
   sections stay visually consistent. Services is a numbered list, not cards —
   don't convert it back to an icon-box grid.
-- **Primary buttons are solid, not pill-shaped**: `rounded-lg bg-accent
-  text-ink`, no gradient fill, no blurred glow shadow. Small metadata chips
-  (project tags) may stay `rounded-full`; primary CTAs may not.
+- **Primary buttons use the shared `.btn-primary` class** (plain CSS in
+  `styles.css`, not a Tailwind utility — it needs cross-element `:hover`
+  coordination with `.btn-node`/`.btn-arrow` that `@utility` can't express).
+  Solid, `rounded-lg`, not pill-shaped, no gradient fill. Override padding
+  via the `--btn-px`/`--btn-py` CSS variables (inline `style`), never with
+  Tailwind `px-*`/`py-*` utilities on the same element — those have equal
+  specificity to the plain-CSS declaration and the winner depends on
+  stylesheet order, which is fragile. Every `.btn-primary` gets exactly one
+  decorative accessory: a leading `.btn-node` dot (pure action CTAs — Hero,
+  Navbar, Contact submit) or a trailing `<ArrowRight className="btn-arrow">`
+  (CTAs that jump to a specific place — Experience/Project "Discuss..."
+  links). Never both on the same button. Small metadata chips (project
+  tags) may stay `rounded-full`; primary CTAs may not.
 - TypeScript runs with `strict`, `noUnusedLocals`, and `noUnusedParameters`.
   Unused imports or locals fail the build.
 

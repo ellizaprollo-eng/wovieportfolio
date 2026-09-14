@@ -37,10 +37,8 @@ export function Hero() {
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a
-              href="#contact"
-              className="rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright"
-            >
+            <a href="#contact" className="btn-primary">
+              <span className="btn-node" aria-hidden="true" />
               Get In Touch
             </a>
             <a
