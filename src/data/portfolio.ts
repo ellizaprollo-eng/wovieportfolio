@@ -5,13 +5,20 @@
 export const profile = {
   name: 'Wovie Prollo',
   shortName: 'Wovie Prollo',
-  role: 'Workflow and AI Automation Specialist',
+  role: 'Workflow & AI Automation Specialist',
+  headline: 'I take the busywork out of your operations.',
   intro:
-    'Transforming business processes through intelligent automation. Specialized in Gohighlevel, Zapier, Make, n8n, and API integrations to streamline workflows and boost efficiency.',
+    'I design and build automations on GoHighLevel, Zapier, Make, and n8n — connecting the tools you already use so the work happens without anyone touching it.',
   avatar: '/profile.jpg',
   location: 'Butuan City, Philippines',
   locationNote: 'Available for remote work across all time zones',
 }
+
+/** Grounded in real figures already stated in the experience/project data below. */
+export const heroStats = [
+  { value: '80%', label: 'Less manual work for clients' },
+  { value: '4', label: 'Core platforms — GHL, Zapier, Make, n8n' },
+]
 
 export const navLinks = [
   { label: 'Home', href: '#home' },

@@ -1,4 +1,3 @@
-import { Star } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { testimonials } from '@/data/portfolio'
@@ -18,19 +17,17 @@ export function Testimonials() {
               key={item.name}
               delay={(i % 3) * 90}
               as="article"
-              className="flex h-full flex-col rounded-xl border border-white/[0.07] bg-card/60 p-6 transition-colors duration-300 hover:border-accent/35"
+              className="flex h-full flex-col rounded-lg border border-white/[0.07] bg-card/60 p-6 transition-colors duration-300 hover:border-accent/35"
             >
-              <div className="mb-5 flex gap-1 text-accent">
-                {Array.from({ length: 5 }, (_, s) => (
-                  <Star key={s} className="size-4 fill-current" />
-                ))}
-              </div>
+              <span className="heading-display text-3xl leading-none text-accent/70">
+                &ldquo;
+              </span>
 
-              <blockquote className="flex-1 text-sm leading-relaxed text-body/85 italic">
-                &ldquo;{item.quote}&rdquo;
+              <blockquote className="mt-2 flex-1 text-sm leading-relaxed text-body/85">
+                {item.quote}
               </blockquote>
 
-              <footer className="mt-6">
+              <footer className="mt-6 border-t border-white/[0.07] pt-4">
                 <p className="text-sm font-bold text-white">{item.name}</p>
                 <p className="mt-0.5 text-xs text-body-dim">{item.title}</p>
               </footer>

@@ -26,7 +26,7 @@ export function Navbar() {
       <nav className="container-x flex h-16 items-center justify-between gap-4">
         <a
           href="#home"
-          className="text-[15px] font-extrabold tracking-tight text-accent-bright transition-colors hover:text-white"
+          className="heading-display text-[15px] font-extrabold tracking-tight text-white transition-colors hover:text-accent-bright"
         >
           {profile.shortName}
         </a>
@@ -43,7 +43,7 @@ export function Navbar() {
           ))}
           <a
             href="#contact"
-            className="ml-3 rounded-full bg-gradient-to-r from-accent to-accent-deep px-4 py-2 text-sm font-semibold text-white shadow-[0_0_20px_-4px_rgba(233,53,216,0.7)] transition-transform hover:scale-[1.03]"
+            className="ml-3 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright"
           >
             Get In Touch
           </a>
@@ -76,7 +76,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-full bg-gradient-to-r from-accent to-accent-deep px-4 py-2.5 text-center text-sm font-semibold text-white"
+              className="mt-2 rounded-lg bg-accent px-4 py-2.5 text-center text-sm font-semibold text-ink"
             >
               Get In Touch
             </a>
