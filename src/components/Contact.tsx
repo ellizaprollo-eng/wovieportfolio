@@ -66,7 +66,18 @@ export function Contact() {
           subtitle="Ready to automate your workflow? Let's discuss your project"
         />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+        <Reveal
+          delay={40}
+          className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent-soft"
+        >
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex size-full motion-safe:animate-ping rounded-full bg-accent opacity-75" />
+            <span className="relative inline-flex size-2 rounded-full bg-accent" />
+          </span>
+          {profile.responseTime}
+        </Reveal>
+
+        <div className="mt-8 grid gap-6 lg:grid-cols-2">
           {/* Message form */}
           <Reveal className="rounded-lg border border-white/[0.07] bg-card/60 p-6 sm:p-8">
             <h3 className="heading-display text-xl font-bold text-white">

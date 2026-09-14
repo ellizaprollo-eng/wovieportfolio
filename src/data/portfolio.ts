@@ -12,6 +12,7 @@ export const profile = {
   avatar: '/profile.jpg',
   location: 'Butuan City, Philippines',
   locationNote: 'Available for remote work across all time zones',
+  responseTime: 'Usually responds within 24 hours',
 }
 
 /** Grounded in real figures already stated in the experience/project data below. */
@@ -23,11 +24,35 @@ export const heroStats = [
 export const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Services', href: '#services' },
+  { label: 'Process', href: '#process' },
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
+]
+
+export const processSteps = [
+  {
+    title: 'Discovery call',
+    description:
+      "We talk through the manual work that's costing you time and map out what a fix could look like.",
+  },
+  {
+    title: 'Workflow mapping',
+    description:
+      'I document every step, tool, and handoff before building anything, so nothing gets missed.',
+  },
+  {
+    title: 'Build & test',
+    description:
+      'I build the automation in a sandbox and run it against real data before it touches your systems.',
+  },
+  {
+    title: 'Handover & support',
+    description:
+      "You get a walkthrough, documentation, and support after launch — not just a workflow and a goodbye.",
+  },
 ]
 
 export type ServiceIcon =
@@ -81,7 +106,18 @@ export const services: Array<{
   },
 ]
 
-export const projects = [
+export type Project = {
+  title: string
+  description: string
+  image: string
+  tags: string[]
+  featured?: boolean
+  problem?: string
+  approach?: string
+  result?: string
+}
+
+export const projects: Project[] = [
   {
     title: 'Form Submission Workflow',
     description: 'Automated form processing with email and Slack notifications',
@@ -93,12 +129,26 @@ export const projects = [
     description: 'Intelligent scheduling system with Google Calendar integration',
     image: '/projects/ai-appointment-scheduling.jpg',
     tags: ['n8n', 'AI Agent', 'Google Calendar'],
+    featured: true,
+    problem:
+      'Booking requests came in through multiple channels and had to be checked against calendar availability by hand before anyone could confirm a time.',
+    approach:
+      'Built an n8n workflow with an AI agent that reads incoming requests, checks Google Calendar in real time, and proposes or books an open slot without back-and-forth.',
+    result:
+      'Prospects get a confirmed time in the first reply instead of waiting on a manual back-and-forth.',
   },
   {
     title: 'Xero to Asana Integration',
     description: 'Bank transaction CSV automation with task management',
     image: '/projects/xero-asana-integration.jpg',
     tags: ['Make', 'Xero', 'Asana', 'Google Sheets'],
+    featured: true,
+    problem:
+      'The team was manually copying transactions out of Xero-exported CSVs into Asana tasks every week, checking each line against a spreadsheet by hand to catch anything already processed.',
+    approach:
+      'Built a Make scenario that parses the CSV export, cross-checks each transaction against a Google Sheets ledger, and creates or updates the matching Asana task automatically.',
+    result:
+      'Transaction reconciliation runs without anyone opening a spreadsheet, and nothing gets double-entered or missed between exports.',
   },
   {
     title: 'Asana Email Leads Automation',

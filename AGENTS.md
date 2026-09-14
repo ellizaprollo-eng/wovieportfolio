@@ -19,12 +19,12 @@ There is exactly **one route** — `src/routes/index.tsx` — which stacks secti
 components in order:
 
 ```
-Navbar → Hero → Services → Projects → Experience → Skills → Testimonials → Contact → Footer
+Navbar → Hero → Services → Process → Projects → Experience → Skills → Testimonials → Contact → Footer
 ```
 
-Navigation is anchor-based (`#home`, `#services`, `#portfolio`, `#experience`,
-`#skills`, `#testimonials`, `#contact`), not router navigation. Section `id`s
-must stay in sync with `navLinks` in `src/data/portfolio.ts`.
+Navigation is anchor-based (`#home`, `#services`, `#process`, `#portfolio`,
+`#experience`, `#skills`, `#testimonials`, `#contact`), not router navigation.
+Section `id`s must stay in sync with `navLinks` in `src/data/portfolio.ts`.
 
 ### Key directories
 
