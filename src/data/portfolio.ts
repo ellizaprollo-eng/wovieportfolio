@@ -8,7 +8,7 @@ export const profile = {
   role: 'Workflow & AI Automation Specialist',
   headline: 'I take the busywork out of your operations.',
   intro:
-    'I design and build automations on GoHighLevel, Zapier, Make, and n8n — connecting the tools you already use so the work happens without anyone touching it.',
+    'I design and build automations on GoHighLevel, Zapier, Make, and n8n, connecting the tools you already use so the work happens without anyone touching it.',
   avatar: '/profile.jpg',
   location: 'Butuan City, Philippines',
   locationNote: 'Available for remote work across all time zones',
@@ -17,7 +17,7 @@ export const profile = {
 /** Grounded in real figures already stated in the experience/project data below. */
 export const heroStats = [
   { value: '80%', label: 'Less manual work for clients' },
-  { value: '4', label: 'Core platforms — GHL, Zapier, Make, n8n' },
+  { value: '4', label: 'Core platforms: GHL, Zapier, Make, n8n' },
 ]
 
 export const navLinks = [
@@ -229,7 +229,7 @@ export const skillGroups = [
 export const testimonials = [
   {
     quote:
-      "Working with Wovie has been an absolute relief—he's incredibly reliable, detail-oriented, and always delivers with professionalism and integrity. He adapts quickly to any task, communicates proactively, and consistently proves himself as a trusted, high-performing partner.",
+      "Working with Wovie has been an absolute relief. He's incredibly reliable, detail-oriented, and always delivers with professionalism and integrity. He adapts quickly to any task, communicates proactively, and consistently proves himself as a trusted, high-performing partner.",
     name: 'Elor Kahalanay',
     title: 'Business Owner',
   },

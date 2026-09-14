@@ -3,7 +3,7 @@ import { CustomCursor } from '@/components/CustomCursor'
 
 import '../styles.css'
 
-const TITLE = 'Wovie Prollo — Workflow and AI Automation Specialist'
+const TITLE = 'Wovie Prollo | Workflow and AI Automation Specialist'
 const DESCRIPTION =
   'Transforming business processes through intelligent automation. Specialized in Zapier, Make, n8n, and API integrations to streamline workflows and boost efficiency.'
 
