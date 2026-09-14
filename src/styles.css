@@ -262,7 +262,32 @@
   transform: translateX(3px);
 }
 
+/* Centerline dot (Services timeline) flashes as it crosses the viewport
+   middle while scrolling — same "node activating" idea as .btn-node. */
+@keyframes node-flash {
+  0% {
+    transform: translateX(-50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(63, 199, 176, 0.55);
+  }
+  40% {
+    transform: translateX(-50%) scale(1.7);
+    box-shadow: 0 0 0 7px rgba(63, 199, 176, 0);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(63, 199, 176, 0);
+  }
+}
+
+.node-flash {
+  animation: node-flash 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .node-flash {
+    animation: none;
+  }
+
   .btn-primary,
   .btn-node,
   .btn-arrow {

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import {
   ArrowRight,
   BarChart3,
@@ -45,7 +46,42 @@ function ServiceCard({ service }: { service: (typeof services)[number] }) {
   )
 }
 
+/** Flashes a centerline dot when it crosses the vertical middle of the viewport while scrolling. */
+function useNodeFlash() {
+  const dotRefs = useRef<Array<HTMLSpanElement | null>>([])
+
+  useEffect(() => {
+    const nodes = dotRefs.current.filter(Boolean) as HTMLSpanElement[]
+    if (nodes.length === 0 || typeof IntersectionObserver === 'undefined')
+      return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          const el = entry.target as HTMLSpanElement
+          if (entry.isIntersecting) {
+            el.classList.remove('node-flash')
+            // force reflow so the animation restarts if it fires again quickly
+            void el.offsetWidth
+            el.classList.add('node-flash')
+          } else {
+            el.classList.remove('node-flash')
+          }
+        }
+      },
+      { rootMargin: '-50% 0px -50% 0px', threshold: 0 },
+    )
+
+    nodes.forEach((node) => observer.observe(node))
+    return () => observer.disconnect()
+  }, [])
+
+  return dotRefs
+}
+
 export function Services() {
+  const dotRefs = useNodeFlash()
+
   return (
     <section id="services" className="relative bg-ink py-24 sm:py-28">
       <div className="container-x">
@@ -76,7 +112,12 @@ export function Services() {
                   delay={(i % 3) * 70}
                   className="relative grid grid-cols-2 gap-10"
                 >
-                  <span className="absolute top-8 left-1/2 z-10 size-3 -translate-x-1/2 rounded-full bg-accent ring-4 ring-ink" />
+                  <span
+                    ref={(el) => {
+                      dotRefs.current[i] = el
+                    }}
+                    className="absolute top-8 left-1/2 z-10 size-3 -translate-x-1/2 rounded-full bg-accent ring-4 ring-ink"
+                  />
 
                   <div className={isLeft ? 'flex justify-end' : ''}>
                     {isLeft && <ServiceCard service={service} />}
