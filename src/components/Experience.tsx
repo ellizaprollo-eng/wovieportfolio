@@ -74,13 +74,14 @@ function ScrollThrough() {
       <div className="sticky top-20 flex h-[calc(100svh-5rem)] items-center">
         <div className="container-x grid grid-cols-[10rem_1fr] items-center gap-16">
           <span
+            key={active}
             aria-hidden="true"
-            className="heading-display select-none text-[8rem] leading-none font-extrabold text-white/[0.04]"
+            className="content-fade heading-display select-none text-[8rem] leading-none font-extrabold text-white/[0.04]"
           >
             {String(active + 1).padStart(2, '0')}
           </span>
 
-          <div key={role.title} className="max-w-xl">
+          <div key={role.title} className="content-fade max-w-xl">
             <p className="text-xs font-bold tracking-[0.14em] text-accent uppercase">
               {String(active + 1).padStart(2, '0')} •{' '}
               {role.meta.split('|')[0].trim()}
