@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { cn } from '@/lib/utils'
@@ -25,6 +26,14 @@ function ExperienceCard({ role }: { role: (typeof experience)[number] }) {
           </li>
         ))}
       </ul>
+
+      <a
+        href="#contact"
+        className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-accent-bright"
+      >
+        Discuss a project like this
+        <ArrowRight className="size-4" />
+      </a>
     </article>
   )
 }
@@ -102,6 +111,14 @@ function ScrollThrough() {
                 </li>
               ))}
             </ul>
+
+            <a
+              href="#contact"
+              className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-accent transition-colors hover:text-accent-bright"
+            >
+              Discuss a project like this
+              <ArrowRight className="size-4" />
+            </a>
           </div>
         </div>
 
