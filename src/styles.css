@@ -5,22 +5,24 @@
 @theme {
   --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system,
     'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-heading: 'Archivo', 'Plus Jakarta Sans', ui-sans-serif, system-ui,
+    sans-serif;
 
-  /* Page and surface tones — near-black plum */
-  --color-ink: #070310;
-  --color-ink-2: #0b0616;
-  --color-surface: #100a1c;
-  --color-card: #151020;
+  /* Page and surface tones — neutral charcoal, no purple tint */
+  --color-ink: #0b0e14;
+  --color-ink-2: #0d1119;
+  --color-surface: #10141c;
+  --color-card: #141922;
 
-  /* Magenta / fuchsia accent ramp */
-  --color-accent: #e935d8;
-  --color-accent-bright: #f472e8;
-  --color-accent-deep: #a21caf;
-  --color-accent-soft: #c084fc;
+  /* Muted teal accent — used sparingly, never as a smeared gradient */
+  --color-accent: #3fc7b0;
+  --color-accent-bright: #6ee0cb;
+  --color-accent-deep: #237c6c;
+  --color-accent-soft: #9fe6d8;
 
   /* Type */
-  --color-body: #b9b2c7;
-  --color-body-dim: #8b8398;
+  --color-body: #b7bec9;
+  --color-body-dim: #7c8492;
 }
 
 @layer base {
@@ -57,19 +59,9 @@
   }
 }
 
-/* Gradient section headings, matching the pink-to-magenta wash */
-@utility heading-gradient {
-  background-image: linear-gradient(
-    100deg,
-    #f9a8f0 0%,
-    #ef4bd8 40%,
-    #d926c0 70%,
-    #b026c9 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+/* Display type — a distinct headline face, no gradient-filled text */
+@utility heading-display {
+  font-family: var(--font-heading);
 }
 
 /* ---------- Scroll reveal ---------- */
@@ -189,7 +181,7 @@
     width: 12px;
     height: 12px;
 
-    background: #f472e8;
+    background: #6ee0cb;
 
     border: 2px solid rgba(255, 255, 255, 0.8);
     border-radius: 50%;
@@ -200,8 +192,8 @@
     transform: translate(-50%, -50%);
 
     box-shadow:
-      0 0 8px rgba(244, 114, 232, 0.9),
-      0 0 20px rgba(233, 53, 216, 0.6);
+      0 0 8px rgba(110, 224, 203, 0.85),
+      0 0 18px rgba(63, 199, 176, 0.5);
 
     transition:
       width 0.18s ease,
@@ -215,12 +207,12 @@
     width: 32px;
     height: 32px;
 
-    background: rgba(233, 53, 216, 0.15);
+    background: rgba(63, 199, 176, 0.15);
 
-    border: 1px solid #f472e8;
+    border: 1px solid #6ee0cb;
 
     box-shadow:
-      0 0 12px rgba(244, 114, 232, 0.8),
-      0 0 30px rgba(233, 53, 216, 0.4);
+      0 0 12px rgba(110, 224, 203, 0.7),
+      0 0 26px rgba(63, 199, 176, 0.35);
   }
 }

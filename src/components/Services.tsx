@@ -28,22 +28,28 @@ export function Services() {
           subtitle="Comprehensive automation solutions to transform your business operations"
         />
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 divide-y divide-white/[0.07] border-y border-white/[0.07]">
           {services.map((service, i) => {
             const Icon = ICONS[service.icon]
             return (
               <Reveal
                 key={service.title}
-                delay={(i % 3) * 90}
-                className="group rounded-xl border border-white/[0.07] bg-card/70 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_18px_50px_-24px_rgba(233,53,216,0.6)]"
+                delay={(i % 3) * 70}
+                as="article"
+                className="group grid grid-cols-[auto_1fr] items-start gap-5 py-7 sm:grid-cols-[3.5rem_auto_1fr] sm:items-center sm:gap-8"
               >
-                <div className="mb-5 inline-flex rounded-xl border border-accent/25 bg-gradient-to-br from-accent/25 to-accent-deep/15 p-2.5 text-accent-bright transition-colors group-hover:border-accent/50">
-                  <Icon className="size-5" />
+                <span className="heading-display text-sm font-bold text-body-dim tabular-nums">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <Icon className="hidden size-5 text-accent sm:block" />
+                <div className="col-span-2 sm:col-span-1">
+                  <h3 className="heading-display text-lg font-bold text-white">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-body-dim">
+                    {service.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-bold text-white">{service.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-body-dim">
-                  {service.description}
-                </p>
               </Reveal>
             )
           })}

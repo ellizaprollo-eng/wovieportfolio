@@ -4,10 +4,11 @@ Context for AI agents working on this repository.
 
 ## What this is
 
-A single-page portfolio site for Sahara Marie Kris Magcaling (Workflow and AI
-Automation Specialist). It is a visual recreation of an existing portfolio
-design: dark plum background, aurora wave hero, magenta gradient section
-headings, and bordered translucent cards.
+A single-page portfolio site for Wovie Prollo (Workflow and AI Automation
+Specialist): neutral charcoal background, a restrained blueprint-grid hero
+backdrop, solid display-type headings (no gradient text), and bordered
+translucent cards. Deliberately steers away from the generic dark-purple/
+magenta "AI page-builder" look — see the accent color and type choices below.
 
 Built with TanStack Start (React 19 + TanStack Router), Tailwind CSS 4, and
 deployed on Netlify.
@@ -46,10 +47,20 @@ must stay in sync with `navLinks` in `src/data/portfolio.ts`.
 - **Colors come from theme tokens**, not raw hex: `bg-ink`, `bg-surface`,
   `bg-card`, `text-body`, `text-body-dim`, `text-accent`, `accent-bright`,
   `accent-deep`, `accent-soft`. Raw hex is only acceptable inside
-  `Aurora.tsx`, where the gradients are hand-tuned.
-- **Card recipe** used across Services / Projects / Experience / Testimonials /
-  Contact: `rounded-xl border border-white/[0.07] bg-card/60`. Reuse it so the
-  sections stay visually consistent.
+  `Aurora.tsx`, where the gradients are hand-tuned. The accent is a muted
+  teal (`#3fc7b0`), used sparingly — CTAs and small highlights only, never as
+  a smeared background gradient.
+- **Two type roles**: `heading-display` (Archivo, via the `--font-heading`
+  token) for H1/H2/H3-level headings and wordmarks, plain `font-sans` (Plus
+  Jakarta Sans) for body copy. Headings never use `background-clip: text`
+  gradients — pair `heading-display` with an explicit `text-*` color class.
+- **Card recipe** used across Testimonials / Experience / Contact:
+  `rounded-lg border border-white/[0.07] bg-card/60`. Reuse it so the
+  sections stay visually consistent. Services is a numbered list, not cards —
+  don't convert it back to an icon-box grid.
+- **Primary buttons are solid, not pill-shaped**: `rounded-lg bg-accent
+  text-ink`, no gradient fill, no blurred glow shadow. Small metadata chips
+  (project tags) may stay `rounded-full`; primary CTAs may not.
 - TypeScript runs with `strict`, `noUnusedLocals`, and `noUnusedParameters`.
   Unused imports or locals fail the build.
 

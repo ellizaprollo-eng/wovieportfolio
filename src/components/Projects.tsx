@@ -20,7 +20,7 @@ export function Projects() {
               key={project.title}
               delay={(i % 3) * 90}
               as="article"
-              className="group overflow-hidden rounded-xl border border-white/[0.07] bg-card/60 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_18px_50px_-24px_rgba(233,53,216,0.6)]"
+              className="group overflow-hidden rounded-lg border border-white/[0.07] bg-card/60 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
             >
               <div className="overflow-hidden border-b border-white/[0.06] bg-black/40">
                 <img
@@ -32,7 +32,9 @@ export function Projects() {
               </div>
 
               <div className="p-5">
-                <h3 className="text-lg font-bold text-white">{project.title}</h3>
+                <h3 className="heading-display text-lg font-bold text-white">
+                  {project.title}
+                </h3>
                 <p className="mt-2 text-sm leading-relaxed text-body-dim">
                   {project.description}
                 </p>

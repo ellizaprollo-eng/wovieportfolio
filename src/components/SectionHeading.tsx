@@ -8,11 +8,11 @@ export function SectionHeading({
   subtitle: string
 }) {
   return (
-    <Reveal className="text-center">
-      <h2 className="heading-gradient pb-2 text-4xl leading-[1.15] font-extrabold tracking-tight sm:text-5xl">
+    <Reveal className="max-w-2xl">
+      <h2 className="heading-display text-3xl leading-[1.15] font-extrabold tracking-tight text-white sm:text-4xl">
         {title}
       </h2>
-      <p className="mx-auto mt-4 max-w-2xl text-base text-body-dim sm:text-lg">
+      <p className="mt-4 max-w-xl text-base text-body-dim sm:text-lg">
         {subtitle}
       </p>
     </Reveal>

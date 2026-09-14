@@ -68,8 +68,10 @@ export function Contact() {
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {/* Message form */}
-          <Reveal className="rounded-xl border border-white/[0.07] bg-card/60 p-6 sm:p-8">
-            <h3 className="text-xl font-bold text-white">Send a Message</h3>
+          <Reveal className="rounded-lg border border-white/[0.07] bg-card/60 p-6 sm:p-8">
+            <h3 className="heading-display text-xl font-bold text-white">
+              Send a Message
+            </h3>
             <p className="mt-1.5 text-sm text-body-dim">
               Fill out the form and I&rsquo;ll get back to you shortly
             </p>
@@ -182,7 +184,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent to-accent-deep px-7 py-3 text-sm font-semibold text-white shadow-[0_0_28px_-8px_rgba(233,53,216,0.9)] transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-7 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent-bright disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {status === 'sending' && (
                     <Loader2 className="size-4 animate-spin" />
@@ -197,9 +199,9 @@ export function Contact() {
           <div className="flex flex-col gap-6">
             <Reveal
               delay={90}
-              className="rounded-xl border border-white/[0.07] bg-card/60 p-6 sm:p-8"
+              className="rounded-lg border border-white/[0.07] bg-card/60 p-6 sm:p-8"
             >
-              <h3 className="text-xl font-bold text-white">
+              <h3 className="heading-display text-xl font-bold text-white">
                 Contact Information
               </h3>
               <p className="mt-1.5 text-sm text-body-dim">
@@ -221,7 +223,7 @@ export function Contact() {
                         rel="noreferrer"
                         className="group flex items-center gap-4"
                       >
-                        <span className="inline-flex shrink-0 rounded-xl border border-accent/25 bg-gradient-to-br from-accent/25 to-accent-deep/15 p-2.5 text-accent-bright transition-colors group-hover:border-accent/55">
+                        <span className="inline-flex shrink-0 rounded-lg border border-white/10 bg-white/[0.03] p-2.5 text-accent transition-colors group-hover:border-accent/45 group-hover:text-accent-bright">
                           <Icon className="size-[18px]" />
                         </span>
                         <span className="min-w-0">
@@ -241,9 +243,11 @@ export function Contact() {
 
             <Reveal
               delay={160}
-              className="rounded-xl border border-white/[0.07] bg-card/60 p-6 sm:p-8"
+              className="rounded-lg border border-white/[0.07] bg-card/60 p-6 sm:p-8"
             >
-              <h3 className="text-xl font-bold text-white">Location</h3>
+              <h3 className="heading-display text-xl font-bold text-white">
+                Location
+              </h3>
               <p className="mt-5 text-sm font-bold text-white">
                 {profile.location}
               </p>
