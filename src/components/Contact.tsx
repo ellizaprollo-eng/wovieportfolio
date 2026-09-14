@@ -81,7 +81,7 @@ export function Contact() {
                 <CheckCircle2 className="size-8 text-accent-bright" />
                 <p className="font-semibold text-white">Message sent</p>
                 <p className="text-sm text-body-dim">
-                  Thanks for reaching out — I&rsquo;ll be in touch shortly.
+                  Thanks for reaching out. I&rsquo;ll be in touch shortly.
                 </p>
                 <button
                   type="button"
