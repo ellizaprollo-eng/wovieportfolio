@@ -79,8 +79,44 @@ function useNodeFlash() {
   return dotRefs
 }
 
+/** Grows a fill line from 0 to 100% height as the container scrolls through the viewport. */
+function useScrollProgressLine() {
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const fillRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const container = containerRef.current
+    const fill = fillRef.current
+    if (!container || !fill) return
+
+    let frame = 0
+    const onScroll = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
+        const rect = container.getBoundingClientRect()
+        const viewportCenter = window.innerHeight / 2
+        const progress = (viewportCenter - rect.top) / rect.height
+        const clamped = Math.min(1, Math.max(0, progress))
+        fill.style.height = `${clamped * 100}%`
+      })
+    }
+
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [])
+
+  return { containerRef, fillRef }
+}
+
 export function Services() {
   const dotRefs = useNodeFlash()
+  const { containerRef, fillRef } = useScrollProgressLine()
 
   return (
     <section id="services" className="relative bg-ink py-24 sm:py-28">
@@ -100,8 +136,13 @@ export function Services() {
         </div>
 
         {/* Desktop: alternating centerline timeline */}
-        <div className="relative mt-16 hidden lg:block">
-          <div className="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-accent" />
+        <div ref={containerRef} className="relative mt-16 hidden lg:block">
+          <div className="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-white/10" />
+          <div
+            ref={fillRef}
+            className="absolute top-0 left-1/2 w-0.5 -translate-x-1/2 bg-accent"
+            style={{ height: '0%' }}
+          />
 
           <div className="flex flex-col gap-14">
             {services.map((service, i) => {
