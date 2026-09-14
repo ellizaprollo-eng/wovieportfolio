@@ -101,7 +101,7 @@ export function Services() {
 
         {/* Desktop: alternating centerline timeline */}
         <div className="relative mt-16 hidden lg:block">
-          <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-white/10" />
+          <div className="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-gradient-to-b from-accent/0 via-accent/50 to-accent/0" />
 
           <div className="flex flex-col gap-14">
             {services.map((service, i) => {
