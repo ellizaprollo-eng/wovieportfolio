@@ -19,7 +19,7 @@ export function Footer() {
     <footer className="border-t border-white/[0.06] bg-ink-2 py-8">
       <div className="container-x flex flex-col items-center justify-between gap-5 sm:flex-row">
         <p className="text-xs text-body-dim">
-          © 2025 {profile.name}. All rights reserved.
+          © 2023 {profile.name}. All rights reserved.
         </p>
 
         <ul className="flex items-center gap-5">
