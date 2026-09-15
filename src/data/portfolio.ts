@@ -10,6 +10,7 @@ export const profile = {
   intro:
     'I design and build automations on GoHighLevel, Zapier, Make, and n8n, connecting the tools you already use so the work happens without anyone touching it.',
   avatar: '/profile.jpg',
+  videoIntroEmbedUrl: 'https://www.loom.com/embed/f479583b6a7542078c7334e035227314',
   location: 'Butuan City, Philippines',
   locationNote: 'Available for remote work across all time zones',
   responseTime: 'Usually responds within 24 hours',
@@ -326,6 +327,9 @@ export const techStack: TechStackItem[] = [
   { name: 'HeyGen', logo: '/skills/heygen.jpg' },
   { name: 'Lovable', logo: '/skills/lovable.jpg' },
   { name: 'Mailchimp', logo: '/skills/mailchimp.png' },
+  { name: 'Meta', logo: '/skills/meta.png' },
+  { name: 'Notion', logo: '/skills/notion.png' },
+  { name: 'Slack', logo: '/skills/slack.png' },
 ]
 
 export const testimonials = [
