@@ -321,6 +321,11 @@ export const techStack: TechStackItem[] = [
   { name: 'Node.js', logo: '/skills/nodejs.jpg' },
   { name: 'VS Code', logo: '/skills/vscode.jpg' },
   { name: 'Google Workspace', logo: '/skills/google.jpg' },
+  { name: 'Apify', logo: '/skills/apify.png' },
+  { name: 'Gemini', logo: '/skills/gemini.jpg' },
+  { name: 'HeyGen', logo: '/skills/heygen.jpg' },
+  { name: 'Lovable', logo: '/skills/lovable.jpg' },
+  { name: 'Mailchimp', logo: '/skills/mailchimp.png' },
 ]
 
 export const testimonials = [
