@@ -62,6 +62,7 @@ export type ServiceIcon =
   | 'message'
   | 'calendar'
   | 'chart'
+  | 'bot'
 
 export const services: Array<{
   icon: ServiceIcon
@@ -73,6 +74,12 @@ export const services: Array<{
     title: 'Workflow Automation',
     description:
       'Design and implement end-to-end automation workflows using Zapier, Make, and n8n to eliminate manual tasks and boost productivity.',
+  },
+  {
+    icon: 'bot',
+    title: 'AI & Voice Agents',
+    description:
+      'Build AI chat and voice agents with Retell AI and OpenAI that qualify leads, answer inbound calls, and book appointments without a rep on the line.',
   },
   {
     icon: 'zap',
@@ -253,9 +260,9 @@ export const experience = [
     title: 'Workflow Automation Specialist',
     meta: 'Freelance | Upwork & OnlineJobs.ph • Current',
     points: [
-      'Designed and implemented automation workflows, reducing manual processes by 80%',
-      'Integrated Google Sheets, Google Calendar, and Gmail for improved task management',
-      'Delivered custom automation solutions for diverse client needs',
+      'Designed and implemented n8n and Zapier automation workflows, reducing manual processes by 80%',
+      'Built AI chat and voice agents (OpenAI, Retell AI) for lead qualification, appointment booking, and inbound call handling',
+      'Set up lead sourcing and enrichment pipelines with Apollo and Apify, and automated content publishing to WordPress',
     ],
   },
   {

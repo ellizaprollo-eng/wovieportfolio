@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import {
   ArrowRight,
   BarChart3,
+  Bot,
   CalendarDays,
   Database,
   MessageSquare,
@@ -19,6 +20,7 @@ const ICONS: Record<ServiceIcon, typeof Zap> = {
   message: MessageSquare,
   calendar: CalendarDays,
   chart: BarChart3,
+  bot: Bot,
 }
 
 function ServiceCard({ service }: { service: (typeof services)[number] }) {
