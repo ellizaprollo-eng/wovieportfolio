@@ -320,6 +320,7 @@ export const techStack: TechStackItem[] = [
   { name: 'Webhooks', logo: '/skills/webhook.png' },
   { name: 'Node.js', logo: '/skills/nodejs.jpg' },
   { name: 'VS Code', logo: '/skills/vscode.jpg' },
+  { name: 'Google Workspace', logo: '/skills/google.jpg' },
 ]
 
 export const testimonials = [
