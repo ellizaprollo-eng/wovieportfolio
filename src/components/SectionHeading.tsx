@@ -4,7 +4,7 @@ export function SectionHeading({
   title,
   subtitle,
 }: {
-  title: string
+  title: React.ReactNode
   subtitle: string
 }) {
   return (

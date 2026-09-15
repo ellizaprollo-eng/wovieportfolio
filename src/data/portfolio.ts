@@ -302,72 +302,24 @@ export const experience = [
   },
 ]
 
-export type Skill = { name: string; logo?: string }
+export type TechStackItem = { name: string; logo: string }
 
-export const skillGroups: Array<{ group: string; items: Skill[] }> = [
-  {
-    group: 'Automation Tools',
-    items: [
-      { name: 'Zapier', logo: '/skills/zapier.png' },
-      { name: 'Make (Integromat)', logo: '/skills/make.jpg' },
-      { name: 'n8n', logo: '/skills/n8n.png' },
-      { name: 'GoHighLevel', logo: '/skills/gohighlevel.jpg' },
-      { name: 'API Integrations', logo: '/skills/api.png' },
-      { name: 'Webhooks', logo: '/skills/webhook.png' },
-      { name: 'Node.js', logo: '/skills/nodejs.jpg' },
-      { name: 'VS Code', logo: '/skills/vscode.jpg' },
-    ],
-  },
-  {
-    group: 'AI & Voice Agents',
-    items: [
-      { name: 'ChatGPT', logo: '/skills/chatgpt.png' },
-      { name: 'Claude', logo: '/skills/claude.png' },
-      { name: 'Claude Code', logo: '/skills/claude-code.png' },
-      { name: 'Retell AI (Voice Agents)', logo: '/skills/retell.png' },
-      { name: 'WordPress Auto-Publishing', logo: '/skills/wordpress.png' },
-      { name: 'Apollo & Apify (Lead Sourcing)' },
-    ],
-  },
-  {
-    group: 'CRM & Marketing',
-    items: [
-      { name: 'HubSpot', logo: '/skills/hubspot.png' },
-      { name: 'GoHighLevel', logo: '/skills/gohighlevel.jpg' },
-      { name: 'Email Marketing' },
-      { name: 'Client Lifecycle Management' },
-    ],
-  },
-  {
-    group: 'Data Management',
-    items: [
-      { name: 'Google Sheets', logo: '/skills/sheets.jpg' },
-      { name: 'Airtable' },
-      { name: 'Monday' },
-      { name: 'Data Entry' },
-      { name: 'Process Documentation' },
-    ],
-  },
-  {
-    group: 'Property Management',
-    items: [
-      { name: 'Airbnb' },
-      { name: 'VRBO' },
-      { name: 'Doorloop' },
-      { name: 'Tenant Management' },
-      { name: 'Scheduling' },
-    ],
-  },
-  {
-    group: 'Communication & Tools',
-    items: [
-      { name: 'Slack' },
-      { name: 'Email' },
-      { name: 'Customer Support' },
-      { name: 'SOP Creation' },
-      { name: 'Canva' },
-    ],
-  },
+export const techStack: TechStackItem[] = [
+  { name: 'n8n', logo: '/skills/n8n.png' },
+  { name: 'ChatGPT', logo: '/skills/chatgpt.png' },
+  { name: 'Claude', logo: '/skills/claude.png' },
+  { name: 'Claude Code', logo: '/skills/claude-code.png' },
+  { name: 'Retell AI', logo: '/skills/retell.png' },
+  { name: 'Zapier', logo: '/skills/zapier.png' },
+  { name: 'Make', logo: '/skills/make.jpg' },
+  { name: 'GoHighLevel', logo: '/skills/gohighlevel.jpg' },
+  { name: 'HubSpot', logo: '/skills/hubspot.png' },
+  { name: 'WordPress', logo: '/skills/wordpress.png' },
+  { name: 'Google Sheets', logo: '/skills/sheets.jpg' },
+  { name: 'API Integrations', logo: '/skills/api.png' },
+  { name: 'Webhooks', logo: '/skills/webhook.png' },
+  { name: 'Node.js', logo: '/skills/nodejs.jpg' },
+  { name: 'VS Code', logo: '/skills/vscode.jpg' },
 ]
 
 export const testimonials = [
