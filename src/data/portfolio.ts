@@ -266,7 +266,7 @@ export const experience = [
     ],
   },
   {
-    title: 'Property Management Virtual Assistant',
+    title: 'System Bulder | Automation Expert ',
     meta: 'Press Haven Homes | OnlineJobs.ph • Long-term Rental',
     points: [
       'Built and ran the operational workflows behind tenant relations, lease management, and day-to-day coordination',
@@ -275,7 +275,7 @@ export const experience = [
     ],
   },
   {
-    title: 'Property Management Specialist',
+    title: 'Automation Specialist',
     meta: 'Stay Classy Homes | Short-term Rental',
     points: [
       'Owned the guest communication and reservation pipeline end to end, from inquiry to check-out',
