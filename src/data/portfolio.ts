@@ -308,6 +308,16 @@ export const skillGroups = [
     ],
   },
   {
+    group: 'AI & Voice Agents',
+    items: [
+      'AI Chat Agents',
+      'Retell AI (Voice Agents)',
+      'OpenAI & Vector Memory',
+      'Apollo & Apify (Lead Sourcing)',
+      'WordPress Auto-Publishing',
+    ],
+  },
+  {
     group: 'CRM & Marketing',
     items: [
       'HubSpot',
