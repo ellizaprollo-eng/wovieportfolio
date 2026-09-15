@@ -10,7 +10,7 @@ export const profile = {
   intro:
     'I design and build automations on GoHighLevel, Zapier, Make, and n8n, connecting the tools you already use so the work happens without anyone touching it.',
   avatar: '/profile.jpg',
-  videoIntroEmbedUrl: 'https://www.loom.com/embed/f479583b6a7542078c7334e035227314',
+  videoIntroEmbedUrl: 'https://www.loom.com/embed/63f9d8ffb91740459ec9326c304bab69',
   location: 'Butuan City, Philippines',
   locationNote: 'Available for remote work across all time zones',
   responseTime: 'Usually responds within 24 hours',
