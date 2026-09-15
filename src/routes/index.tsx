@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Navbar } from '@/components/Navbar'
 import { Hero } from '@/components/Hero'
+import { VideoIntro } from '@/components/VideoIntro'
 import { Services } from '@/components/Services'
 import { Process } from '@/components/Process'
 import { Projects } from '@/components/Projects'
@@ -20,6 +21,7 @@ function Home() {
       <Navbar />
       <main>
         <Hero />
+        <VideoIntro />
         <Services />
         <Process />
         <Projects />

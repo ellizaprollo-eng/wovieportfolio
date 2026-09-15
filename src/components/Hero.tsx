@@ -1,23 +1,7 @@
-import { useEffect, useState } from 'react'
 import { Aurora } from '@/components/Aurora'
 import { heroStats, profile } from '@/data/portfolio'
 
 export function Hero() {
-  const [isVideoOpen, setIsVideoOpen] = useState(false)
-
-  useEffect(() => {
-    if (!isVideoOpen) return
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsVideoOpen(false)
-    }
-    document.addEventListener('keydown', onKeyDown)
-    document.body.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKeyDown)
-      document.body.style.overflow = ''
-    }
-  }, [isVideoOpen])
-
   return (
     <section
       id="home"
@@ -67,72 +51,20 @@ export function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-xs lg:mx-0 lg:max-w-sm lg:justify-self-end">
-          <button
-            type="button"
-            onClick={() => setIsVideoOpen(true)}
-            aria-label="Play video introduction"
-            className="group relative block w-full overflow-hidden rounded-2xl border border-white/10 bg-card/40 text-left"
-          >
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-card/40">
             <img
               src={profile.avatar}
               alt={profile.name}
               width={480}
               height={600}
-              className="aspect-[4/5] w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+              className="aspect-[4/5] w-full object-cover object-top"
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-ink/25 transition-colors group-hover:bg-ink/40">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 shadow-lg transition-transform group-hover:scale-110">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="ml-1 h-6 w-6 fill-ink"
-                  aria-hidden="true"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </span>
-            </div>
-            <span className="absolute bottom-4 left-4 rounded-lg border border-white/10 bg-ink/90 px-3 py-1.5 text-xs font-semibold text-body shadow-lg backdrop-blur-md">
-              Watch my intro
-            </span>
-          </button>
-          <div className="absolute -bottom-4 right-4 rounded-lg border border-white/10 bg-ink/90 px-4 py-2.5 text-xs font-semibold text-body shadow-lg backdrop-blur-md">
+          </div>
+          <div className="absolute -bottom-4 left-4 rounded-lg border border-white/10 bg-ink/90 px-4 py-2.5 text-xs font-semibold text-body shadow-lg backdrop-blur-md">
             {profile.locationNote}
           </div>
         </div>
       </div>
-
-      {isVideoOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90 p-4 backdrop-blur-sm"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Video introduction"
-          onClick={() => setIsVideoOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-3xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setIsVideoOpen(false)}
-              aria-label="Close video"
-              className="absolute -top-10 right-0 text-sm font-semibold text-white/80 hover:text-white"
-            >
-              Close ✕
-            </button>
-            <div className="aspect-video overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-              <iframe
-                src={profile.videoIntroEmbedUrl}
-                title={`${profile.name} - video introduction`}
-                allow="fullscreen; autoplay"
-                allowFullScreen
-                className="h-full w-full"
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   )
 }
