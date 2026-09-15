@@ -32,6 +32,8 @@ function MarqueeRow({
       className="marquee-row"
       style={{ '--marquee-duration': `${duration}s` } as React.CSSProperties}
     >
+      <div className="marquee-edge marquee-edge-left" aria-hidden="true" />
+      <div className="marquee-edge marquee-edge-right" aria-hidden="true" />
       <div
         className={cn('marquee-track gap-4', reverse && 'marquee-track-reverse')}
       >
