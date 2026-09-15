@@ -49,20 +49,8 @@ export function Skills() {
   const rowTwo = techStack.slice(mid)
 
   return (
-    <section
-      id="skills"
-      className="relative isolate overflow-hidden py-24 sm:py-28"
-    >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 overflow-hidden bg-ink"
-      >
-        <div className="aurora-a absolute top-1/2 left-1/2 size-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-[110px]" />
-        <div className="aurora-b absolute top-1/3 left-1/4 size-[55%] rounded-full bg-accent-deep/25 blur-[100px]" />
-        <div className="halo-pulse absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_50%_35%,rgba(63,199,176,0.16)_0%,transparent_70%)]" />
-      </div>
-
-      <div className="container-x relative z-10 flex justify-center text-center">
+    <section id="skills" className="relative bg-ink py-24 sm:py-28">
+      <div className="container-x flex justify-center text-center">
         <SectionHeading
           title={
             <>
@@ -73,7 +61,7 @@ export function Skills() {
         />
       </div>
 
-      <div className="relative z-10 mt-14 flex flex-col gap-5">
+      <div className="mt-14 flex flex-col gap-5">
         <MarqueeRow items={rowOne} duration={34} />
         <MarqueeRow items={rowTwo} reverse duration={38} />
       </div>

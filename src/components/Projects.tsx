@@ -231,11 +231,12 @@ function ProjectLightbox({
         onClick={(e) => e.stopPropagation()}
       >
         <img
+          key={project.image}
           src={project.image}
           alt={project.title}
-          className="max-h-[72vh] w-auto rounded-lg border border-white/10 object-contain"
+          className="content-fade max-h-[72vh] w-auto rounded-lg border border-white/10 object-contain"
         />
-        <figcaption className="text-center">
+        <figcaption key={project.title} className="content-fade text-center">
           <p className="heading-display text-lg font-bold text-white">
             {project.title}
           </p>
