@@ -330,6 +330,7 @@ export const techStack: TechStackItem[] = [
   { name: 'Meta', logo: '/skills/meta.png' },
   { name: 'Notion', logo: '/skills/notion.png' },
   { name: 'Slack', logo: '/skills/slack.png' },
+  { name: 'Grok', logo: '/skills/grok.png' },
 ]
 
 export const testimonials = [
