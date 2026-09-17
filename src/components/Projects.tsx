@@ -133,9 +133,40 @@ function ProjectCard({
         <h3 className="heading-display text-lg font-bold text-white">
           {project.title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-body-dim">
-          {project.description}
-        </p>
+
+        {project.problem && project.approach && project.result ? (
+          <dl className="mt-4 space-y-3">
+            <div>
+              <dt className="text-xs font-bold tracking-[0.1em] text-accent uppercase">
+                Problem
+              </dt>
+              <dd className="mt-1 text-sm leading-relaxed text-body-dim">
+                {project.problem}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs font-bold tracking-[0.1em] text-accent uppercase">
+                Approach
+              </dt>
+              <dd className="mt-1 text-sm leading-relaxed text-body-dim">
+                {project.approach}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs font-bold tracking-[0.1em] text-accent uppercase">
+                Result
+              </dt>
+              <dd className="mt-1 text-sm leading-relaxed text-body-dim">
+                {project.result}
+              </dd>
+            </div>
+          </dl>
+        ) : (
+          <p className="mt-2 text-sm leading-relaxed text-body-dim">
+            {project.description}
+          </p>
+        )}
+
         <ul className="mt-4 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <li
