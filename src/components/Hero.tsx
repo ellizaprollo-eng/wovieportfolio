@@ -47,6 +47,14 @@ export function Hero() {
             >
               View Services
             </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-accent/50 hover:text-accent-bright"
+            >
+              Resume
+            </a>
           </div>
         </div>
 
