@@ -236,13 +236,40 @@ function ProjectLightbox({
           alt={project.title}
           className="content-fade max-h-[72vh] w-auto rounded-lg border border-white/10 object-contain"
         />
-        <figcaption key={project.title} className="content-fade text-center">
+        <figcaption key={project.title} className="content-fade max-w-xl text-center">
           <p className="heading-display text-lg font-bold text-white">
             {project.title}
           </p>
-          <p className="mt-1 max-w-xl text-sm text-body-dim">
-            {project.description}
-          </p>
+          {project.problem && project.approach && project.result ? (
+            <dl className="mt-3 space-y-3 text-left">
+              <div>
+                <dt className="text-xs font-bold tracking-[0.1em] text-accent uppercase">
+                  Problem
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-body-dim">
+                  {project.problem}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs font-bold tracking-[0.1em] text-accent uppercase">
+                  Approach
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-body-dim">
+                  {project.approach}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs font-bold tracking-[0.1em] text-accent uppercase">
+                  Result
+                </dt>
+                <dd className="mt-1 text-sm leading-relaxed text-body-dim">
+                  {project.result}
+                </dd>
+              </div>
+            </dl>
+          ) : (
+            <p className="mt-1 text-sm text-body-dim">{project.description}</p>
+          )}
         </figcaption>
       </figure>
     </div>

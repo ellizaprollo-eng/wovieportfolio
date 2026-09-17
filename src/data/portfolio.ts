@@ -157,102 +157,204 @@ export const projects: Project[] = [
     description: 'Chat-based intake agent that structures new client onboarding',
     image: '/projects/onboarding-agent.png',
     tags: ['n8n', 'AI Agent', 'Onboarding'],
+    problem:
+      'New client onboarding meant manually collecting information over back-and-forth emails or calls before any real work could start.',
+    approach:
+      'Built a chat-based n8n AI agent that walks new clients through a structured intake conversation, capturing the details needed and organizing them automatically.',
+    result:
+      'Onboarding starts with a complete, structured record instead of a scattered email thread.',
   },
   {
     title: 'Proposal Agent',
     description: 'Drafts and assembles client proposals straight from intake data',
     image: '/projects/proposal-agent.png',
     tags: ['n8n', 'AI Agent', 'Documents'],
+    problem:
+      'Turning intake information into a client-ready proposal was a manual, repetitive writing task for every new prospect.',
+    approach:
+      'An n8n AI agent pulls the intake data and drafts a formatted proposal document automatically, ready for a final review before sending.',
+    result:
+      'Proposals go out faster, built from the same intake data every time instead of copy-pasted from an old one.',
   },
   {
     title: 'Form Submission Lead Routing',
     description: 'Routes form submissions to the right owner and follow-up sequence in real time',
     image: '/projects/form-submission-lead.png',
     tags: ['n8n', 'Webhook', 'CRM'],
+    problem:
+      'Form submissions landed in one inbox with no clear owner, so leads sat until someone noticed them.',
+    approach:
+      'A webhook-triggered n8n workflow reads each submission and routes it to the right owner and follow-up sequence in the CRM the moment it comes in.',
+    result:
+      'Every lead reaches the right person immediately instead of waiting in a shared inbox.',
   },
   {
     title: 'Survey Intake Automation',
     description: 'Processes survey responses and syncs structured answers into the CRM',
     image: '/projects/form-survey-neuro.png',
     tags: ['n8n', 'Forms', 'CRM'],
+    problem:
+      'Survey responses arrived as raw form data that had to be manually reviewed and entered into the CRM.',
+    approach:
+      'An n8n workflow processes each response as it comes in, structures the answers, and syncs them directly into the CRM.',
+    result:
+      'Survey data is usable in the CRM the moment it is submitted, with no manual re-entry.',
   },
   {
     title: 'Outbound Call Automation',
     description: 'Queues outbound calls from a lead list and logs outcomes automatically',
     image: '/projects/outbound-call.png',
     tags: ['n8n', 'Voice', 'CRM'],
+    problem:
+      'Working through an outbound call list meant manually dialing each contact and logging the outcome afterward.',
+    approach:
+      'An n8n workflow queues calls from the lead list in order and logs each outcome back to the CRM automatically as calls complete.',
+    result:
+      'The call list works through itself in sequence, and every outcome is recorded without manual follow-up.',
   },
   {
     title: 'Coaching Business Pipeline',
     description: 'Intake and follow-up pipeline routing new leads into the right nurture sequence',
     image: '/projects/fl-coaches-workflow.png',
     tags: ['n8n', 'CRM', 'Lead Nurture'],
+    problem:
+      'New coaching leads needed to be manually sorted and enrolled into the right follow-up sequence based on their intake answers.',
+    approach:
+      "An n8n pipeline reads each new lead's intake data and automatically enrolls them into the matching nurture sequence in the CRM.",
+    result:
+      'Leads start receiving the right follow-up immediately instead of waiting to be manually sorted.',
   },
   {
     title: 'Coaching Business Pipeline v2',
     description: 'Expanded version of the coaching pipeline with added branching and follow-up logic',
     image: '/projects/fl-coaches-workflow-2.png',
     tags: ['n8n', 'CRM', 'Lead Nurture'],
+    problem:
+      "The original pipeline could only handle one nurture path, so leads that didn't fit the standard profile fell through the cracks.",
+    approach:
+      'Expanded the pipeline with branching logic that routes leads down different follow-up paths based on their specific answers, not just a single default sequence.',
+    result:
+      'More lead types get a follow-up sequence that actually fits them, instead of one generic path for everyone.',
   },
   {
     title: 'Auto Article to WordPress',
     description: 'Generates long-form articles and publishes them to WordPress on a schedule',
     image: '/projects/auto-article-wordpress.png',
     tags: ['n8n', 'WordPress', 'Content'],
+    problem:
+      'Publishing long-form content on a regular schedule meant writing and manually posting every article.',
+    approach:
+      'An n8n workflow generates the article content and publishes it directly to WordPress on a set schedule, no manual posting required.',
+    result:
+      'New content goes live on schedule without anyone touching the WordPress dashboard.',
   },
   {
     title: 'Daily Posting Automation',
     description: 'Queues and publishes daily social content on schedule across channels',
     image: '/projects/daily-posting-automation.png',
     tags: ['n8n', 'Social Media', 'Scheduling'],
+    problem:
+      'Keeping a daily posting schedule across multiple social channels meant manually publishing on each platform every day.',
+    approach:
+      "An n8n workflow queues the day's content and publishes it across channels on schedule automatically.",
+    result:
+      'The posting schedule runs itself daily, with nothing depending on someone remembering to hit publish.',
   },
   {
     title: 'Zapier Social Posting',
     description: 'Pushes new content to social channels the moment it is ready',
     image: '/projects/zap-social-posting.png',
     tags: ['Zapier', 'Social Media'],
+    problem:
+      'New content sat waiting until someone had time to manually post it to social channels.',
+    approach:
+      "A Zapier automation pushes new content to social channels the moment it's marked ready, no manual posting step.",
+    result:
+      'Content goes live as soon as it is ready instead of sitting in a queue.',
   },
   {
     title: 'Payments Tracking & Audit',
     description: 'Logs incoming payments, reconciles them against records, and flags mismatches',
     image: '/projects/payments-received-tracking-audit.png',
     tags: ['n8n', 'Finance', 'Reporting'],
+    problem:
+      'Reconciling incoming payments against records was a manual process prone to missed or mismatched entries.',
+    approach:
+      'An n8n workflow logs every incoming payment, reconciles it against existing records, and flags any mismatch automatically.',
+    result:
+      'Payment discrepancies get caught and flagged right away instead of surfacing during a manual audit weeks later.',
   },
   {
     title: 'Post-Purchase Review Request',
     description: 'Triggers a timed review request after purchase and tracks the response',
     image: '/projects/post-purchase-review-request.png',
     tags: ['n8n', 'Customer Experience'],
+    problem:
+      'Asking customers for a review after purchase meant remembering to follow up at the right time for every order.',
+    approach:
+      'An n8n workflow triggers a timed review request after each purchase and tracks whether the customer responds.',
+    result:
+      'Every customer gets asked for a review at the right moment, with no manual follow-up required.',
   },
   {
     title: 'Review Workflow',
     description: 'Collects and routes incoming reviews so the team only sees ones needing a response',
     image: '/projects/review-workflow.png',
     tags: ['n8n', 'Customer Experience'],
+    problem:
+      'Incoming reviews landed in one place with no way to tell which ones actually needed a response from the team.',
+    approach:
+      'An n8n workflow collects incoming reviews and routes only the ones that need attention to the team, filtering out the rest.',
+    result:
+      'The team only sees the reviews that actually need a reply, instead of scanning through all of them.',
   },
   {
     title: 'Voice AI Booking Workflow',
     description: 'Backend n8n workflow behind a voice agent that checks calendar availability and confirms appointments',
     image: '/projects/voice-inbound-booking-workflow.png',
     tags: ['n8n', 'Voice AI', 'Booking'],
+    problem:
+      'A voice agent taking booking calls needed a reliable way to check real calendar availability and confirm appointments without human input.',
+    approach:
+      'Built the backend n8n workflow that checks calendar availability in real time and confirms the appointment directly from the call.',
+    result:
+      'Callers get a confirmed appointment on the spot, checked against the real calendar, not a placeholder slot.',
   },
   {
     title: 'Voice AI Inbound Call Flow',
     description: 'Conversation flow for an inbound voice receptionist that greets callers and qualifies the lead in one call',
     image: '/projects/voice-lead-cart-inbound.png',
     tags: ['Retell AI', 'Voice Agent', 'Conversation Design'],
+    problem:
+      'Inbound calls needed a consistent greeting and lead-qualification process, whether or not a live receptionist was available.',
+    approach:
+      'Designed the conversation flow for a Retell AI voice receptionist that greets every caller and qualifies the lead within the same call.',
+    result:
+      'Every inbound caller gets greeted and qualified consistently, call after call.',
   },
   {
     title: 'Voice AI Outbound Call Flow',
     description: 'Conversation flow for an outbound voice agent that runs demo calls and books a follow-up on the spot',
     image: '/projects/voice-lead-cart-outbound.png',
     tags: ['Retell AI', 'Voice Agent', 'Conversation Design'],
+    problem:
+      'Running outbound demo calls at scale meant a live rep working through the list one call at a time.',
+    approach:
+      'Designed the conversation flow for an outbound Retell AI voice agent that runs the demo call and books a follow-up directly on the call.',
+    result:
+      'Demo calls run through the list automatically, with follow-ups booked on the spot instead of scheduled separately later.',
   },
   {
     title: 'AI Lead Qualifier Voice Agent',
     description: 'Voice receptionist configured to collect business info, gauge interest, and book a demo call',
     image: '/projects/voice-sara-lead-qualifier.png',
     tags: ['Retell AI', 'Voice Agent', 'Lead Qualification'],
+    problem:
+      'Qualifying inbound leads by phone meant a rep manually asking the same set of questions on every call.',
+    approach:
+      'Configured a Retell AI voice receptionist to collect business info, gauge interest, and book a demo call in one conversation.',
+    result:
+      'Leads get qualified and booked on the same call, without a rep having to run through the script manually.',
   },
 ]
 
