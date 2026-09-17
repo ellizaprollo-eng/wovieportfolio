@@ -27,7 +27,7 @@ function encode(data: Record<string, string>) {
 }
 
 const fieldClass =
-  'w-full rounded-lg border border-white/10 bg-white/[0.04] px-3.5 py-2.5 text-sm text-white placeholder:text-body-dim/70 outline-none transition-colors focus:border-accent/60 focus:bg-white/[0.06]'
+  'w-full rounded-lg border border-fg/10 bg-fg/[0.04] px-3.5 py-2.5 text-sm text-fg placeholder:text-body-dim/70 outline-none transition-colors focus:border-accent/60 focus:bg-fg/[0.06]'
 
 const labelClass = 'mb-1.5 block text-xs font-semibold tracking-wide text-body'
 
@@ -79,8 +79,8 @@ export function Contact() {
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
           {/* Message form */}
-          <Reveal className="rounded-lg border border-white/[0.07] bg-card/60 p-6 sm:p-8">
-            <h3 className="heading-display text-xl font-bold text-white">
+          <Reveal className="rounded-lg border border-fg/[0.07] bg-card/60 p-6 sm:p-8">
+            <h3 className="heading-display text-xl font-bold text-fg">
               Send a Message
             </h3>
             <p className="mt-1.5 text-sm text-body-dim">
@@ -90,7 +90,7 @@ export function Contact() {
             {status === 'done' ? (
               <div className="mt-8 flex flex-col items-center gap-3 rounded-lg border border-accent/25 bg-accent/[0.07] px-6 py-12 text-center">
                 <CheckCircle2 className="size-8 text-accent-bright" />
-                <p className="font-semibold text-white">Message sent</p>
+                <p className="font-semibold text-fg">Message sent</p>
                 <p className="text-sm text-body-dim">
                   Thanks for reaching out. I&rsquo;ll be in touch shortly.
                 </p>
@@ -210,9 +210,9 @@ export function Contact() {
           <div className="flex flex-col gap-6">
             <Reveal
               delay={90}
-              className="rounded-lg border border-white/[0.07] bg-card/60 p-6 sm:p-8"
+              className="rounded-lg border border-fg/[0.07] bg-card/60 p-6 sm:p-8"
             >
-              <h3 className="heading-display text-xl font-bold text-white">
+              <h3 className="heading-display text-xl font-bold text-fg">
                 Contact Information
               </h3>
               <p className="mt-1.5 text-sm text-body-dim">
@@ -234,14 +234,14 @@ export function Contact() {
                         rel="noreferrer"
                         className="group flex items-center gap-4"
                       >
-                        <span className="inline-flex shrink-0 rounded-lg border border-white/10 bg-white/[0.03] p-2.5 text-accent transition-colors group-hover:border-accent/45 group-hover:text-accent-bright">
+                        <span className="inline-flex shrink-0 rounded-lg border border-fg/10 bg-fg/[0.03] p-2.5 text-accent transition-colors group-hover:border-accent/45 group-hover:text-accent-bright">
                           <Icon className="size-[18px]" />
                         </span>
                         <span className="min-w-0">
                           <span className="block text-xs text-body-dim">
                             {channel.label}
                           </span>
-                          <span className="block truncate text-sm font-semibold text-white transition-colors group-hover:text-accent-bright">
+                          <span className="block truncate text-sm font-semibold text-fg transition-colors group-hover:text-accent-bright">
                             {channel.value}
                           </span>
                         </span>
@@ -254,12 +254,12 @@ export function Contact() {
 
             <Reveal
               delay={160}
-              className="rounded-lg border border-white/[0.07] bg-card/60 p-6 sm:p-8"
+              className="rounded-lg border border-fg/[0.07] bg-card/60 p-6 sm:p-8"
             >
-              <h3 className="heading-display text-xl font-bold text-white">
+              <h3 className="heading-display text-xl font-bold text-fg">
                 Location
               </h3>
-              <p className="mt-5 text-sm font-bold text-white">
+              <p className="mt-5 text-sm font-bold text-fg">
                 {profile.location}
               </p>
               <p className="mt-1.5 text-sm text-body-dim">

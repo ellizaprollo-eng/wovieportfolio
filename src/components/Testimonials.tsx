@@ -17,7 +17,7 @@ export function Testimonials() {
               key={item.name}
               delay={(i % 3) * 90}
               as="article"
-              className="flex h-full flex-col rounded-lg border border-white/[0.07] bg-card/60 p-6 transition-colors duration-300 hover:border-accent/35"
+              className="flex h-full flex-col rounded-lg border border-fg/[0.07] bg-card/60 p-6 transition-colors duration-300 hover:border-accent/35"
             >
               <span className="heading-display text-3xl leading-none text-accent/70">
                 &ldquo;
@@ -27,8 +27,8 @@ export function Testimonials() {
                 {item.quote}
               </blockquote>
 
-              <footer className="mt-6 border-t border-white/[0.07] pt-4">
-                <p className="text-sm font-bold text-white">{item.name}</p>
+              <footer className="mt-6 border-t border-fg/[0.07] pt-4">
+                <p className="text-sm font-bold text-fg">{item.name}</p>
                 <p className="mt-0.5 text-xs text-body-dim">{item.title}</p>
               </footer>
             </Reveal>

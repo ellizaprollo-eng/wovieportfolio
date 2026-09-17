@@ -15,7 +15,7 @@ export function Hero() {
             {profile.role}
           </p>
 
-          <h1 className="heading-display mt-5 max-w-xl text-[2.35rem] leading-[1.14] font-extrabold tracking-tight text-white sm:text-5xl lg:text-[3.25rem]">
+          <h1 className="heading-display mt-5 max-w-xl text-[2.35rem] leading-[1.14] font-extrabold tracking-tight text-fg sm:text-5xl lg:text-[3.25rem]">
             {profile.headline}
           </h1>
 
@@ -26,7 +26,7 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap gap-x-10 gap-y-6">
             {heroStats.map((stat) => (
               <div key={stat.label}>
-                <p className="heading-display text-2xl font-bold text-white">
+                <p className="heading-display text-2xl font-bold text-fg">
                   {stat.value}
                 </p>
                 <p className="mt-1 max-w-[10rem] text-xs leading-snug text-body-dim">
@@ -45,7 +45,7 @@ export function Hero() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-white transition-colors hover:border-accent/50 hover:text-accent-bright"
+              className="rounded-lg border border-fg/15 px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent/50 hover:text-accent-bright"
             >
               Resume
             </a>
@@ -53,7 +53,7 @@ export function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-xs lg:mx-0 lg:max-w-sm lg:justify-self-end">
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-card/40">
+          <div className="overflow-hidden rounded-2xl border border-fg/10 bg-card/40">
             <img
               src={profile.avatar}
               alt={profile.name}
@@ -62,7 +62,7 @@ export function Hero() {
               className="aspect-[4/5] w-full object-cover object-top"
             />
           </div>
-          <div className="absolute -bottom-4 left-4 rounded-lg border border-white/10 bg-ink/90 px-4 py-2.5 text-xs font-semibold text-body shadow-lg backdrop-blur-md">
+          <div className="absolute -bottom-4 left-4 rounded-lg border border-fg/10 bg-ink/90 px-4 py-2.5 text-xs font-semibold text-body shadow-lg backdrop-blur-md">
             {profile.locationNote}
           </div>
         </div>

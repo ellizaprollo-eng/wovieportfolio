@@ -23,6 +23,25 @@
   /* Type */
   --color-body: #b7bec9;
   --color-body-dim: #7c8492;
+
+  /* Foreground — flips per theme; used anywhere the old design hardcoded "white" */
+  --color-fg: #ffffff;
+}
+
+/* ---------- Light mode overrides ----------
+   Same tokens, redeclared. Everything downstream (Tailwind utilities,
+   marquee-edge gradients, Aurora backdrop) reads these as CSS variables,
+   so redeclaring them here is enough to flip the whole page. */
+html[data-theme='light'] {
+  --color-ink: #ffffff;
+  --color-ink-2: #f2f4f7;
+  --color-surface: #f7f8fa;
+  --color-card: #ffffff;
+
+  --color-body: #3c4657;
+  --color-body-dim: #6b7484;
+
+  --color-fg: #0b0e14;
 }
 
 @layer base {
@@ -114,6 +133,25 @@
 }
 
 /* ---------- Aurora hero backdrop ---------- */
+.aurora-base {
+  background: linear-gradient(
+    180deg,
+    var(--color-ink) 0%,
+    var(--color-ink-2) 55%,
+    var(--color-ink) 100%
+  );
+}
+
+.aurora-fade {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    color-mix(in srgb, var(--color-ink) 60%, transparent) 60%,
+    var(--color-ink) 100%
+  );
+}
+
+
 @keyframes aurora-drift {
   0% {
     transform: translate3d(-3%, 0, 0) scale(1.05);

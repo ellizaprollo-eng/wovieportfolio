@@ -26,11 +26,11 @@ const ICONS: Record<ServiceIcon, typeof Zap> = {
 function ServiceCard({ service }: { service: (typeof services)[number] }) {
   const Icon = ICONS[service.icon]
   return (
-    <article className="w-full max-w-md rounded-lg border border-white/[0.07] bg-card/60 p-6">
-      <span className="inline-flex rounded-lg border border-white/10 bg-white/[0.03] p-2.5 text-accent">
+    <article className="w-full max-w-md rounded-lg border border-fg/[0.07] bg-card/60 p-6">
+      <span className="inline-flex rounded-lg border border-fg/10 bg-fg/[0.03] p-2.5 text-accent">
         <Icon className="size-5" />
       </span>
-      <h3 className="heading-display mt-4 text-lg font-bold text-white">
+      <h3 className="heading-display mt-4 text-lg font-bold text-fg">
         {service.title}
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-body-dim">
@@ -139,7 +139,7 @@ export function Services() {
 
         {/* Desktop: alternating centerline timeline */}
         <div ref={containerRef} className="relative mt-16 hidden lg:block">
-          <div className="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-white/10" />
+          <div className="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-fg/10" />
           <div
             ref={fillRef}
             className="absolute top-0 left-1/2 w-0.5 -translate-x-1/2 bg-accent"

@@ -43,6 +43,13 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Set the saved theme before first paint so there's no flash of the wrong mode. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{if(localStorage.getItem('theme')==='light'){document.documentElement.setAttribute('data-theme','light')}}catch(e){}})();",
+          }}
+        />
         {/* Scroll-reveal is JS driven; keep content visible if JS never runs. */}
         <noscript
           dangerouslySetInnerHTML={{

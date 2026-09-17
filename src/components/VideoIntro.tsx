@@ -12,7 +12,7 @@ export function VideoIntro() {
         />
 
         <Reveal className="mx-auto mt-12 max-w-3xl">
-          <div className="aspect-video overflow-hidden rounded-2xl border border-white/[0.07] shadow-2xl">
+          <div className="aspect-video overflow-hidden rounded-2xl border border-fg/[0.07] shadow-2xl">
             <iframe
               src={profile.videoIntroEmbedUrl}
               title={`${profile.name} - video introduction`}

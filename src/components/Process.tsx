@@ -17,12 +17,12 @@ export function Process() {
               key={step.title}
               delay={i * 70}
               as="article"
-              className="rounded-lg border border-white/[0.07] bg-card/60 p-6"
+              className="rounded-lg border border-fg/[0.07] bg-card/60 p-6"
             >
               <span className="heading-display text-sm font-extrabold text-accent">
                 {String(i + 1).padStart(2, '0')}
               </span>
-              <h3 className="heading-display mt-3 text-lg font-bold text-white">
+              <h3 className="heading-display mt-3 text-lg font-bold text-fg">
                 {step.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-body-dim">

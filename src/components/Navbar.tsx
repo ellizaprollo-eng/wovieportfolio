@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { ThemeToggle } from '@/components/ThemeToggle'
 import { navLinks, profile } from '@/data/portfolio'
 
 export function Navbar() {
@@ -19,14 +20,14 @@ export function Navbar() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
         scrolled || open
-          ? 'border-b border-white/5 bg-ink/85 backdrop-blur-xl'
+          ? 'border-b border-fg/5 bg-ink/85 backdrop-blur-xl'
           : 'border-b border-transparent',
       )}
     >
       <nav className="container-x flex h-16 items-center justify-between gap-4">
         <a
           href="#home"
-          className="heading-display text-[15px] font-extrabold tracking-tight text-white transition-colors hover:text-accent-bright"
+          className="heading-display text-[15px] font-extrabold tracking-tight text-fg transition-colors hover:text-accent-bright"
         >
           {profile.shortName}
         </a>
@@ -36,14 +37,15 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-2 text-sm text-body/90 transition-colors hover:bg-white/5 hover:text-white"
+              className="rounded-full px-3 py-2 text-sm text-body/90 transition-colors hover:bg-fg/5 hover:text-fg"
             >
               {link.label}
             </a>
           ))}
+          <ThemeToggle className="ml-1" />
           <a
             href="#contact"
-            className="btn-primary ml-3"
+            className="btn-primary ml-2"
             style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
           >
             <span className="btn-node" aria-hidden="true" />
@@ -51,15 +53,18 @@ export function Navbar() {
           </a>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          className="rounded-lg p-2 text-body transition-colors hover:bg-white/5 hover:text-white lg:hidden"
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+        <div className="flex items-center gap-1 lg:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            className="rounded-lg p-2 text-body transition-colors hover:bg-fg/5 hover:text-fg"
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
       </nav>
 
       {open && (
@@ -70,7 +75,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm text-body transition-colors hover:bg-white/5 hover:text-white"
+                className="rounded-lg px-3 py-2.5 text-sm text-body transition-colors hover:bg-fg/5 hover:text-fg"
               >
                 {link.label}
               </a>

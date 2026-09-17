@@ -9,8 +9,8 @@ const VH_PER_ITEM = 85
 
 function ExperienceCard({ role }: { role: (typeof experience)[number] }) {
   return (
-    <article className="rounded-lg border border-white/[0.07] border-l-2 border-l-accent/50 bg-card/60 p-6">
-      <h3 className="heading-display text-lg font-bold text-white">
+    <article className="rounded-lg border border-fg/[0.07] border-l-2 border-l-accent/50 bg-card/60 p-6">
+      <h3 className="heading-display text-lg font-bold text-fg">
         {role.title}
       </h3>
       <p className="mt-1 text-sm text-body-dim">{role.meta}</p>
@@ -86,7 +86,7 @@ function ScrollThrough() {
           <span
             key={active}
             aria-hidden="true"
-            className="content-fade heading-display select-none text-[8rem] leading-none font-extrabold text-white/[0.04]"
+            className="content-fade heading-display select-none text-[8rem] leading-none font-extrabold text-fg/[0.04]"
           >
             {String(active + 1).padStart(2, '0')}
           </span>
@@ -96,7 +96,7 @@ function ScrollThrough() {
               {String(active + 1).padStart(2, '0')} •{' '}
               {role.meta.split('|')[0].trim()}
             </p>
-            <h3 className="heading-display mt-3 text-3xl font-extrabold text-white sm:text-4xl">
+            <h3 className="heading-display mt-3 text-3xl font-extrabold text-fg sm:text-4xl">
               {role.title}
             </h3>
             <p className="mt-2 text-sm text-body-dim">{role.meta}</p>
@@ -131,7 +131,7 @@ function ScrollThrough() {
               aria-hidden="true"
               className={cn(
                 'size-2 rounded-full transition-colors duration-300',
-                i === active ? 'bg-accent' : 'bg-white/15',
+                i === active ? 'bg-accent' : 'bg-fg/15',
               )}
             />
           ))}

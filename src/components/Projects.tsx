@@ -6,7 +6,7 @@ import { projects, type Project } from '@/data/portfolio'
 
 function ViewOverlay({ label }: { label: string }) {
   return (
-    <span className="pointer-events-none absolute inset-0 flex items-center justify-center gap-2 bg-ink/0 text-sm font-semibold text-white opacity-0 transition duration-200 group-hover/view:bg-ink/65 group-hover/view:opacity-100">
+    <span className="pointer-events-none absolute inset-0 flex items-center justify-center gap-2 bg-black/0 text-sm font-semibold text-white opacity-0 transition duration-200 group-hover/view:bg-black/65 group-hover/view:opacity-100">
       <Maximize2 className="size-4" />
       {label}
     </span>
@@ -26,13 +26,13 @@ function CaseStudy({
     <Reveal
       delay={delay}
       as="article"
-      className="overflow-hidden rounded-lg border border-white/[0.07] bg-card/60 lg:grid lg:grid-cols-[0.85fr_1.15fr]"
+      className="overflow-hidden rounded-lg border border-fg/[0.07] bg-card/60 lg:grid lg:grid-cols-[0.85fr_1.15fr]"
     >
       <button
         type="button"
         onClick={onView}
         aria-label={`View the full ${project.title} workflow`}
-        className="group/view relative flex items-center overflow-hidden border-b border-white/[0.06] bg-black/40 text-left lg:border-r lg:border-b-0"
+        className="group/view relative flex items-center overflow-hidden border-b border-fg/[0.06] bg-black/40 text-left lg:border-r lg:border-b-0"
       >
         <img
           src={project.image}
@@ -55,7 +55,7 @@ function CaseStudy({
           ))}
         </ul>
 
-        <h3 className="heading-display mt-4 text-xl font-bold text-white">
+        <h3 className="heading-display mt-4 text-xl font-bold text-fg">
           {project.title}
         </h3>
 
@@ -112,13 +112,13 @@ function ProjectCard({
     <Reveal
       delay={delay}
       as="article"
-      className="group overflow-hidden rounded-lg border border-white/[0.07] bg-card/60 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
+      className="group overflow-hidden rounded-lg border border-fg/[0.07] bg-card/60 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40"
     >
       <button
         type="button"
         onClick={onView}
         aria-label={`View the full ${project.title} workflow`}
-        className="group/view relative block w-full overflow-hidden border-b border-white/[0.06] bg-black/40 text-left"
+        className="group/view relative block w-full overflow-hidden border-b border-fg/[0.06] bg-black/40 text-left"
       >
         <img
           src={project.image}
@@ -130,7 +130,7 @@ function ProjectCard({
       </button>
 
       <div className="p-5">
-        <h3 className="heading-display text-lg font-bold text-white">
+        <h3 className="heading-display text-lg font-bold text-fg">
           {project.title}
         </h3>
 
@@ -229,7 +229,7 @@ function ProjectLightbox({
         type="button"
         onClick={onClose}
         aria-label="Close"
-        className="absolute top-4 right-4 flex size-10 items-center justify-center rounded-full border border-white/15 bg-card text-white transition hover:border-accent/50 hover:text-accent"
+        className="absolute top-4 right-4 flex size-10 items-center justify-center rounded-full border border-fg/15 bg-card text-fg transition hover:border-accent/50 hover:text-accent"
       >
         <X className="size-5" />
       </button>
@@ -241,7 +241,7 @@ function ProjectLightbox({
           onPrev()
         }}
         aria-label="Previous workflow"
-        className="absolute top-1/2 left-2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-card text-white transition hover:border-accent/50 hover:text-accent sm:left-6"
+        className="absolute top-1/2 left-2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-fg/15 bg-card text-fg transition hover:border-accent/50 hover:text-accent sm:left-6"
       >
         <ChevronLeft className="size-5" />
       </button>
@@ -252,7 +252,7 @@ function ProjectLightbox({
           onNext()
         }}
         aria-label="Next workflow"
-        className="absolute top-1/2 right-2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-card text-white transition hover:border-accent/50 hover:text-accent sm:right-6"
+        className="absolute top-1/2 right-2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full border border-fg/15 bg-card text-fg transition hover:border-accent/50 hover:text-accent sm:right-6"
       >
         <ChevronRight className="size-5" />
       </button>
@@ -265,10 +265,10 @@ function ProjectLightbox({
           key={project.image}
           src={project.image}
           alt={project.title}
-          className="content-fade max-h-[72vh] w-auto rounded-lg border border-white/10 object-contain"
+          className="content-fade max-h-[72vh] w-auto rounded-lg border border-fg/10 object-contain"
         />
         <figcaption key={project.title} className="content-fade max-w-xl text-center">
-          <p className="heading-display text-lg font-bold text-white">
+          <p className="heading-display text-lg font-bold text-fg">
             {project.title}
           </p>
           {project.problem && project.approach && project.result ? (
@@ -344,7 +344,7 @@ export function Projects() {
 
         {rest.length > 0 && (
           <>
-            <h3 className="heading-display mt-16 text-lg font-bold text-white">
+            <h3 className="heading-display mt-16 text-lg font-bold text-fg">
               More automations
             </h3>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

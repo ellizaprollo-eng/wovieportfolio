@@ -20,7 +20,7 @@ export function Aurora() {
       className="pointer-events-none absolute inset-0 overflow-hidden"
     >
       {/* Flat neutral base */}
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,#0b0e14_0%,#0c1017_55%,#0b0e14_100%)]" />
+      <div className="aurora-base absolute inset-0" />
 
       {/* Faint blueprint grid */}
       <svg
@@ -69,7 +69,7 @@ export function Aurora() {
       </svg>
 
       {/* Fade into next section */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-[linear-gradient(180deg,transparent_0%,rgba(11,14,20,0.6)_60%,#0b0e14_100%)]" />
+      <div className="aurora-fade absolute inset-x-0 bottom-0 h-32" />
     </div>
   )
 }
