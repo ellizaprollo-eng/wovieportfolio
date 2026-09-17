@@ -42,16 +42,8 @@ export function Navbar() {
             </a>
           ))}
           <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-1 rounded-full px-3 py-2 text-sm text-body/90 transition-colors hover:bg-white/5 hover:text-white"
-          >
-            Resume
-          </a>
-          <a
             href="#contact"
-            className="btn-primary ml-1"
+            className="btn-primary ml-3"
             style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
           >
             <span className="btn-node" aria-hidden="true" />
@@ -83,15 +75,6 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-2.5 text-sm text-body transition-colors hover:bg-white/5 hover:text-white"
-            >
-              Resume
-            </a>
             <a
               href="#contact"
               onClick={() => setOpen(false)}
