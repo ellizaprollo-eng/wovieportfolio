@@ -21,6 +21,13 @@ export function VideoIntro() {
               className="h-full w-full"
             />
           </div>
+
+          <div className="mt-8 flex justify-center">
+            <a href="#contact" className="btn-primary">
+              <span className="btn-node" aria-hidden="true" />
+              Get In Touch
+            </a>
+          </div>
         </Reveal>
       </div>
     </section>
