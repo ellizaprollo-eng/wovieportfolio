@@ -386,23 +386,6 @@ export const experience = [
       'Processed invoices and reconciled discrepancies with vendors',
     ],
   },
-  {
-    title: 'Product Research Specialist',
-    meta: 'Gencor Marketing | OnlineJobs.ph • Freelance',
-    points: [
-      'Ran a repeatable research process to evaluate Amazon online arbitrage opportunities at scale',
-      'Analyzed product demand, competition, and profitability metrics to guide sourcing decisions',
-    ],
-  },
-  {
-    title: 'General Virtual Assistant',
-    meta: 'Print-on-Demand Business | OnlineJobs.ph • Freelance',
-    points: [
-      'Managed order processing, product uploads, and data entry as a consistent daily pipeline',
-      'Provided customer support and ran social media management alongside it',
-      'Created marketing materials using Canva',
-    ],
-  },
 ]
 
 export type TechStackItem = { name: string; logo: string }
