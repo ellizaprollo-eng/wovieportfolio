@@ -6,9 +6,9 @@ export const profile = {
   name: 'Wovie Prollo',
   shortName: 'Wovie Prollo',
   role: 'Gohighlevel & AI Automation Specialist',
-  headline: 'I take the busywork out of your operations.',
+  headline: 'I build systems that automate your business operations.',
   intro:
-    'I build GoHighLevel and AI automation systems that remove repetitive work from your business. I connect your CRM, forms, calendars, communication tools, and workflows so leads are followed up, tasks are organized, and your operations run more efficiently.',
+    'I design and build reliable automation systems using GoHighLevel, Zapier, Make, and n8n. I connect the tools your business already uses to reduce manual work, streamline processes, and keep operations moving 24/7.',
   avatar: '/profile.jpg',
   videoIntroEmbedUrl: 'https://www.loom.com/embed/63f9d8ffb91740459ec9326c304bab69',
   location: 'Butuan City, Philippines',
