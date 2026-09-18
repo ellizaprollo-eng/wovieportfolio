@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { Link } from '@tanstack/react-router'
 import { ArrowRight, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { projects, type Project } from '@/data/portfolio'
+import { slugify } from '@/lib/slug'
 
 function ViewOverlay({ label }: { label: string }) {
   return (
@@ -86,14 +88,15 @@ function CaseStudy({
           </div>
         </dl>
 
-        <a
-          href="#contact"
+        <Link
+          to="/case-studies/$slug"
+          params={{ slug: slugify(project.title) }}
           className="btn-primary mt-6"
           style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
         >
-          Discuss a project like this
+          View Case Study Details
           <ArrowRight className="btn-arrow size-4" />
-        </a>
+        </Link>
       </div>
     </Reveal>
   )
@@ -178,14 +181,15 @@ function ProjectCard({
           ))}
         </ul>
 
-        <a
-          href="#contact"
+        <Link
+          to="/case-studies/$slug"
+          params={{ slug: slugify(project.title) }}
           className="btn-primary mt-5"
           style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
         >
-          Discuss this project
+          View Case Study Details
           <ArrowRight className="btn-arrow size-4" />
-        </a>
+        </Link>
       </div>
     </Reveal>
   )

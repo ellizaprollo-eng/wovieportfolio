@@ -24,10 +24,10 @@ function Home() {
         <Hero />
         <Skills />
         <VideoIntro />
+        <Projects />
         <Services />
         <Process />
         <Clients />
-        <Projects />
         <Experience />
         <Testimonials />
         <Contact />
