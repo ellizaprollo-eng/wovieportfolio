@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { CheckCircle2, Globe, Linkedin, Loader2, Mail, MessageCircle } from 'lucide-react'
+import { useEffect } from 'react'
+import { Globe, Linkedin, Mail, MessageCircle } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { contactChannels, profile, type ContactIcon } from '@/data/portfolio'
@@ -11,53 +11,28 @@ const CHANNEL_ICONS: Record<ContactIcon, typeof Mail> = {
   globe: Globe,
 }
 
-const FORM_NAME = 'contact'
-const EMPTY = {
-  firstName: '',
-  lastName: '',
-  company: '',
-  email: '',
-  message: '',
+const CALENDLY_URL = 'https://calendly.com/wovieprollo42/30min'
+const CALENDLY_SCRIPT_SRC = 'https://assets.calendly.com/assets/external/widget.js'
+
+function CalendlyEmbed() {
+  useEffect(() => {
+    if (document.querySelector(`script[src="${CALENDLY_SCRIPT_SRC}"]`)) return
+    const script = document.createElement('script')
+    script.src = CALENDLY_SCRIPT_SRC
+    script.async = true
+    document.body.appendChild(script)
+  }, [])
+
+  return (
+    <div
+      className="calendly-inline-widget overflow-hidden rounded-lg"
+      data-url={`${CALENDLY_URL}?primary_color=3fc7b0`}
+      style={{ minWidth: '280px', height: '650px' }}
+    />
+  )
 }
-
-function encode(data: Record<string, string>) {
-  return Object.entries(data)
-    .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
-    .join('&')
-}
-
-const fieldClass =
-  'w-full rounded-lg border border-fg/10 bg-fg/[0.04] px-3.5 py-2.5 text-sm text-fg placeholder:text-body-dim/70 outline-none transition-colors focus:border-accent/60 focus:bg-fg/[0.06]'
-
-const labelClass = 'mb-1.5 block text-xs font-semibold tracking-wide text-body'
 
 export function Contact() {
-  const [fields, setFields] = useState(EMPTY)
-  const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>(
-    'idle',
-  )
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('sending')
-    try {
-      const response = await fetch('/__forms.html', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': FORM_NAME, ...fields }),
-      })
-      if (!response.ok) throw new Error(`Request failed: ${response.status}`)
-      setStatus('done')
-      setFields(EMPTY)
-    } catch {
-      setStatus('error')
-    }
-  }
-
   return (
     <section id="contact" className="relative bg-ink py-24 sm:py-28">
       <div className="container-x">
@@ -78,132 +53,18 @@ export function Contact() {
         </Reveal>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          {/* Message form */}
+          {/* Booking */}
           <Reveal className="rounded-lg border border-fg/[0.07] bg-card/60 p-6 sm:p-8">
             <h3 className="heading-display text-xl font-bold text-fg">
-              Send a Message
+              Book a Call
             </h3>
             <p className="mt-1.5 text-sm text-body-dim">
-              Fill out the form and I&rsquo;ll get back to you shortly
+              Pick a time that works for you, no back-and-forth needed
             </p>
 
-            {status === 'done' ? (
-              <div className="mt-8 flex flex-col items-center gap-3 rounded-lg border border-accent/25 bg-accent/[0.07] px-6 py-12 text-center">
-                <CheckCircle2 className="size-8 text-accent-bright" />
-                <p className="font-semibold text-fg">Message sent</p>
-                <p className="text-sm text-body-dim">
-                  Thanks for reaching out. I&rsquo;ll be in touch shortly.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setStatus('idle')}
-                  className="mt-2 text-sm font-semibold text-accent-bright underline-offset-4 hover:underline"
-                >
-                  Send another message
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-7 space-y-5">
-                <input type="hidden" name="form-name" value={FORM_NAME} />
-                <p className="hidden">
-                  <label>
-                    Do not fill this out: <input name="bot-field" />
-                  </label>
-                </p>
-
-                <div>
-                  <span className={labelClass}>
-                    Name <span className="text-accent">*</span>
-                  </span>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <input
-                      className={fieldClass}
-                      name="firstName"
-                      placeholder="First Name"
-                      value={fields.firstName}
-                      onChange={handleChange}
-                      autoComplete="given-name"
-                      required
-                    />
-                    <input
-                      className={fieldClass}
-                      name="lastName"
-                      placeholder="Last Name"
-                      value={fields.lastName}
-                      onChange={handleChange}
-                      autoComplete="family-name"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className={labelClass} htmlFor="company">
-                    Company Name <span className="text-accent">*</span>
-                  </label>
-                  <input
-                    id="company"
-                    className={fieldClass}
-                    name="company"
-                    placeholder="Your company"
-                    value={fields.company}
-                    onChange={handleChange}
-                    autoComplete="organization"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className={labelClass} htmlFor="email">
-                    Email <span className="text-accent">*</span>
-                  </label>
-                  <input
-                    id="email"
-                    className={fieldClass}
-                    type="email"
-                    name="email"
-                    placeholder="you@company.com"
-                    value={fields.email}
-                    onChange={handleChange}
-                    autoComplete="email"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className={labelClass} htmlFor="message">
-                    Message <span className="text-accent">*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    className={`${fieldClass} min-h-32 resize-y`}
-                    name="message"
-                    placeholder="Tell me about the workflow you want to automate"
-                    value={fields.message}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-                {status === 'error' && (
-                  <p className="text-sm text-red-300">
-                    Something went wrong sending that. Please try again, or email
-                    me directly.
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={status === 'sending'}
-                  className="btn-primary w-full justify-center"
-                >
-                  {status === 'sending' && (
-                    <Loader2 className="size-4 animate-spin" />
-                  )}
-                  {status === 'sending' ? 'Sending…' : 'Send Message'}
-                </button>
-              </form>
-            )}
+            <div className="mt-6">
+              <CalendlyEmbed />
+            </div>
           </Reveal>
 
           {/* Channels + location */}
