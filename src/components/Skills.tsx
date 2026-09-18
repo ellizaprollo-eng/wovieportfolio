@@ -54,11 +54,7 @@ export function Skills() {
     <section id="skills" className="relative bg-ink py-24 sm:py-28">
       <div className="container-x flex justify-center text-center">
         <SectionHeading
-          title={
-            <>
-              My <span className="text-accent-bright">Tech Stack</span>
-            </>
-          }
+          title="My Tech Stack"
           subtitle="The platforms and tools behind every workflow, agent, and integration I build"
         />
       </div>
