@@ -5,7 +5,7 @@ import { SectionHeading } from '@/components/SectionHeading'
 import { cn } from '@/lib/utils'
 import { experience } from '@/data/portfolio'
 
-const VH_PER_ITEM = 85
+const VH_PER_ITEM = 45
 
 function ExperienceCard({ role }: { role: (typeof experience)[number] }) {
   return (
@@ -81,7 +81,7 @@ function ScrollThrough() {
       className="relative hidden lg:block"
       style={{ height: `${experience.length * VH_PER_ITEM}vh` }}
     >
-      <div className="sticky top-24 flex items-center py-10">
+      <div className="sticky top-24 flex min-h-[60vh] items-center py-10">
         <div className="container-x grid grid-cols-[10rem_1fr] items-center gap-16">
           <span
             key={active}
