@@ -81,7 +81,7 @@ function ScrollThrough() {
       className="relative hidden lg:block"
       style={{ height: `${experience.length * VH_PER_ITEM}vh` }}
     >
-      <div className="sticky top-20 flex h-[calc(100svh-5rem)] items-center">
+      <div className="sticky top-20 flex h-[calc(100svh-5rem)] items-start pt-20">
         <div className="container-x grid grid-cols-[10rem_1fr] items-center gap-16">
           <span
             key={active}
