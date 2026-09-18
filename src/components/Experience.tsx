@@ -62,7 +62,7 @@ function ExperienceSlider() {
             {String(active + 1).padStart(2, '0')} •{' '}
             {role.meta.split('|')[0].trim()}
           </p>
-          <h3 className="heading-display mt-3 text-3xl font-extrabold text-fg sm:text-4xl">
+          <h3 className="heading-display mt-3 text-3xl font-extrabold text-balance text-fg sm:text-4xl">
             {role.title}
           </h3>
           <p className="mt-2 text-sm text-body-dim">{role.meta}</p>
