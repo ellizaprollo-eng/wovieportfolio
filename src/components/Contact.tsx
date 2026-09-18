@@ -27,7 +27,7 @@ function CalendlyEmbed() {
 export function Contact() {
   return (
     <section id="contact" className="relative bg-ink py-24 sm:py-28">
-      <div className="container-x">
+      <div className="container-x flex flex-col items-center text-center">
         <SectionHeading
           title="Get In Touch"
           subtitle="Ready to automate your workflow? Let's discuss your project"
@@ -44,17 +44,9 @@ export function Contact() {
           {profile.responseTime}
         </Reveal>
 
-        <div className="mt-8">
-          <Reveal className="max-w-2xl rounded-lg border border-fg/[0.07] bg-card/60 p-6 sm:p-8">
-            <h3 className="heading-display text-xl font-bold text-fg">
-              Book a Call
-            </h3>
-
-            <div className="mt-6">
-              <CalendlyEmbed />
-            </div>
-          </Reveal>
-        </div>
+        <Reveal className="mt-8 w-full max-w-2xl rounded-lg border border-fg/[0.07] bg-card/60 p-6 sm:p-8">
+          <CalendlyEmbed />
+        </Reveal>
       </div>
     </section>
   )
