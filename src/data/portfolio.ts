@@ -8,7 +8,7 @@ export const profile = {
   role: 'Gohighlevel & AI Automation Specialist',
   headline: 'I take the busywork out of your operations.',
   intro:
-    'I design and build automations on GoHighLevel, Zapier, Make, and n8n, connecting the tools you already use so the work happens without anyone touching it.',
+    'I build GoHighLevel and AI automation systems that remove repetitive work from your business. I connect your CRM, forms, calendars, communication tools, and workflows so leads are followed up, tasks are organized, and your operations run more efficiently.',
   avatar: '/profile.jpg',
   videoIntroEmbedUrl: 'https://www.loom.com/embed/63f9d8ffb91740459ec9326c304bab69',
   location: 'Butuan City, Philippines',
@@ -106,12 +106,6 @@ export const services: Array<{
     title: 'Data Management',
     description:
       'Optimize data workflows with Google Sheets, Airtable, and Monday integrations for efficient information management.',
-  },
-  {
-    icon: 'calendar',
-    title: 'Property Management',
-    description:
-      'Automate property operations including tenant onboarding, scheduling, and communication for short and long-term rentals.',
   },
   {
     icon: 'chart',
