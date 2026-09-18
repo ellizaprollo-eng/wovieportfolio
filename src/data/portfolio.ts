@@ -370,7 +370,7 @@ export const experience = [
     ],
   },
   {
-    title: 'System Bulder | Automation Expert ',
+    title: 'System Builder | Automation Expert',
     meta: 'Press Haven Homes | OnlineJobs.ph • Long-term Rental',
     points: [
       'Built and ran the operational workflows behind tenant relations, lease management, and day-to-day coordination',

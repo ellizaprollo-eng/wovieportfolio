@@ -57,12 +57,12 @@ function ExperienceSlider() {
           {String(active + 1).padStart(2, '0')}
         </span>
 
-        <div key={role.title} className="content-fade max-w-xl">
+        <div key={role.title} className="content-fade max-w-3xl">
           <p className="text-xs font-bold tracking-[0.14em] text-accent uppercase">
             {String(active + 1).padStart(2, '0')} •{' '}
             {role.meta.split('|')[0].trim()}
           </p>
-          <h3 className="heading-display mt-3 text-3xl font-extrabold text-balance text-fg sm:text-4xl">
+          <h3 className="heading-display mt-3 text-3xl font-extrabold text-fg sm:text-4xl">
             {role.title}
           </h3>
           <p className="mt-2 text-sm text-body-dim">{role.meta}</p>
