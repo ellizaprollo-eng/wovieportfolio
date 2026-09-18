@@ -7,6 +7,7 @@ import { Process } from '@/components/Process'
 import { Projects } from '@/components/Projects'
 import { Experience } from '@/components/Experience'
 import { Skills } from '@/components/Skills'
+import { Clients } from '@/components/Clients'
 import { Testimonials } from '@/components/Testimonials'
 import { Contact } from '@/components/Contact'
 import { Footer } from '@/components/Footer'
@@ -22,6 +23,7 @@ function Home() {
       <main>
         <Hero />
         <Skills />
+        <Clients />
         <VideoIntro />
         <Services />
         <Process />

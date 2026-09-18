@@ -419,6 +419,18 @@ export const techStack: TechStackItem[] = [
   { name: 'Grok', logo: '/skills/grok.png' },
 ]
 
+export type ClientLogo = { name: string; logo: string }
+
+export const clientLogos: ClientLogo[] = [
+  { name: 'FinPro', logo: '/clients/finpro.svg' },
+  { name: 'Texas Tires', logo: '/clients/texas-tires.webp' },
+  { name: 'Tuff Tube Transition', logo: '/clients/tuff-tube-transition.webp' },
+  { name: 'SCM', logo: '/clients/scm.webp' },
+  { name: 'iCybernetics', logo: '/clients/icybernetics.webp' },
+  { name: 'Vitality Capital Investments', logo: '/clients/vitality-capital.webp' },
+  { name: 'Heavy Grind Media', logo: '/clients/heavy-grind-media.webp' },
+]
+
 export const testimonials = [
   {
     quote:
