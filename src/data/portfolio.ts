@@ -7,6 +7,8 @@ export const profile = {
   shortName: 'Wovie Prollo',
   role: 'Gohighlevel & AI Automation Specialist',
   headline: 'I build systems that automate your business operations.',
+  /** Must be an exact substring of headline — Hero.tsx colors this part. */
+  headlineHighlight: 'automate your business operations.',
   intro:
     'I design and build reliable automation systems using GoHighLevel, Zapier, Make, and n8n. I connect the tools your business already uses to reduce manual work, streamline processes, and keep operations moving 24/7.',
   avatar: '/profile.jpg',
@@ -21,10 +23,12 @@ export const heroStats = [
   { value: '3+', label: 'Years as a GoHighLevel & AI Automation Specialist' },
   { value: '80%', label: 'Less manual work for clients' },
   { value: '4', label: 'Core platforms: GHL, Zapier, Make, n8n' },
+  { value: '19', label: 'Automations delivered across client projects' },
 ]
 
 export const navLinks = [
   { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Services', href: '#services' },
   { label: 'Process', href: '#process' },
@@ -417,6 +421,43 @@ export const techStack: TechStackItem[] = [
   { name: 'Notion', logo: '/skills/notion.png' },
   { name: 'Slack', logo: '/skills/slack.png' },
   { name: 'Grok', logo: '/skills/grok.png' },
+]
+
+/** Same grouping used on the resume's Technical Skills section. */
+export const skillGroups = [
+  {
+    label: 'Automation Platforms',
+    items: ['n8n', 'Zapier', 'Make', 'GoHighLevel'],
+  },
+  {
+    label: 'AI & Voice',
+    items: [
+      'ChatGPT',
+      'Claude',
+      'Claude Code',
+      'Retell AI',
+      'Gemini',
+      'HeyGen',
+      'Lovable',
+      'Grok',
+    ],
+  },
+  {
+    label: 'CRM & Business Tools',
+    items: ['HubSpot', 'WordPress', 'Notion', 'Slack', 'Mailchimp', 'Meta'],
+  },
+  {
+    label: 'Data & Integrations',
+    items: [
+      'Google Sheets',
+      'API Integrations',
+      'Webhooks',
+      'Node.js',
+      'VS Code',
+      'Google Workspace',
+      'Apify',
+    ],
+  },
 ]
 
 export type ClientLogo = { name: string; logo: string }
