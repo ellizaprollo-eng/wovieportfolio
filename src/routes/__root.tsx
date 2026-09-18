@@ -1,4 +1,5 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import { CursorLabel } from '@/components/CursorLabel'
 
 import '../styles.css'
 
@@ -58,6 +59,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
 <body>
   {children}
+  <CursorLabel />
   <Scripts />
 </body>
     </html>

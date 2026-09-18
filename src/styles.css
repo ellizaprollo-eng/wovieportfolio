@@ -407,3 +407,69 @@ html[data-theme='light'] {
   }
 }
 
+/* =========================
+   CURSOR LABEL
+   A small branded tag that follows the pointer only while hovering an
+   element with data-cursor-label — the real cursor is never hidden.
+========================= */
+
+@media (pointer: fine) {
+  .cursor-label {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    pointer-events: none;
+
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    background: linear-gradient(
+      135deg,
+      var(--color-accent-bright),
+      var(--color-accent)
+    );
+    color: var(--color-ink);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+
+    box-shadow:
+      0 10px 24px -8px rgba(63, 199, 176, 0.55),
+      0 1px 0 rgba(255, 255, 255, 0.25) inset;
+
+    transform: translate(18px, -50%) scale(0.7);
+    opacity: 0;
+    transition:
+      opacity 0.18s ease,
+      transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .cursor-label::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--color-accent);
+    transform: translateY(-50%) rotate(45deg);
+    border-radius: 2px;
+  }
+
+  .cursor-label-visible {
+    opacity: 1;
+    transform: translate(18px, -50%) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-label {
+    transition: opacity 0.15s ease;
+    transform: translate(18px, -50%) !important;
+  }
+}
+
