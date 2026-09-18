@@ -1,5 +1,4 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-import { CustomCursor } from '@/components/CustomCursor'
 
 import '../styles.css'
 
@@ -58,7 +57,6 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         />
       </head>
 <body>
-  <CustomCursor />
   {children}
   <Scripts />
 </body>
