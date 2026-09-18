@@ -18,6 +18,7 @@ export const profile = {
 
 /** Grounded in real figures already stated in the experience/project data below. */
 export const heroStats = [
+  { value: '3+', label: 'Years as a GoHighLevel & AI Automation Specialist' },
   { value: '80%', label: 'Less manual work for clients' },
   { value: '4', label: 'Core platforms: GHL, Zapier, Make, n8n' },
 ]
