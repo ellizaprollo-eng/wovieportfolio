@@ -49,10 +49,6 @@ function MarqueeRow({
 }
 
 export function Clients() {
-  const mid = Math.ceil(clientLogos.length / 2)
-  const rowOne = clientLogos.slice(0, mid)
-  const rowTwo = clientLogos.slice(mid)
-
   return (
     <section id="clients" className="relative bg-ink py-24 sm:py-28">
       <div className="container-x flex justify-center text-center">
@@ -62,9 +58,8 @@ export function Clients() {
         />
       </div>
 
-      <div className="mt-14 flex flex-col gap-5">
-        <MarqueeRow items={rowOne} duration={30} />
-        <MarqueeRow items={rowTwo} reverse duration={34} />
+      <div className="mt-14">
+        <MarqueeRow items={clientLogos} duration={34} />
       </div>
     </section>
   )
