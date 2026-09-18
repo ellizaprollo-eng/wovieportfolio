@@ -31,7 +31,6 @@ export const navLinks = [
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Experience', href: '#experience' },
   { label: 'Testimonials', href: '#testimonials' },
-  { label: 'Contact', href: '#contact' },
 ]
 
 export const processSteps = [
