@@ -1,10 +1,26 @@
 import { useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
-import { ArrowRight, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight, LayoutGrid, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
-import { SectionHeading } from '@/components/SectionHeading'
+import { cn } from '@/lib/utils'
 import { projects, type Project } from '@/data/portfolio'
 import { slugify } from '@/lib/slug'
+
+type FilterKey = 'all' | 'featured' | 'n8n' | 'Zapier' | 'Retell AI'
+
+const FILTERS: { key: FilterKey; label: string }[] = [
+  { key: 'all', label: 'All' },
+  { key: 'featured', label: 'Featured' },
+  { key: 'n8n', label: 'n8n' },
+  { key: 'Zapier', label: 'Zapier' },
+  { key: 'Retell AI', label: 'Retell AI' },
+]
+
+function matchesFilter(project: Project, filter: FilterKey) {
+  if (filter === 'all') return true
+  if (filter === 'featured') return !!project.featured
+  return project.tags.includes(filter)
+}
 
 function ViewOverlay({ label }: { label: string }) {
   return (
@@ -313,8 +329,11 @@ function ProjectLightbox({
 
 export function Projects() {
   const [activeProject, setActiveProject] = useState<Project | null>(null)
-  const featured = projects.filter((project) => project.featured)
-  const rest = projects.filter((project) => !project.featured)
+  const [filter, setFilter] = useState<FilterKey>('all')
+
+  const visible = projects.filter((project) => matchesFilter(project, filter))
+  const featured = visible.filter((project) => project.featured)
+  const rest = visible.filter((project) => !project.featured)
 
   function showRelative(offset: number) {
     setActiveProject((current) => {
@@ -330,21 +349,52 @@ export function Projects() {
       className="relative bg-surface py-24 sm:py-28"
     >
       <div className="container-x">
-        <SectionHeading
-          title="Project Highlights"
-          subtitle="Real-world automation solutions delivered for diverse clients. Click any workflow to view it in full."
-        />
+        <Reveal>
+          <p className="flex items-center gap-2.5 text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
+            <span className="h-px w-5 bg-accent-bright" aria-hidden="true" />
+            Featured Systems
+          </p>
+          <h1 className="heading-display mt-4 text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">
+            Automations I&rsquo;ve actually shipped.
+          </h1>
+          <p className="mt-3 max-w-2xl text-base text-body-dim">
+            Every project below is a real workflow built for a real
+            business, not a demo. Click any workflow to view it in full.
+          </p>
+        </Reveal>
 
-        <div className="mt-14 flex flex-col gap-6">
-          {featured.map((project, i) => (
-            <CaseStudy
-              key={project.title}
-              project={project}
-              delay={i * 90}
-              onView={() => setActiveProject(project)}
-            />
+        <Reveal delay={40} className="mt-8 flex flex-wrap gap-2">
+          {FILTERS.map((f) => (
+            <button
+              key={f.key}
+              type="button"
+              onClick={() => setFilter(f.key)}
+              aria-pressed={filter === f.key}
+              className={cn(
+                'inline-flex items-center gap-1.5 rounded-lg border px-3.5 py-2 text-sm font-medium transition-colors',
+                filter === f.key
+                  ? 'border-accent bg-accent/10 text-accent-bright'
+                  : 'border-fg/12 text-body-dim hover:border-fg/25 hover:text-fg',
+              )}
+            >
+              {f.key === 'all' && <LayoutGrid className="size-3.5" />}
+              {f.label}
+            </button>
           ))}
-        </div>
+        </Reveal>
+
+        {featured.length > 0 && (
+          <div className="mt-10 flex flex-col gap-6">
+            {featured.map((project, i) => (
+              <CaseStudy
+                key={project.title}
+                project={project}
+                delay={i * 90}
+                onView={() => setActiveProject(project)}
+              />
+            ))}
+          </div>
+        )}
 
         {rest.length > 0 && (
           <>
@@ -362,6 +412,12 @@ export function Projects() {
               ))}
             </div>
           </>
+        )}
+
+        {visible.length === 0 && (
+          <p className="mt-14 text-sm text-body-dim">
+            No projects match this filter yet.
+          </p>
         )}
       </div>
 
