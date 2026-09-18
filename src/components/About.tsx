@@ -17,9 +17,9 @@ export function About() {
             About Me
           </p>
           <h2 className="heading-display mt-4 text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">
-            Built Around Systems,
+            From manual work
             <br />
-            <span className="text-accent-bright">Not Guesswork.</span>
+            <span className="text-accent-bright">to systems that run themselves.</span>
           </h2>
         </Reveal>
 

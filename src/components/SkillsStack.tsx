@@ -14,7 +14,7 @@ export function SkillsStack() {
       <div className="container-x">
         <p className="flex items-center gap-2.5 text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
           <span className="h-px w-5 bg-accent-bright" aria-hidden="true" />
-          Skills &amp; Stack
+          Tools &amp; Platforms
         </p>
 
         <div className="mt-8 flex flex-col gap-6">
