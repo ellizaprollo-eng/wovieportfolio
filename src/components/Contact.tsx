@@ -45,7 +45,7 @@ export function Contact() {
         </Reveal>
 
         <div className="mt-8">
-          <Reveal className="mx-auto max-w-2xl rounded-lg border border-fg/[0.07] bg-card/60 p-6 sm:p-8">
+          <Reveal className="max-w-2xl rounded-lg border border-fg/[0.07] bg-card/60 p-6 sm:p-8">
             <h3 className="heading-display text-xl font-bold text-fg">
               Book a Call
             </h3>
