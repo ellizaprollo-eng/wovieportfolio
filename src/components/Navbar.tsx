@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from '@tanstack/react-router'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { ThemeToggle } from '@/components/ThemeToggle'
@@ -25,32 +26,33 @@ export function Navbar() {
       )}
     >
       <nav className="container-x flex h-16 items-center justify-between gap-4">
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="heading-display text-[15px] font-extrabold tracking-tight text-fg transition-colors hover:text-accent-bright"
         >
           {profile.shortName}
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
-              className="rounded-full px-3 py-2 text-sm text-body/90 transition-colors hover:bg-fg/5 hover:text-fg"
+              to={link.href}
+              activeOptions={{ exact: true }}
+              className="rounded-full px-3 py-2 text-sm text-body/90 transition-colors hover:bg-fg/5 hover:text-fg [&.active]:text-fg"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
           <ThemeToggle className="ml-1" />
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="btn-primary ml-2"
             style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
           >
             <span className="btn-node" aria-hidden="true" />
             Get In Touch
-          </a>
+          </Link>
         </div>
 
         <div className="flex items-center gap-1 lg:hidden">
@@ -71,23 +73,23 @@ export function Navbar() {
         <div className="container-x pb-5 lg:hidden">
           <div className="flex flex-col gap-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-3 py-2.5 text-sm text-body transition-colors hover:bg-fg/5 hover:text-fg"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               onClick={() => setOpen(false)}
               className="btn-primary mt-2 justify-center"
             >
               <span className="btn-node" aria-hidden="true" />
               Get In Touch
-            </a>
+            </Link>
           </div>
         </div>
       )}

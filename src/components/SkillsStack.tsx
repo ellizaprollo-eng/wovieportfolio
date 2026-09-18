@@ -1,5 +1,5 @@
 import { Reveal } from '@/components/Reveal'
-import { skillGroups } from '@/data/portfolio'
+import { skillGroups, techStack } from '@/data/portfolio'
 
 const LABEL_COLORS = [
   'text-accent-bright',
@@ -7,6 +7,8 @@ const LABEL_COLORS = [
   'text-accent',
   'text-body',
 ]
+
+const LOGO_BY_NAME = new Map(techStack.map((t) => [t.name, t.logo]))
 
 export function SkillsStack() {
   return (
@@ -30,14 +32,27 @@ export function SkillsStack() {
                 {group.label}
               </span>
               <div className="flex flex-1 flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-fg/10 px-3 py-1 text-xs font-medium text-body-dim"
-                  >
-                    {item}
-                  </span>
-                ))}
+                {group.items.map((item) => {
+                  const logo = LOGO_BY_NAME.get(item)
+                  return (
+                    <span
+                      key={item}
+                      className="flex items-center gap-2 rounded-full border border-fg/10 py-1 pr-3 pl-1.5 text-xs font-medium text-body-dim"
+                    >
+                      {logo && (
+                        <span className="flex size-5 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white">
+                          <img
+                            src={logo}
+                            alt=""
+                            loading="lazy"
+                            className="size-full object-contain p-0.5"
+                          />
+                        </span>
+                      )}
+                      {item}
+                    </span>
+                  )
+                })}
               </div>
             </Reveal>
           ))}

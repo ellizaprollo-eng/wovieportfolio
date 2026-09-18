@@ -35,12 +35,11 @@ export const Route = createFileRoute('/case-studies/$slug')({
 function BackLink() {
   return (
     <Link
-      to="/"
-      hash="portfolio"
+      to="/systems"
       className="inline-flex items-center gap-2 text-sm font-semibold text-body-dim transition-colors hover:text-accent-bright"
     >
       <ArrowLeft className="size-4" />
-      Back to Project Highlights
+      Back to Systems
     </Link>
   )
 }
@@ -60,9 +59,9 @@ function CaseStudyNotFound() {
           The project you&rsquo;re looking for may have moved. Head back to
           see the full list of projects.
         </p>
-        <Link to="/" hash="portfolio" className="btn-primary mt-2">
+        <Link to="/systems" className="btn-primary mt-2">
           <span className="btn-node" aria-hidden="true" />
-          Back to Project Highlights
+          Back to Systems
         </Link>
       </main>
       <Footer />
@@ -200,7 +199,7 @@ function CaseStudyPage() {
                 like for you.
               </p>
             </div>
-            <Link to="/" hash="contact" className="btn-primary shrink-0">
+            <Link to="/contact" className="btn-primary shrink-0">
               <span className="btn-node" aria-hidden="true" />
               Get In Touch
             </Link>

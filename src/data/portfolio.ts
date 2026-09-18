@@ -27,14 +27,10 @@ export const heroStats = [
 ]
 
 export const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Services', href: '#services' },
-  { label: 'Process', href: '#process' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Systems', href: '/systems' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export const processSteps = [

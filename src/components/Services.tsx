@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from '@tanstack/react-router'
 import {
   ArrowRight,
   BarChart3,
@@ -38,14 +39,14 @@ function ServiceCard({ service }: { service: (typeof services)[number] }) {
       <p className="mt-2 text-sm leading-relaxed text-body-dim">
         {service.description}
       </p>
-      <a
-        href="#contact"
+      <Link
+        to="/contact"
         className="btn-primary mt-5"
         style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
       >
         Discuss this service
         <ArrowRight className="btn-arrow size-4" />
-      </a>
+      </Link>
     </article>
   )
 }

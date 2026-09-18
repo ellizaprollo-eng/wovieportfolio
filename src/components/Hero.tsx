@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router'
 import { Aurora } from '@/components/Aurora'
 import { heroStats, profile } from '@/data/portfolio'
 
@@ -53,10 +54,10 @@ export function Hero() {
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a href="#contact" className="btn-primary">
+            <Link to="/contact" className="btn-primary">
               <span className="btn-node" aria-hidden="true" />
               Get In Touch
-            </a>
+            </Link>
             <a
               href="/resume.pdf"
               target="_blank"
@@ -81,23 +82,18 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative mx-auto flex w-full max-w-xs items-center justify-center lg:mx-0 lg:max-w-sm lg:justify-self-end">
-          <div className="absolute inset-0 m-auto aspect-square w-[110%] rounded-full border border-fg/15" />
-          <div className="relative aspect-square w-[78%] overflow-hidden rounded-full border-2 border-accent/60 shadow-[0_0_45px_-10px_rgba(63,199,176,0.55)]">
+        <div className="relative mx-auto w-full max-w-xs lg:mx-0 lg:max-w-sm lg:justify-self-end">
+          <div className="overflow-hidden rounded-2xl border border-fg/10 bg-card/40">
             <img
               src={profile.avatar}
               alt={profile.name}
               width={480}
-              height={480}
-              className="size-full object-cover object-top"
+              height={600}
+              className="aspect-[4/5] w-full object-cover object-top"
             />
           </div>
-          <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-fg/10 bg-ink/90 px-3 py-1.5 text-xs font-semibold text-body shadow-lg backdrop-blur-md">
-            <span className="relative flex size-1.5">
-              <span className="absolute inline-flex size-full motion-safe:animate-ping rounded-full bg-accent opacity-75" />
-              <span className="relative inline-flex size-1.5 rounded-full bg-accent" />
-            </span>
-            Available
+          <div className="absolute -bottom-4 left-4 rounded-lg border border-fg/10 bg-ink/90 px-4 py-2.5 text-xs font-semibold text-body shadow-lg backdrop-blur-md">
+            {profile.locationNote}
           </div>
         </div>
       </div>

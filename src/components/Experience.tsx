@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from '@tanstack/react-router'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
@@ -25,14 +26,14 @@ function ExperienceCard({ role }: { role: (typeof experience)[number] }) {
         ))}
       </ul>
 
-      <a
-        href="#contact"
+      <Link
+        to="/contact"
         className="btn-primary mt-5"
         style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
       >
         Discuss a project like this
         <ArrowRight className="btn-arrow size-4" />
-      </a>
+      </Link>
     </article>
   )
 }
@@ -80,14 +81,14 @@ function ExperienceSlider() {
             ))}
           </ul>
 
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="btn-primary mt-6"
             style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
           >
             Discuss a project like this
             <ArrowRight className="btn-arrow size-4" />
-          </a>
+          </Link>
         </div>
       </div>
 

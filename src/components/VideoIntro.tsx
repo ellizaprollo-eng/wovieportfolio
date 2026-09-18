@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { profile } from '@/data/portfolio'
@@ -23,10 +24,10 @@ export function VideoIntro() {
           </div>
 
           <div className="mt-8 flex justify-center">
-            <a href="#contact" className="btn-primary">
+            <Link to="/contact" className="btn-primary">
               <span className="btn-node" aria-hidden="true" />
               Get In Touch
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>
