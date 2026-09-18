@@ -49,10 +49,6 @@ export function Contact() {
             <h3 className="heading-display text-xl font-bold text-fg">
               Book a Call
             </h3>
-            <p className="mt-1.5 text-sm text-body-dim">
-              Pick a time that works for you, no back-and-forth needed &middot;{' '}
-              {profile.locationNote}
-            </p>
 
             <div className="mt-6">
               <CalendlyEmbed />
