@@ -5,7 +5,7 @@
 export const profile = {
   name: 'Wovie Prollo',
   shortName: 'Wovie Prollo',
-  role: 'Workflow & AI Automation Specialist',
+  role: 'Gohighlevel & AI Automation Specialist',
   headline: 'I take the busywork out of your operations.',
   intro:
     'I design and build automations on GoHighLevel, Zapier, Make, and n8n, connecting the tools you already use so the work happens without anyone touching it.',
