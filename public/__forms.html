@@ -7,16 +7,18 @@
   <body>
     <!--
       This file exists only so Netlify's build-time form detection registers the
-      "contact" form. It is never shown to visitors — the real form is the React
-      component in src/components/Contact.tsx, which POSTs here.
-      Every field the React form submits must be listed below.
+      "proposal-request" form. It is never shown to visitors — the real form is
+      the React component in src/components/estimator/ProposalModal.tsx, which
+      POSTs here. Every field the React form submits must be listed below.
     -->
-    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
-      <input type="text" name="firstName" />
-      <input type="text" name="lastName" />
-      <input type="text" name="company" />
+    <form name="proposal-request" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
       <input type="email" name="email" />
-      <textarea name="message"></textarea>
+      <input type="text" name="company" />
+      <textarea name="goals"></textarea>
+      <input type="date" name="startDate" />
+      <input type="text" name="scope" />
+      <input type="text" name="estimate" />
       <input type="text" name="bot-field" />
     </form>
   </body>
