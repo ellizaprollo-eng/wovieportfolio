@@ -57,7 +57,7 @@ function ExperienceSlider() {
           {String(active + 1).padStart(2, '0')}
         </span>
 
-        <div key={role.title} className="content-fade max-w-3xl">
+        <div key={role.title} className="content-fade min-w-0 max-w-3xl">
           <p className="text-xs font-bold tracking-[0.14em] text-accent uppercase">
             {String(active + 1).padStart(2, '0')} •{' '}
             {role.meta.split('|')[0].trim()}
@@ -71,7 +71,8 @@ function ExperienceSlider() {
             {role.points.map((point) => (
               <li
                 key={point}
-                className="relative pl-5 text-sm leading-relaxed text-body/90"
+                className="relative truncate pl-5 text-sm leading-relaxed text-body/90"
+                title={point}
               >
                 <span className="absolute top-[0.5em] left-0 size-1.5 rounded-full bg-accent/70" />
                 {point}
