@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
-import { profile } from '@/data/portfolio'
 
 const CALENDLY_URL = 'https://calendly.com/wovieprollo42/30min'
 const CALENDLY_SCRIPT_SRC = 'https://assets.calendly.com/assets/external/widget.js'
@@ -32,17 +31,6 @@ export function Contact() {
           title="Get In Touch"
           subtitle="Ready to automate your workflow? Let's discuss your project"
         />
-
-        <Reveal
-          delay={40}
-          className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent-soft"
-        >
-          <span className="relative flex size-2">
-            <span className="absolute inline-flex size-full motion-safe:animate-ping rounded-full bg-accent opacity-75" />
-            <span className="relative inline-flex size-2 rounded-full bg-accent" />
-          </span>
-          {profile.responseTime}
-        </Reveal>
 
         <Reveal className="mt-8 w-full max-w-2xl rounded-lg border border-fg/[0.07] bg-card/60 p-6 sm:p-8">
           <CalendlyEmbed />
