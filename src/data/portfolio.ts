@@ -25,11 +25,11 @@ export const heroStats = [
 
 export const navLinks = [
   { label: 'Home', href: '#home' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Services', href: '#services' },
   { label: 'Process', href: '#process' },
   { label: 'Portfolio', href: '#portfolio' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
 ]

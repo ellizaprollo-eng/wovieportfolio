@@ -21,12 +21,12 @@ function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Skills />
         <VideoIntro />
         <Services />
         <Process />
         <Projects />
         <Experience />
-        <Skills />
         <Testimonials />
         <Contact />
       </main>
