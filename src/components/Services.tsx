@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   ArrowRight,
   BarChart3,
@@ -48,43 +48,18 @@ function ServiceCard({ service }: { service: (typeof services)[number] }) {
   )
 }
 
-/** Flashes a centerline dot when it crosses the vertical middle of the viewport while scrolling. */
-function useNodeFlash() {
-  const dotRefs = useRef<Array<HTMLSpanElement | null>>([])
-
-  useEffect(() => {
-    const nodes = dotRefs.current.filter(Boolean) as HTMLSpanElement[]
-    if (nodes.length === 0 || typeof IntersectionObserver === 'undefined')
-      return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          const el = entry.target as HTMLSpanElement
-          if (entry.isIntersecting) {
-            el.classList.remove('node-flash')
-            // force reflow so the animation restarts if it fires again quickly
-            void el.offsetWidth
-            el.classList.add('node-flash')
-          } else {
-            el.classList.remove('node-flash')
-          }
-        }
-      },
-      { rootMargin: '-50% 0px -50% 0px', threshold: 0 },
-    )
-
-    nodes.forEach((node) => observer.observe(node))
-    return () => observer.disconnect()
-  }, [])
-
-  return dotRefs
-}
-
-/** Grows a fill line from 0 to 100% height as the container scrolls through the viewport. */
-function useScrollProgressLine() {
+/**
+ * Grows a fill line from 0 to 100% height as the container scrolls through
+ * the viewport, and activates each dot (persistent glow + one-shot flash)
+ * only once the fill's actual pixel progress reaches that dot's own
+ * measured center — never on a fixed delay or on page load.
+ */
+function useTimelineProgress(count: number) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const fillRef = useRef<HTMLDivElement | null>(null)
+  const dotRefs = useRef<Array<HTMLSpanElement | null>>([])
+  const activeRef = useRef<boolean[]>(Array(count).fill(false))
+  const [active, setActive] = useState<boolean[]>(() => Array(count).fill(false))
 
   useEffect(() => {
     const container = containerRef.current
@@ -100,6 +75,29 @@ function useScrollProgressLine() {
         const progress = (viewportCenter - rect.top) / rect.height
         const clamped = Math.min(1, Math.max(0, progress))
         fill.style.height = `${clamped * 100}%`
+
+        const fillPx = clamped * rect.height
+        let changed = false
+        const next = activeRef.current.map((was, i) => {
+          const dot = dotRefs.current[i]
+          if (!dot) return was
+          const dotCenter =
+            dot.getBoundingClientRect().top - rect.top + dot.offsetHeight / 2
+          const isActive = fillPx >= dotCenter
+          if (isActive && !was) {
+            // just reached this dot — restart the one-shot highlight flash
+            dot.classList.remove('node-flash')
+            void dot.offsetWidth
+            dot.classList.add('node-flash')
+          }
+          if (isActive !== was) changed = true
+          return isActive
+        })
+
+        if (changed) {
+          activeRef.current = next
+          setActive(next)
+        }
       })
     }
 
@@ -113,12 +111,13 @@ function useScrollProgressLine() {
     }
   }, [])
 
-  return { containerRef, fillRef }
+  return { containerRef, fillRef, dotRefs, active }
 }
 
 export function Services() {
-  const dotRefs = useNodeFlash()
-  const { containerRef, fillRef } = useScrollProgressLine()
+  const { containerRef, fillRef, dotRefs, active } = useTimelineProgress(
+    services.length,
+  )
 
   return (
     <section id="services" className="relative bg-ink py-24 sm:py-28">
@@ -159,7 +158,9 @@ export function Services() {
                     ref={(el) => {
                       dotRefs.current[i] = el
                     }}
-                    className="absolute top-8 left-1/2 z-10 size-3 -translate-x-1/2 rounded-full bg-accent ring-4 ring-ink"
+                    className={`absolute top-8 left-1/2 z-10 size-3 -translate-x-1/2 rounded-full ring-4 ring-ink transition-colors duration-300 ${
+                      active[i] ? 'bg-accent' : 'bg-fg/20'
+                    }`}
                   />
 
                   <div className={isLeft ? 'flex justify-end' : ''}>
