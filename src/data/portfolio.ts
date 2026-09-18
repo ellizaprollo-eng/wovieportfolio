@@ -64,12 +64,25 @@ export type ServiceIcon =
   | 'calendar'
   | 'chart'
   | 'bot'
+  | 'globe'
 
 export const services: Array<{
   icon: ServiceIcon
   title: string
   description: string
 }> = [
+  {
+    icon: 'message',
+    title: 'GoHighLevel CRM & Pipelines',
+    description:
+      'Set up and automate your GoHighLevel CRM, pipelines, and lead management so every contact moves through a clear, hands-off process.',
+  },
+  {
+    icon: 'globe',
+    title: 'Funnels & Website Development',
+    description:
+      'Build conversion-focused funnels and websites, from a single landing page to a full multi-page site, that feed directly into your CRM and automations.',
+  },
   {
     icon: 'workflow',
     title: 'Workflow Automation',
@@ -93,12 +106,6 @@ export const services: Array<{
     title: 'Data Management',
     description:
       'Optimize data workflows with Google Sheets, Airtable, and Monday integrations for efficient information management.',
-  },
-  {
-    icon: 'message',
-    title: 'CRM Automation',
-    description:
-      'Streamline customer relationship management with HubSpot and GoHighLevel automations for better client engagement.',
   },
   {
     icon: 'calendar',

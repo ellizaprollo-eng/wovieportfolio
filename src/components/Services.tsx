@@ -5,6 +5,7 @@ import {
   Bot,
   CalendarDays,
   Database,
+  Globe,
   MessageSquare,
   Share2,
   Zap,
@@ -21,6 +22,7 @@ const ICONS: Record<ServiceIcon, typeof Zap> = {
   calendar: CalendarDays,
   chart: BarChart3,
   bot: Bot,
+  globe: Globe,
 }
 
 function ServiceCard({ service }: { service: (typeof services)[number] }) {
