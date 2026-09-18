@@ -24,11 +24,11 @@ function Home() {
       <main>
         <Hero />
         <Skills />
-        <Clients />
         <VideoIntro />
         <Services />
         <Process />
         <Estimator />
+        <Clients />
         <Projects />
         <Experience />
         <Testimonials />
