@@ -92,7 +92,10 @@ function CaseStudy({
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="aspect-[281/160] w-full object-cover"
+          className={cn(
+            'aspect-[281/160] w-full object-cover',
+            project.imagePosition === 'top' && 'object-top',
+          )}
         />
         <ViewOverlay label="View full workflow" />
       </button>
@@ -179,7 +182,10 @@ function ProjectCard({
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="aspect-[281/160] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          className={cn(
+            'aspect-[281/160] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]',
+            project.imagePosition === 'top' && 'object-top',
+          )}
         />
         <ViewOverlay label={project.url ? 'View full page' : 'View full workflow'} />
       </button>

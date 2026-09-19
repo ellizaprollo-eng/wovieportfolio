@@ -370,6 +370,39 @@ export const caseStudies: Record<string, CaseStudyContent> = {
     ],
   },
 
+  'multi-path-document-generator': {
+    operationalValue: [
+      'Turns each incoming request into a finished Google Doc without anyone assembling it by hand.',
+      'Keeps every kind of request on its own dedicated path, so each one is handled the same way every time.',
+    ],
+    overview:
+      'A Zapier automation that starts from a webhook, sorts each request into one of five paths, runs a long chain of Python code steps on that path, and finishes by creating a Google Doc from the result.',
+    workflowProcess: [
+      'A webhook catches the incoming request and starts the Zap.',
+      'A Paths step checks the data and sends it down the matching branch, one of five.',
+      'Each branch opens with its own path conditions, so only the right requests enter it.',
+      'A chain of Python code steps processes the data and builds up the text, about sixteen steps on each path.',
+      'The final step creates a Google Doc from the finished text.',
+    ],
+    automationSolution: [
+      'Zapier as the automation platform.',
+      'Webhooks by Zapier to catch the incoming request.',
+      'Paths to split the flow into five separate sequences.',
+      'Code by Zapier (Python) for the processing steps.',
+      'Google Docs to create the finished document.',
+    ],
+    businessChallenges: [
+      'Different kinds of requests needed different handling, which is hard to keep consistent by hand.',
+      'Assembling a finished document from raw input was a repetitive manual job.',
+    ],
+    keyFeatures: [
+      'Five parallel paths, each with its own conditions.',
+      'A long chain of Python code steps on every path.',
+      'Automatic document creation in Google Docs.',
+      'Webhook trigger, so other tools can start it.',
+    ],
+  },
+
   'payments-tracking-audit': {
     operationalValue: [
       'Catches payment discrepancies right away instead of during a manual audit weeks later.',

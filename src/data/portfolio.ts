@@ -123,6 +123,8 @@ export type Project = {
   featured?: boolean
   /** Google Drive file id of a walkthrough video, shown as an embedded player in the featured card. */
   videoId?: string
+  /** Which part of a tall screenshot the card thumbnail should show. */
+  imagePosition?: 'top'
   /** Live site link, for website and funnel projects. */
   url?: string
   problem?: string
@@ -292,6 +294,20 @@ export const projects: Project[] = [
       "A Make automation queues the day's content and publishes it across channels on schedule automatically.",
     result:
       'The posting schedule runs itself daily, with nothing depending on someone remembering to hit publish.',
+  },
+  {
+    title: 'Multi-Path Document Generator',
+    description:
+      'Zapier automation that sorts each request into one of five paths and builds a Google Doc at the end of it',
+    image: '/projects/zap-multi-path-document.png',
+    imagePosition: 'top',
+    tags: ['Zapier', 'Webhook', 'Paths', 'Google Docs'],
+    problem:
+      'Turning each incoming request into a finished document meant repeating the same manual steps, with different handling for each kind of request.',
+    approach:
+      'A Zapier webhook catches the request and a Paths step sends it down one of five branches. Each branch runs a long chain of Python code steps, then creates a Google Doc from the finished text.',
+    result:
+      'Every request ends up as a finished Google Doc without anyone assembling it by hand.',
   },
   {
     title: 'Zapier Social Posting',
