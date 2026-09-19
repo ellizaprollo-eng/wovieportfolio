@@ -49,18 +49,9 @@ function ExperienceSlider() {
 
   return (
     <div className="relative hidden lg:block">
-      <div className="container-x grid grid-cols-[10rem_1fr] items-center gap-16">
-        <span
-          key={active}
-          aria-hidden="true"
-          className="content-fade heading-display select-none text-[8rem] leading-none font-extrabold text-fg/[0.04]"
-        >
-          {String(active + 1).padStart(2, '0')}
-        </span>
-
+      <div className="container-x">
         <div key={role.title} className="content-fade min-w-0 max-w-3xl">
           <p className="text-xs font-bold tracking-[0.14em] text-accent uppercase">
-            {String(active + 1).padStart(2, '0')} •{' '}
             {role.meta.split('|')[0].trim()}
           </p>
           <h3 className="heading-display mt-3 text-3xl font-extrabold text-fg sm:text-4xl">
@@ -72,8 +63,7 @@ function ExperienceSlider() {
             {role.points.map((point) => (
               <li
                 key={point}
-                className="relative truncate pl-5 text-sm leading-relaxed text-body/90"
-                title={point}
+                className="relative pl-5 text-sm leading-relaxed text-body/90"
               >
                 <span className="absolute top-[0.5em] left-0 size-1.5 rounded-full bg-accent/70" />
                 {point}

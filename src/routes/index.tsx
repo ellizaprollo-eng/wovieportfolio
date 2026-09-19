@@ -4,7 +4,6 @@ import { Hero } from '@/components/Hero'
 import { About } from '@/components/About'
 import { VideoIntro } from '@/components/VideoIntro'
 import { Experience } from '@/components/Experience'
-import { Skills } from '@/components/Skills'
 import { SkillsStack } from '@/components/SkillsStack'
 import { Clients } from '@/components/Clients'
 import { Testimonials } from '@/components/Testimonials'
@@ -21,12 +20,11 @@ function Home() {
       <main>
         <Hero />
         <About />
-        <Skills />
+        <SkillsStack />
         <VideoIntro />
         <Clients />
         <Experience />
         <Testimonials />
-        <SkillsStack />
       </main>
       <Footer />
     </>

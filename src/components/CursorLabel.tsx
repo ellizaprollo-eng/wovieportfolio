@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 
 /**
  * Follows the pointer everywhere on the site with a small branded "Hire Me"
- * tag. The native cursor stays visible; this only adds a floating label
- * next to it. Desktop/mouse only; never attaches on touch devices.
+ * tag, trailing the brand arrow cursor (set in styles.css). Desktop/mouse
+ * only; never attaches on touch devices.
  */
 export function CursorLabel() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
