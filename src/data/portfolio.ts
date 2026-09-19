@@ -410,7 +410,7 @@ export const projects: Project[] = [
     description:
       'Membership site for Power Suite, a national community for women in real estate and mortgage, with webinar and seminar sign-ups.',
     image: '/projects/websites/yourpowersuite.jpg',
-    tags: ['Website & Funnel', 'GoHighLevel'],
+    tags: ['Website & Funnel'],
     url: 'https://yourpowersuite.com/',
   },
   {
