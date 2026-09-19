@@ -562,6 +562,11 @@ export const clientLogos: ClientLogo[] = [
   { name: 'iCybernetics', logo: '/clients/icybernetics.webp' },
   { name: 'Vitality Capital Investments', logo: '/clients/vitality-capital.webp' },
   { name: 'Heavy Grind Media', logo: '/clients/heavy-grind-media.webp' },
+  { name: 'Row House', logo: '/clients/row-house.svg' },
+  { name: 'LeadKast', logo: '/clients/leadkast.png' },
+  { name: 'AI Pro Partner', logo: '/clients/ai-pro-partner.png' },
+  { name: 'The Disc Doctor', logo: '/clients/the-disc-doctor.png' },
+  { name: 'Disruptors Media', logo: '/clients/disruptors.png' },
 ]
 
 export const testimonials = [
