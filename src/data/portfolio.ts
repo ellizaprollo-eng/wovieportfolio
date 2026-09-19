@@ -121,6 +121,10 @@ export type Project = {
   image: string
   tags: string[]
   featured?: boolean
+  /** Google Drive file id of a walkthrough video, shown as an embedded player in the featured card. */
+  videoId?: string
+  /** Live site link, for website and funnel projects. */
+  url?: string
   problem?: string
   approach?: string
   result?: string
@@ -128,11 +132,40 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: 'Social Content Generator',
+    description:
+      'n8n workflow that turns a topic into a ready-to-post social package: caption, hashtags, and an AI image',
+    image: '/projects/social-content-generator.jpg',
+    tags: ['n8n', 'OpenAI', 'Google Sheets', 'Webhook'],
+    featured: true,
+    videoId: '19w2ZZaaKs8N8io1pz7q3CVmTzddvVm8X',
+    problem:
+      'Turning a topic into a finished social post meant writing the caption, hashtags, and an image brief by hand every time.',
+    approach:
+      'A form or webhook takes a topic. GPT-4o writes the caption, 18 hashtags, and an image prompt, a code step adds guardrails to the prompt, DALL-E 3 generates the image, and the result is logged to a Google Sheet.',
+    result:
+      'A topic becomes a ready-to-post package in about 40 seconds, logged with a Ready To Post flag for review.',
+  },
+  {
+    title: 'Onboarding & Ad Copy Pipeline',
+    description:
+      'n8n pipeline that takes a new client through onboarding, then writes Meta Ads copy and a follow-up sequence with OpenAI',
+    image: '/projects/onboarding-ad-copy-pipeline.jpg',
+    tags: ['n8n', 'OpenAI', 'GoHighLevel', 'Google Sheets'],
+    featured: true,
+    videoId: '1AqeuL_jirkqUth2MI8fJHqlhDvdTfw39',
+    problem:
+      'Onboarding a new client, then writing their ad copy and follow-up messages, was a chain of manual steps.',
+    approach:
+      'One n8n pipeline collects the onboarding data. Separate workflows then use OpenAI to write four variations of Meta Ads copy (primary text, headlines, descriptions) and a five-step SMS and email follow-up sequence, saving everything to Google Sheets for review.',
+    result:
+      'Ad copy and a full follow-up sequence are ready for review as soon as the onboarding data comes in, with none of it written by hand.',
+  },
+  {
     title: 'AI Chat Agent',
     description: 'AI agent that classifies incoming messages and routes replies automatically',
     image: '/projects/ai-chat-agent.png',
     tags: ['n8n', 'AI Agent', 'Vector Store', 'Webhook'],
-    featured: true,
     problem:
       'Incoming chat messages needed a human to read each one and decide whether it was urgent, a booking request, or something to escalate.',
     approach:
@@ -145,7 +178,6 @@ export const projects: Project[] = [
     description: 'AI-driven lead sourcing and scoring pipeline built on Apollo and Apify',
     image: '/projects/lead-enrichment-engine.png',
     tags: ['n8n', 'AI Agent', 'Apollo', 'Apify'],
-    featured: true,
     problem:
       'Finding and qualifying leads meant manually running Apollo searches, exporting lists, and scoring each contact by hand.',
     approach:
@@ -356,6 +388,54 @@ export const projects: Project[] = [
       'Configured a Retell AI voice receptionist to collect business info, gauge interest, and book a demo call in one conversation.',
     result:
       'Leads get qualified and booked on the same call, without a rep having to run through the script manually.',
+  },
+  {
+    title: 'The Row House',
+    description:
+      'Website for Row House, a full-body group fitness studio built around low-impact indoor rowing.',
+    image: '/projects/websites/therowhouse.jpg',
+    tags: ['Website & Funnel'],
+    url: 'https://www.therowhouse.com/',
+  },
+  {
+    title: 'LeadKast',
+    description:
+      'Website for LeadKast, a business growth and advisory firm that helps owners find and fix the bottlenecks holding their business back.',
+    image: '/projects/websites/leadkast.jpg',
+    tags: ['Website & Funnel'],
+    url: 'https://leadkast.com/',
+  },
+  {
+    title: 'Your Power Suite',
+    description:
+      'Membership site for Power Suite, a national community for women in real estate and mortgage, with webinar and seminar sign-ups.',
+    image: '/projects/websites/yourpowersuite.jpg',
+    tags: ['Website & Funnel', 'GoHighLevel'],
+    url: 'https://yourpowersuite.com/',
+  },
+  {
+    title: 'The Disc Doctor',
+    description:
+      'Local-service site for a Murfreesboro, TN chiropractor focused on non-surgical back and nerve pain care.',
+    image: '/projects/websites/thediscdoctor.jpg',
+    tags: ['Website & Funnel'],
+    url: 'https://site.thediscdoctor.com/',
+  },
+  {
+    title: 'AI Pro Partner',
+    description:
+      'Website for AI Pro Partner, a done-for-you AI systems partner offering chatbots, workflow automation, and integrations.',
+    image: '/projects/websites/aipropartner.jpg',
+    tags: ['Website & Funnel'],
+    url: 'https://aipropartner.com/home',
+  },
+  {
+    title: 'Disruptors Media',
+    description:
+      'Website for Disruptors Media, a fractional CAIO and CMO service that builds AI-powered marketing systems.',
+    image: '/projects/websites/disruptorsmedia.jpg',
+    tags: ['Website & Funnel'],
+    url: 'https://disruptorsmedia.com/',
   },
 ]
 

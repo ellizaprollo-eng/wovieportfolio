@@ -14,6 +14,7 @@ type FilterKey =
   | 'Zapier'
   | 'GoHighLevel'
   | 'Retell AI'
+  | 'Website & Funnel'
 
 const FILTERS: { key: FilterKey; label: string }[] = [
   { key: 'all', label: 'All' },
@@ -23,6 +24,7 @@ const FILTERS: { key: FilterKey; label: string }[] = [
   { key: 'Make', label: 'Make' },
   { key: 'Zapier', label: 'Zapier' },
   { key: 'Retell AI', label: 'Retell AI' },
+  { key: 'Website & Funnel', label: 'Website & Funnel' },
 ]
 
 function matchesFilter(project: Project, filter: FilterKey) {
@@ -55,20 +57,36 @@ function CaseStudy({
       as="article"
       className="overflow-hidden rounded-lg border border-fg/[0.07] bg-card/60 lg:grid lg:grid-cols-[0.85fr_1.15fr]"
     >
-      <button
-        type="button"
-        onClick={onView}
-        aria-label={`View the full ${project.title} workflow`}
-        className="group/view relative flex items-center overflow-hidden border-b border-fg/[0.06] bg-black/40 text-left lg:border-r lg:border-b-0"
-      >
-        <img
-          src={project.image}
-          alt={project.title}
-          loading="lazy"
-          className="aspect-[281/160] w-full object-cover"
-        />
-        <ViewOverlay label="View full workflow" />
-      </button>
+      {project.videoId ? (
+        <div
+          className="relative flex items-center overflow-hidden border-b border-fg/[0.06] bg-black/40 bg-cover bg-center lg:border-r lg:border-b-0"
+          style={{ backgroundImage: `url(${project.image})` }}
+        >
+          <iframe
+            src={`https://drive.google.com/file/d/${project.videoId}/preview`}
+            title={`${project.title} walkthrough video`}
+            loading="lazy"
+            allow="autoplay; fullscreen"
+            allowFullScreen
+            className="aspect-video w-full border-0"
+          />
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={onView}
+          aria-label={`View the full ${project.title} workflow`}
+          className="group/view relative flex items-center overflow-hidden border-b border-fg/[0.06] bg-black/40 text-left lg:border-r lg:border-b-0"
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            className="aspect-[281/160] w-full object-cover"
+          />
+          <ViewOverlay label="View full workflow" />
+        </button>
+      )}
 
       <div className="p-6 sm:p-8">
         <ul className="flex flex-wrap gap-2">
@@ -113,15 +131,28 @@ function CaseStudy({
           </div>
         </dl>
 
-        <Link
-          to="/case-studies/$slug"
-          params={{ slug: slugify(project.title) }}
-          className="btn-primary mt-6"
-          style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
-        >
-          View Case Study Details
-          <ArrowRight className="btn-arrow size-4" />
-        </Link>
+        {project.videoId ? (
+          <a
+            href={`https://drive.google.com/file/d/${project.videoId}/view`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary mt-6"
+            style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
+          >
+            Watch Full Walkthrough
+            <ArrowRight className="btn-arrow size-4" />
+          </a>
+        ) : (
+          <Link
+            to="/case-studies/$slug"
+            params={{ slug: slugify(project.title) }}
+            className="btn-primary mt-6"
+            style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
+          >
+            View Case Study Details
+            <ArrowRight className="btn-arrow size-4" />
+          </Link>
+        )}
       </div>
     </Reveal>
   )
@@ -154,7 +185,7 @@ function ProjectCard({
           loading="lazy"
           className="aspect-[281/160] w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
         />
-        <ViewOverlay label="View full workflow" />
+        <ViewOverlay label={project.url ? 'View full page' : 'View full workflow'} />
       </button>
 
       <div className="p-5">
@@ -206,15 +237,28 @@ function ProjectCard({
           ))}
         </ul>
 
-        <Link
-          to="/case-studies/$slug"
-          params={{ slug: slugify(project.title) }}
-          className="btn-primary mt-5"
-          style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
-        >
-          View Case Study Details
-          <ArrowRight className="btn-arrow size-4" />
-        </Link>
+        {project.url ? (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary mt-5"
+            style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
+          >
+            Visit Website
+            <ArrowRight className="btn-arrow size-4" />
+          </a>
+        ) : (
+          <Link
+            to="/case-studies/$slug"
+            params={{ slug: slugify(project.title) }}
+            className="btn-primary mt-5"
+            style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
+          >
+            View Case Study Details
+            <ArrowRight className="btn-arrow size-4" />
+          </Link>
+        )}
       </div>
     </Reveal>
   )
@@ -343,12 +387,16 @@ export function Projects() {
   const visible = projects.filter((project) => matchesFilter(project, filter))
   const featured = visible.filter((project) => project.featured)
   const rest = visible.filter((project) => !project.featured)
+  const isSite = (project: Project) => project.tags.includes('Website & Funnel')
+  const automations = rest.filter((project) => !isSite(project))
+  const sites = rest.filter(isSite)
 
   function showRelative(offset: number) {
     setActiveProject((current) => {
       if (!current) return current
-      const index = projects.indexOf(current)
-      return projects[(index + offset + projects.length) % projects.length]
+      const viewable = projects.filter((p) => !p.videoId)
+      const index = viewable.indexOf(current)
+      return viewable[(index + offset + viewable.length) % viewable.length]
     })
   }
 
@@ -366,8 +414,8 @@ export function Projects() {
             Automations I&rsquo;ve actually shipped.
           </h1>
           <p className="mt-3 max-w-2xl text-base text-body-dim">
-            Every project below is a real workflow built for a real
-            business, not a demo. Click any workflow to view it in full.
+            Every project below is real work built for a real
+            business, not a demo. Click any screenshot to view it in full.
           </p>
         </Reveal>
 
@@ -404,13 +452,31 @@ export function Projects() {
           </div>
         )}
 
-        {rest.length > 0 && (
+        {automations.length > 0 && (
           <>
             <h3 className="heading-display mt-16 text-lg font-bold text-fg">
               More automations
             </h3>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {rest.map((project, i) => (
+              {automations.map((project, i) => (
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                  delay={(i % 3) * 90}
+                  onView={() => setActiveProject(project)}
+                />
+              ))}
+            </div>
+          </>
+        )}
+
+        {sites.length > 0 && (
+          <>
+            <h3 className="heading-display mt-16 text-lg font-bold text-fg">
+              Websites &amp; Funnels
+            </h3>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {sites.map((project, i) => (
                 <ProjectCard
                   key={project.title}
                   project={project}
