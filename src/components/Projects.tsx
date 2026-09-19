@@ -244,7 +244,7 @@ function ProjectCard({
             className="btn-primary mt-5"
             style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
           >
-            Visit Website
+            Visit Site
             <ArrowRight className="btn-arrow size-4" />
           </a>
         ) : (
