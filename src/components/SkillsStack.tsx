@@ -14,8 +14,7 @@ export function SkillsStack() {
   return (
     <section className="relative bg-ink py-20 sm:py-24">
       <div className="container-x">
-        <p className="flex items-center gap-2.5 text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
-          <span className="h-px w-5 bg-accent-bright" aria-hidden="true" />
+        <p className="text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
           Tools &amp; Platforms
         </p>
 

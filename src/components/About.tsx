@@ -12,8 +12,7 @@ export function About() {
     <section id="about" className="relative bg-surface py-24 sm:py-28">
       <div className="container-x grid gap-10 lg:grid-cols-[0.55fr_1fr] lg:gap-16">
         <Reveal>
-          <p className="flex items-center gap-2.5 text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
-            <span className="h-px w-5 bg-accent-bright" aria-hidden="true" />
+          <p className="text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
             About Me
           </p>
           <h2 className="heading-display mt-4 text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">

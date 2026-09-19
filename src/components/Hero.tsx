@@ -32,8 +32,7 @@ export function Hero() {
 
       <div className="container-x relative z-10 grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
         <div>
-          <p className="flex items-center gap-2.5 text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
-            <span className="h-px w-5 bg-accent-bright" aria-hidden="true" />
+          <p className="text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
             {profile.role}
           </p>
 

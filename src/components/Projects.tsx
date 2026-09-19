@@ -359,8 +359,7 @@ export function Projects() {
     >
       <div className="container-x">
         <Reveal>
-          <p className="flex items-center gap-2.5 text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
-            <span className="h-px w-5 bg-accent-bright" aria-hidden="true" />
+          <p className="text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
             Featured Systems
           </p>
           <h1 className="heading-display mt-4 text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">
