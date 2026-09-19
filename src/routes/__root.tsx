@@ -12,7 +12,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'theme-color', content: '#0b0e14' },
+      { name: 'theme-color', content: '#02191e' },
       { title: TITLE },
       { name: 'description', content: DESCRIPTION },
       { property: 'og:title', content: TITLE },
@@ -22,7 +22,9 @@ export const Route = createRootRoute({
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
     links: [
-      { rel: 'icon', href: '/favicon.ico' },
+      { rel: 'icon', href: '/favicon.ico?v=2', sizes: 'any' },
+      { rel: 'icon', href: '/favicon.png?v=2', type: 'image/png' },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png?v=2' },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       {
         rel: 'preconnect',
