@@ -58,18 +58,17 @@ function CaseStudy({
       className="overflow-hidden rounded-lg border border-fg/[0.07] bg-card/60 lg:grid lg:grid-cols-[0.85fr_1.15fr]"
     >
       {project.videoId ? (
-        <div
-          className="relative flex items-center overflow-hidden border-b border-fg/[0.06] bg-black/40 bg-cover bg-center lg:border-r lg:border-b-0"
-          style={{ backgroundImage: `url(${project.image})` }}
-        >
-          <iframe
-            src={`https://drive.google.com/file/d/${project.videoId}/preview`}
-            title={`${project.title} walkthrough video`}
-            loading="lazy"
-            allow="autoplay; fullscreen"
-            allowFullScreen
-            className="aspect-video w-full border-0"
-          />
+        <div className="flex items-center border-b border-fg/[0.06] p-4 sm:p-6 lg:border-r lg:border-b-0">
+          <div className="aspect-video w-full overflow-hidden rounded-2xl border border-fg/[0.07] shadow-2xl">
+            <iframe
+              src={`https://drive.google.com/file/d/${project.videoId}/preview`}
+              title={`${project.title} walkthrough video`}
+              loading="lazy"
+              allow="fullscreen; autoplay"
+              allowFullScreen
+              className="h-full w-full"
+            />
+          </div>
         </div>
       ) : (
         <button

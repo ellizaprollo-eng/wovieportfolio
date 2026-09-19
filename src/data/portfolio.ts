@@ -151,7 +151,7 @@ export const projects: Project[] = [
     description:
       'n8n pipeline that takes a new client through onboarding, then writes Meta Ads copy and a follow-up sequence with OpenAI',
     image: '/projects/onboarding-ad-copy-pipeline.jpg',
-    tags: ['n8n', 'OpenAI', 'GoHighLevel', 'Google Sheets'],
+    tags: ['n8n', 'OpenAI', 'Google Sheets'],
     featured: true,
     videoId: '1AqeuL_jirkqUth2MI8fJHqlhDvdTfw39',
     problem:
