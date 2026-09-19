@@ -51,41 +51,51 @@ function CaseStudy({
   delay: number
   onView: () => void
 }) {
+  // Walkthrough videos are shown on their own: just the player, no text.
+  if (project.videoId) {
+    return (
+      <Reveal delay={delay} as="article">
+        <p className="mb-3 flex items-center justify-between gap-4 text-xs font-semibold tracking-[0.16em] text-accent-bright uppercase">
+          <span className="flex items-center gap-2">
+            <span className="size-1.5 rounded-full bg-accent-bright" aria-hidden="true" />
+            Video walkthrough
+          </span>
+          <span className="truncate text-body-dim">{project.title}</span>
+        </p>
+        <div className="aspect-video w-full overflow-hidden rounded-2xl border border-fg/[0.07] shadow-2xl">
+          <iframe
+            src={`https://drive.google.com/file/d/${project.videoId}/preview`}
+            title={`${project.title} walkthrough video`}
+            loading="lazy"
+            allow="fullscreen; autoplay"
+            allowFullScreen
+            className="h-full w-full"
+          />
+        </div>
+      </Reveal>
+    )
+  }
+
   return (
     <Reveal
       delay={delay}
       as="article"
       className="overflow-hidden rounded-lg border border-fg/[0.07] bg-card/60 lg:grid lg:grid-cols-[0.85fr_1.15fr]"
     >
-      {project.videoId ? (
-        <div className="flex items-center border-b border-fg/[0.06] p-4 sm:p-6 lg:border-r lg:border-b-0">
-          <div className="aspect-video w-full overflow-hidden rounded-2xl border border-fg/[0.07] shadow-2xl">
-            <iframe
-              src={`https://drive.google.com/file/d/${project.videoId}/preview`}
-              title={`${project.title} walkthrough video`}
-              loading="lazy"
-              allow="fullscreen; autoplay"
-              allowFullScreen
-              className="h-full w-full"
-            />
-          </div>
-        </div>
-      ) : (
-        <button
-          type="button"
-          onClick={onView}
-          aria-label={`View the full ${project.title} workflow`}
-          className="group/view relative flex items-center overflow-hidden border-b border-fg/[0.06] bg-black/40 text-left lg:border-r lg:border-b-0"
-        >
-          <img
-            src={project.image}
-            alt={project.title}
-            loading="lazy"
-            className="aspect-[281/160] w-full object-cover"
-          />
-          <ViewOverlay label="View full workflow" />
-        </button>
-      )}
+      <button
+        type="button"
+        onClick={onView}
+        aria-label={`View the full ${project.title} workflow`}
+        className="group/view relative flex items-center overflow-hidden border-b border-fg/[0.06] bg-black/40 text-left lg:border-r lg:border-b-0"
+      >
+        <img
+          src={project.image}
+          alt={project.title}
+          loading="lazy"
+          className="aspect-[281/160] w-full object-cover"
+        />
+        <ViewOverlay label="View full workflow" />
+      </button>
 
       <div className="p-6 sm:p-8">
         <ul className="flex flex-wrap gap-2">
@@ -130,28 +140,15 @@ function CaseStudy({
           </div>
         </dl>
 
-        {project.videoId ? (
-          <a
-            href={`https://drive.google.com/file/d/${project.videoId}/view`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary mt-6"
-            style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
-          >
-            Watch Full Walkthrough
-            <ArrowRight className="btn-arrow size-4" />
-          </a>
-        ) : (
-          <Link
-            to="/case-studies/$slug"
-            params={{ slug: slugify(project.title) }}
-            className="btn-primary mt-6"
-            style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
-          >
-            View Case Study Details
-            <ArrowRight className="btn-arrow size-4" />
-          </Link>
-        )}
+        <Link
+          to="/case-studies/$slug"
+          params={{ slug: slugify(project.title) }}
+          className="btn-primary mt-6"
+          style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
+        >
+          View Case Study Details
+          <ArrowRight className="btn-arrow size-4" />
+        </Link>
       </div>
     </Reveal>
   )
