@@ -222,16 +222,19 @@ function ProjectCard({
           </p>
         )}
 
-        <ul className="mt-4 flex flex-wrap gap-2">
-          {project.tags.map((tag) => (
-            <li
-              key={tag}
-              className="rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-xs font-medium text-accent-soft"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
+        {/* Website cards are filed by the Website & Funnel tab; the chip would only repeat it. */}
+        {!project.url && (
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <li
+                key={tag}
+                className="rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-xs font-medium text-accent-soft"
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
 
         {project.url ? (
           <a
