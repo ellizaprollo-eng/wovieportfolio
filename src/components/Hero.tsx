@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { Aurora } from '@/components/Aurora'
-import { heroStats, profile } from '@/data/portfolio'
+import { profile } from '@/data/portfolio'
 
 function Headline() {
   const { headline, headlineHighlight } = profile
@@ -65,19 +65,6 @@ export function Hero() {
             >
               Resume
             </a>
-          </div>
-
-          <div className="mt-10 grid max-w-md grid-cols-2 gap-x-8 gap-y-6 border-t border-fg/10 pt-8">
-            {heroStats.map((stat) => (
-              <div key={stat.label}>
-                <p className="heading-display text-2xl font-bold text-fg">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-xs leading-snug text-body-dim">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
 
