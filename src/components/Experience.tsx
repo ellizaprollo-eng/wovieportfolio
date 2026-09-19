@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { cn } from '@/lib/utils'
@@ -38,17 +38,30 @@ function ExperienceCard({ role }: { role: (typeof experience)[number] }) {
   )
 }
 
-/** Click-through slider: advances through `experience` via prev/next arrows or the dots, no scroll-jacking. */
+const AUTO_ADVANCE_MS = 6000
+
+/** Auto-advancing slider: rotates through `experience` on a timer, pauses on hover, and the dots jump to a role. */
 function ExperienceSlider() {
   const [active, setActive] = useState(0)
+  const [paused, setPaused] = useState(false)
   const role = experience[active]
 
-  function go(delta: number) {
-    setActive((prev) => (prev + delta + experience.length) % experience.length)
-  }
+  // Re-runs on every change of `active`, so clicking a dot restarts the timer.
+  useEffect(() => {
+    if (paused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const id = window.setTimeout(
+      () => setActive((prev) => (prev + 1) % experience.length),
+      AUTO_ADVANCE_MS,
+    )
+    return () => window.clearTimeout(id)
+  }, [active, paused])
 
   return (
-    <div className="relative hidden lg:block">
+    <div
+      className="relative hidden lg:block"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className="container-x">
         <div key={role.title} className="content-fade min-w-0 max-w-3xl">
           <p className="text-xs font-bold tracking-[0.14em] text-accent uppercase">
@@ -82,45 +95,25 @@ function ExperienceSlider() {
         </div>
       </div>
 
-      <div className="container-x mt-10 flex items-center gap-5">
-        <button
-          type="button"
-          onClick={() => go(-1)}
-          aria-label="Previous role"
-          className="flex size-9 items-center justify-center rounded-full border border-fg/15 text-fg transition-colors hover:border-accent/50 hover:text-accent"
-        >
-          <ChevronLeft className="size-4" />
-        </button>
-
-        <div className="flex items-center gap-3">
-          {experience.map((r, i) => (
-            <button
-              key={r.title}
-              type="button"
-              onClick={() => setActive(i)}
-              aria-label={`Go to ${r.title}`}
-              aria-current={i === active}
-              className="p-1"
-            >
-              <span
-                aria-hidden="true"
-                className={cn(
-                  'block size-2 rounded-full transition-colors duration-300',
-                  i === active ? 'bg-accent' : 'bg-fg/15',
-                )}
-              />
-            </button>
-          ))}
-        </div>
-
-        <button
-          type="button"
-          onClick={() => go(1)}
-          aria-label="Next role"
-          className="flex size-9 items-center justify-center rounded-full border border-fg/15 text-fg transition-colors hover:border-accent/50 hover:text-accent"
-        >
-          <ChevronRight className="size-4" />
-        </button>
+      <div className="container-x mt-10 flex items-center justify-center gap-3">
+        {experience.map((r, i) => (
+          <button
+            key={r.title}
+            type="button"
+            onClick={() => setActive(i)}
+            aria-label={`Go to ${r.title}`}
+            aria-current={i === active}
+            className="p-1"
+          >
+            <span
+              aria-hidden="true"
+              className={cn(
+                'block size-2 rounded-full transition-colors duration-300',
+                i === active ? 'bg-accent' : 'bg-fg/15',
+              )}
+            />
+          </button>
+        ))}
       </div>
     </div>
   )
