@@ -364,7 +364,7 @@ export const experience = [
     title: 'Workflow Automation Specialist',
     meta: 'Freelance | Upwork & OnlineJobs.ph • Current',
     points: [
-      'Designed and implemented n8n and Zapier automation workflows, reducing manual processes by 80%',
+      'Designed and implemented automation workflows in n8n, Make, Zapier, and native GoHighLevel, reducing manual processes by 80%',
       'Built AI chat and voice agents (OpenAI, Retell AI) for lead qualification, appointment booking, and inbound call handling',
       'Set up lead sourcing and enrichment pipelines with Apollo and Apify, and automated content publishing to WordPress',
     ],
