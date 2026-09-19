@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/Reveal'
+import { heroStats } from '@/data/portfolio'
 
 const PARAGRAPHS = [
   "I'm Wovie, a GoHighLevel and AI Automation Specialist based in Butuan City, Philippines, working remotely with clients across every time zone.",
@@ -20,6 +21,15 @@ export function About() {
             <br />
             <span className="text-accent-bright">to systems that run themselves.</span>
           </h2>
+
+          <div className="mt-10 grid max-w-md grid-cols-2 gap-x-8 gap-y-6 border-t border-fg/10 pt-8">
+            {heroStats.map((stat) => (
+              <div key={stat.label}>
+                <p className="heading-display text-2xl font-bold text-fg">{stat.value}</p>
+                <p className="mt-1 text-xs leading-snug text-body-dim">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </Reveal>
 
         <Reveal delay={60} className="flex flex-col gap-5">

@@ -28,8 +28,15 @@ export function Navbar() {
       <nav className="container-x flex h-16 items-center justify-between gap-4">
         <Link
           to="/"
-          className="heading-display text-[15px] font-extrabold tracking-tight text-fg transition-colors hover:text-accent-bright"
+          className="heading-display flex items-center gap-2.5 text-[15px] font-extrabold tracking-tight text-fg transition-colors hover:text-accent-bright"
         >
+          <img
+            src="/favicon.png?v=2"
+            alt=""
+            width={32}
+            height={32}
+            className="size-8 rounded-full"
+          />
           {profile.shortName}
         </Link>
 
