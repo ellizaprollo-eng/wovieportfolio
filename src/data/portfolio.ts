@@ -179,57 +179,57 @@ export const projects: Project[] = [
   },
   {
     title: 'Form Submission Lead Routing',
-    description: 'Routes form submissions to the right owner and follow-up sequence in real time',
+    description: 'Follows up on every form submission with email, SMS, and an AI voice call, then routes the lead by outcome',
     image: '/projects/form-submission-lead.png',
-    tags: ['n8n', 'Webhook', 'CRM'],
+    tags: ['GoHighLevel', 'Webhook', 'CRM'],
     problem:
       'Form submissions landed in one inbox with no clear owner, so leads sat until someone noticed them.',
     approach:
-      'A webhook-triggered n8n workflow reads each submission and routes it to the right owner and follow-up sequence in the CRM the moment it comes in.',
+      'A GoHighLevel workflow tags the contact and creates an opportunity the moment a form is submitted, sends an initial email and SMS, then triggers an AI voice agent through a webhook step and routes the lead based on whether they booked, engaged, or did not answer.',
     result:
-      'Every lead reaches the right person immediately instead of waiting in a shared inbox.',
+      'Every lead gets contacted immediately and lands in the right follow-up path instead of waiting in a shared inbox.',
   },
   {
     title: 'Survey Intake Automation',
-    description: 'Processes survey responses and syncs structured answers into the CRM',
+    description: 'Follows up after a survey submission and stops automatically once the contact books',
     image: '/projects/form-survey-neuro.png',
-    tags: ['n8n', 'Forms', 'CRM'],
+    tags: ['GoHighLevel', 'Forms', 'CRM'],
     problem:
-      'Survey responses arrived as raw form data that had to be manually reviewed and entered into the CRM.',
+      'Survey respondents who had not booked yet needed follow-up, but reminding people who had already booked wasted their time and looked out of touch.',
     approach:
-      'An n8n workflow processes each response as it comes in, structures the answers, and syncs them directly into the CRM.',
+      'A GoHighLevel workflow waits a day after the survey is submitted, checks whether the contact is tagged as having booked an appointment, and only sends the next follow-up email if they have not, repeating the wait, check, and send cycle automatically.',
     result:
-      'Survey data is usable in the CRM the moment it is submitted, with no manual re-entry.',
+      'Contacts who already booked stop getting reminders on their own, while everyone else keeps receiving a follow-up until they do.',
   },
   {
     title: 'Outbound Call Automation',
     description: 'Queues outbound calls from a lead list and logs outcomes automatically',
     image: '/projects/outbound-call.png',
-    tags: ['n8n', 'Voice', 'CRM'],
+    tags: ['Make', 'Voice', 'CRM', 'GoHighLevel'],
     problem:
       'Working through an outbound call list meant manually dialing each contact and logging the outcome afterward.',
     approach:
-      'An n8n workflow queues calls from the lead list in order and logs each outcome back to the CRM automatically as calls complete.',
+      'A Make automation queues calls from the lead list in order and logs each outcome back to the CRM automatically as calls complete.',
     result:
       'The call list works through itself in sequence, and every outcome is recorded without manual follow-up.',
   },
   {
     title: 'Coaching Business Pipeline',
-    description: 'Intake and follow-up pipeline routing new leads into the right nurture sequence',
+    description: 'Routes new coaching contacts into the matching content and nurture sequence',
     image: '/projects/fl-coaches-workflow.png',
-    tags: ['n8n', 'CRM', 'Lead Nurture'],
+    tags: ['GoHighLevel', 'CRM', 'Lead Nurture'],
     problem:
-      'New coaching leads needed to be manually sorted and enrolled into the right follow-up sequence based on their intake answers.',
+      'New coaching leads needed to be manually sorted and enrolled into the right follow-up sequence based on the program they triggered.',
     approach:
-      "An n8n pipeline reads each new lead's intake data and automatically enrolls them into the matching nurture sequence in the CRM.",
+      'A GoHighLevel workflow routes each contact into the matching branch based on the program they triggered, then delivers a structured series of weekly strategy prompts and content over a 12-week cycle.',
     result:
-      'Leads start receiving the right follow-up immediately instead of waiting to be manually sorted.',
+      'Leads start receiving the right sequence immediately instead of waiting to be manually sorted.',
   },
   {
     title: 'Coaching Business Pipeline v2',
     description: 'Expanded version of the coaching pipeline with added branching and follow-up logic',
     image: '/projects/fl-coaches-workflow-2.png',
-    tags: ['n8n', 'CRM', 'Lead Nurture'],
+    tags: ['GoHighLevel', 'CRM', 'Lead Nurture'],
     problem:
       "The original pipeline could only handle one nurture path, so leads that didn't fit the standard profile fell through the cracks.",
     approach:
@@ -253,11 +253,11 @@ export const projects: Project[] = [
     title: 'Daily Posting Automation',
     description: 'Queues and publishes daily social content on schedule across channels',
     image: '/projects/daily-posting-automation.png',
-    tags: ['n8n', 'Social Media', 'Scheduling'],
+    tags: ['Make', 'Social Media', 'Scheduling'],
     problem:
       'Keeping a daily posting schedule across multiple social channels meant manually publishing on each platform every day.',
     approach:
-      "An n8n workflow queues the day's content and publishes it across channels on schedule automatically.",
+      "A Make automation queues the day's content and publishes it across channels on schedule automatically.",
     result:
       'The posting schedule runs itself daily, with nothing depending on someone remembering to hit publish.',
   },
@@ -277,37 +277,37 @@ export const projects: Project[] = [
     title: 'Payments Tracking & Audit',
     description: 'Logs incoming payments, reconciles them against records, and flags mismatches',
     image: '/projects/payments-received-tracking-audit.png',
-    tags: ['n8n', 'Finance', 'Reporting'],
+    tags: ['GoHighLevel', 'Finance', 'Reporting'],
     problem:
       'Reconciling incoming payments against records was a manual process prone to missed or mismatched entries.',
     approach:
-      'An n8n workflow logs every incoming payment, reconciles it against existing records, and flags any mismatch automatically.',
+      'A GoHighLevel workflow logs every incoming payment, reconciles it against existing records, and flags any mismatch automatically.',
     result:
       'Payment discrepancies get caught and flagged right away instead of surfacing during a manual audit weeks later.',
   },
   {
     title: 'Post-Purchase Review Request',
-    description: 'Triggers a timed review request after purchase and tracks the response',
+    description: 'Confirms the purchase after an appointment, then sends the review request',
     image: '/projects/post-purchase-review-request.png',
-    tags: ['n8n', 'Customer Experience'],
+    tags: ['GoHighLevel', 'Customer Experience'],
     problem:
       'Asking customers for a review after purchase meant remembering to follow up at the right time for every order.',
     approach:
-      'An n8n workflow triggers a timed review request after each purchase and tracks whether the customer responds.',
+      'A GoHighLevel workflow tracks which confirmation link a contact clicks after their appointment, marks the opportunity won once the purchase amount is entered, and then sends the review request.',
     result:
       'Every customer gets asked for a review at the right moment, with no manual follow-up required.',
   },
   {
     title: 'Review Workflow',
-    description: 'Collects and routes incoming reviews so the team only sees ones needing a response',
+    description: 'Triggers 30, 60, and 90-day account reviews and notifies the assigned account manager',
     image: '/projects/review-workflow.png',
-    tags: ['n8n', 'Customer Experience'],
+    tags: ['GoHighLevel', 'Customer Experience'],
     problem:
-      'Incoming reviews landed in one place with no way to tell which ones actually needed a response from the team.',
+      'Account reviews at the 30, 60, and 90-day marks depended on someone remembering to send them and loop in the right account manager.',
     approach:
-      'An n8n workflow collects incoming reviews and routes only the ones that need attention to the team, filtering out the rest.',
+      'A GoHighLevel workflow triggers on each review milestone, sends the review email or form, assigns the account manager, and notifies them again after a wait if it has not been actioned.',
     result:
-      'The team only sees the reviews that actually need a reply, instead of scanning through all of them.',
+      'Every account gets its review on schedule, and the assigned account manager is notified automatically instead of relying on someone to track it.',
   },
   {
     title: 'Voice AI Booking Workflow',

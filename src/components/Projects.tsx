@@ -6,12 +6,21 @@ import { cn } from '@/lib/utils'
 import { projects, type Project } from '@/data/portfolio'
 import { slugify } from '@/lib/slug'
 
-type FilterKey = 'all' | 'featured' | 'n8n' | 'Zapier' | 'Retell AI'
+type FilterKey =
+  | 'all'
+  | 'featured'
+  | 'n8n'
+  | 'Make'
+  | 'Zapier'
+  | 'GoHighLevel'
+  | 'Retell AI'
 
 const FILTERS: { key: FilterKey; label: string }[] = [
   { key: 'all', label: 'All' },
   { key: 'featured', label: 'Featured' },
+  { key: 'GoHighLevel', label: 'GoHighLevel' },
   { key: 'n8n', label: 'n8n' },
+  { key: 'Make', label: 'Make' },
   { key: 'Zapier', label: 'Zapier' },
   { key: 'Retell AI', label: 'Retell AI' },
 ]

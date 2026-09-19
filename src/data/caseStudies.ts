@@ -138,59 +138,62 @@ export const caseStudies: Record<string, CaseStudyContent> = {
 
   'form-submission-lead-routing': {
     operationalValue: [
-      'Removes the delay between a form submission and someone actually seeing it, since leads no longer wait in a shared inbox.',
-      'Makes sure every lead has a clear owner and a follow-up sequence, instead of depending on someone noticing it.',
+      'Contacts every new lead within minutes by email, SMS, and an AI voice call, instead of waiting for someone to notice the submission.',
+      'Sorts leads by outcome (booked, engaged, or no answer) so follow-up effort goes where it is needed.',
     ],
     overview:
-      'Built for a business collecting leads through web forms, this workflow makes sure every submission reaches the right person and the right follow-up sequence the moment it arrives.',
+      'Built for a business collecting leads through web forms, this GoHighLevel workflow starts working the moment a form is submitted, reaching out on several channels and routing each lead by how the conversation goes.',
     workflowProcess: [
-      'A form submission triggers a webhook.',
-      'The n8n workflow reads the submission details.',
-      'The lead is routed to the correct owner based on those details.',
-      'The matching follow-up sequence starts in the CRM immediately.',
+      'A form submission triggers the GoHighLevel workflow.',
+      'The contact is tagged and an opportunity is created or updated.',
+      'An initial email and SMS go out right away.',
+      'After a short wait, a webhook step triggers an AI voice agent to call the lead.',
+      'A condition checks the result: booked an appointment, engaged but declined to book, or no answer.',
+      'Each outcome is tagged and routed, with a follow-up call attempted once for contacts who did not answer.',
     ],
     automationSolution: [
-      'n8n as the workflow engine.',
-      'A webhook trigger to catch form submissions in real time.',
-      'CRM integration for owner assignment and follow-up sequencing.',
+      'GoHighLevel workflows for triggers, tagging, opportunities, email, and SMS.',
+      'A webhook step to hand the lead to an AI voice agent.',
+      'Condition branches to route contacts by call outcome.',
     ],
     businessChallenges: [
       'Submissions landed in a single shared inbox with no clear owner.',
       'Leads sat untouched until someone happened to notice them.',
     ],
     keyFeatures: [
-      'Real-time routing triggered by webhook.',
-      'Automatic owner assignment based on submission details.',
-      'Immediate enrollment into the right CRM follow-up sequence.',
+      'Instant multi-channel outreach (email, SMS, AI voice call).',
+      'Outcome-based routing: booked, engaged, or no answer.',
+      'A single automatic retry for leads who did not pick up.',
+      'Opportunities and tags kept up to date at every step.',
     ],
   },
 
   'survey-intake-automation': {
     operationalValue: [
-      "Removes the manual data-entry step entirely, since survey answers sync into the CRM the moment they're submitted.",
-      'Makes survey data usable immediately, instead of waiting for someone to review and enter it.',
+      'Keeps survey respondents moving toward a booking without anyone manually chasing them.',
+      'Stops reminders automatically once a contact books, so nobody gets nudged after they have already committed.',
     ],
     overview:
-      'Built for a business using surveys to collect structured information from leads or clients, this workflow turns raw form data into usable CRM records with no manual review step.',
+      'Built for a business using a survey to bring in leads, this GoHighLevel workflow follows up with each respondent on a schedule and checks whether they have already booked before every message.',
     workflowProcess: [
-      'A survey response is submitted.',
-      'The n8n workflow reads the raw response data.',
-      'Each answer is structured into the matching CRM field.',
-      'The structured record syncs into the CRM automatically.',
+      'A survey submission starts the workflow for that contact.',
+      'The workflow waits a day.',
+      'A condition checks whether the contact is tagged as having booked an appointment.',
+      'If they have booked, the workflow ends. If not, the next follow-up email goes out.',
+      'The wait, check, and send cycle repeats for the following messages.',
     ],
     automationSolution: [
-      'n8n as the workflow engine.',
-      'Forms integration to capture survey responses.',
-      'CRM sync for structured answer storage.',
+      'GoHighLevel workflows for the survey trigger, waits, and email sends.',
+      'Tag-based conditions to detect a booked appointment.',
     ],
     businessChallenges: [
-      'Survey responses arrived as raw data that needed manual review before it meant anything.',
-      'Entering that data into the CRM by hand was a repetitive, error-prone step.',
+      'Respondents who had not booked needed consistent follow-up, but doing it by hand was easy to forget.',
+      'Reminding people who had already booked wasted their time and looked out of touch.',
     ],
     keyFeatures: [
-      'Automatic structuring of raw survey answers.',
-      'Real-time sync into the CRM.',
-      'No manual re-entry required.',
+      'Timed follow-up emails after a survey submission.',
+      'Booking check before every message.',
+      'Automatic stop once an appointment is booked.',
     ],
   },
 
@@ -203,12 +206,12 @@ export const caseStudies: Record<string, CaseStudyContent> = {
       'Built for a business running outbound call campaigns, this workflow queues the call list and keeps the CRM updated automatically as calls are completed.',
     workflowProcess: [
       'The lead list loads into the queue in order.',
-      'The n8n workflow triggers each call in sequence.',
+      'The Make automation triggers each call in sequence.',
       'The outcome of each call is captured as it completes.',
       'That outcome logs back to the CRM automatically.',
     ],
     automationSolution: [
-      'n8n as the workflow engine.',
+      'Make as the automation engine.',
       'A queuing system for working through the call list in order.',
       'CRM integration for automatic outcome logging.',
     ],
@@ -225,59 +228,59 @@ export const caseStudies: Record<string, CaseStudyContent> = {
 
   'coaching-business-pipeline': {
     operationalValue: [
-      'Removes the manual sorting step, so every new lead starts their follow-up sequence immediately instead of waiting.',
-      "Makes sure each lead gets a nurture sequence that actually matches their intake answers, improving how leads are handled from day one.",
+      'Removes the manual sorting step, so a new contact starts the right sequence immediately.',
+      'Delivers a consistent, structured program to every enrolled contact without anyone sending each item by hand.',
     ],
     overview:
-      "Built for a coaching business bringing in new leads regularly, this pipeline reads each lead's intake answers and enrolls them into the right nurture sequence automatically.",
+      'Built for a coaching business bringing in contacts through different programs, this GoHighLevel workflow routes each contact into the matching branch and then delivers a structured series of weekly content and strategy prompts.',
     workflowProcess: [
-      'A new coaching lead submits their intake answers.',
-      'The n8n pipeline reads those answers.',
-      'The lead is matched to the appropriate nurture sequence.',
-      'Enrollment into that sequence happens automatically in the CRM.',
+      'A new contact enters the workflow through their program trigger.',
+      'A condition checks which program trigger applies.',
+      'The contact is routed into the matching branch.',
+      'Numbered prompts and content items are delivered in sequence across a 12-week cycle.',
     ],
     automationSolution: [
-      'n8n as the pipeline engine.',
-      'CRM integration for sequence enrollment.',
-      'Lead nurture logic based on intake answers.',
+      'GoHighLevel workflows for triggers, conditions, and timed delivery.',
+      'AI prompt steps that generate the weekly strategy content.',
+      'Branching so each program follows its own sequence.',
     ],
     businessChallenges: [
-      'New leads had to be manually reviewed and sorted before follow-up could start.',
-      'Sorting by hand meant delays between a lead coming in and receiving any follow-up.',
+      'New coaching contacts had to be sorted by hand before follow-up could start.',
+      'Delivering a long, structured program manually was slow and easy to get out of order.',
     ],
     keyFeatures: [
-      'Automatic lead sorting based on intake answers.',
-      'Immediate enrollment into the matching nurture sequence.',
-      'No manual review step before follow-up starts.',
+      'Automatic routing by program trigger.',
+      'A structured 12-week delivery sequence.',
+      'No manual sorting before follow-up starts.',
     ],
   },
 
   'coaching-business-pipeline-v2': {
     operationalValue: [
-      'Reduces the number of leads falling through the cracks, since every lead type now has a matching follow-up path instead of one default sequence.',
-      'Improves how leads are handled as the business grows and lead types become more varied.',
+      'Reduces the number of contacts falling through the cracks, since more lead types have a matching path instead of one default sequence.',
+      'Keeps the pipeline workable as the business adds more programs and lead types.',
     ],
     overview:
-      "Built as an expansion of the original coaching pipeline, this version adds branching logic so leads who don't fit the standard profile still get a follow-up sequence that fits them.",
+      "Built as an expansion of the original coaching pipeline, this GoHighLevel version adds more branches so contacts who don't fit the standard profile still get a sequence that fits them.",
     workflowProcess: [
-      "A new lead's intake answers are read, same as the original pipeline.",
-      'Branching logic evaluates the specific answers instead of matching a single default profile.',
-      'The lead is routed down the follow-up path that matches their actual answers.',
-      'Enrollment happens automatically in the CRM, same as before.',
+      'A contact enters the workflow, same as the original pipeline.',
+      'Branching logic evaluates their specific details instead of matching one default profile.',
+      'The contact is routed down the matching follow-up path.',
+      'The structured content sequence for that path is delivered automatically.',
     ],
     automationSolution: [
-      'n8n as the pipeline engine, expanded from the original version.',
-      'Branching logic for multiple follow-up paths.',
-      'CRM integration for sequence enrollment.',
+      'GoHighLevel workflows, expanded from the original version.',
+      'Additional conditional branches for multiple follow-up paths.',
+      'AI prompt steps for the content each path delivers.',
     ],
     businessChallenges: [
-      'The original single-path pipeline could not account for leads outside the standard profile.',
-      'Leads that did not fit the default profile fell through the cracks with no follow-up at all.',
+      'The original single-path pipeline could not account for contacts outside the standard profile.',
+      'Contacts that did not fit the default profile fell through the cracks with no follow-up.',
     ],
     keyFeatures: [
-      'Branching logic for multiple nurture paths.',
-      'Follow-up sequences matched to specific intake answers, not just a default profile.',
-      'Built directly on top of the original pipeline rather than replacing it.',
+      'More branches for more lead types.',
+      'Follow-up sequences matched to each contact instead of a single default.',
+      'Built on top of the original pipeline rather than replacing it.',
     ],
   },
 
@@ -324,7 +327,7 @@ export const caseStudies: Record<string, CaseStudyContent> = {
       'The cycle repeats automatically the next day.',
     ],
     automationSolution: [
-      'n8n as the workflow engine.',
+      'Make as the automation engine.',
       'Social media integrations for multi-channel publishing.',
       'Scheduled triggers for daily automatic posting.',
     ],
@@ -369,87 +372,90 @@ export const caseStudies: Record<string, CaseStudyContent> = {
 
   'payments-tracking-audit': {
     operationalValue: [
-      'Catches payment discrepancies right away instead of during a manual audit weeks later, reducing financial risk.',
-      'Removes the manual reconciliation work, so records stay accurate without someone cross-checking every entry by hand.',
+      'Catches payment discrepancies right away instead of during a manual audit weeks later.',
+      'Keeps the deal log spreadsheet updated automatically, so nobody cross-checks entries by hand.',
     ],
     overview:
-      'Built for a business that needs to keep incoming payments reconciled against its records, this workflow logs, checks, and flags every payment automatically as it comes in.',
+      'Built for a business that needs incoming payments and deals recorded accurately, this GoHighLevel workflow updates a deal log spreadsheet automatically as payments and deal changes come in.',
     workflowProcess: [
-      'An incoming payment is received.',
-      'The n8n workflow logs the payment automatically.',
-      'The payment is reconciled against existing records.',
-      'Any mismatch is flagged immediately for review.',
+      'A payment or deal update triggers the workflow.',
+      'Conditions check the details of the update.',
+      'The matching branch creates or updates the record in the deal log spreadsheet.',
+      'Mismatches are flagged instead of passing silently.',
     ],
     automationSolution: [
-      'n8n as the workflow engine.',
-      'Finance and reporting integration for logging and reconciliation.',
-      'Automatic mismatch detection and flagging.',
+      'GoHighLevel workflows with multiple triggers and conditional branches.',
+      'Spreadsheet updates for the deal log.',
     ],
     businessChallenges: [
-      'Reconciling payments by hand was a manual process prone to missed or mismatched entries.',
+      'Reconciling payments by hand was manual and prone to missed or mismatched entries.',
       'Discrepancies often were not caught until a manual audit happened weeks later.',
     ],
     keyFeatures: [
-      'Automatic payment logging.',
-      'Real-time reconciliation against existing records.',
-      'Immediate flagging of mismatches.',
+      'Automatic deal log updates.',
+      'Branching logic for different payment and deal situations.',
+      'Mismatch flagging as records are updated.',
     ],
   },
 
   'post-purchase-review-request': {
     operationalValue: [
-      'Makes sure every customer gets asked for a review at the right moment, improving review volume without extra manual effort.',
-      'Removes the need to track and remember follow-up timing for every individual order.',
+      'Sends the review request only to customers who actually showed up and paid, so it lands at the right moment.',
+      'Keeps opportunity status and ad conversion data accurate without manual updates.',
     ],
     overview:
-      'Built for a business that wants consistent post-purchase reviews, this workflow times and sends a review request after every order and tracks whether the customer responds.',
+      'Built for a business that books appointments and wants reviews from paying customers, this GoHighLevel workflow tracks what each contact does after the appointment and requests a review at the right time.',
     workflowProcess: [
-      'A purchase is completed.',
-      'The workflow starts a timer for the right follow-up moment.',
-      'The review request is sent automatically at that moment.',
-      "The customer's response is tracked.",
+      'The workflow waits for the contact to click a confirmation link.',
+      'A condition checks which link they clicked (showed and paid, showed but was not ready, or no show).',
+      'For a paying customer, it waits until the purchase amount is entered, then marks the opportunity as won.',
+      'A conversion event is sent to Facebook.',
+      'The review request goes out.',
     ],
     automationSolution: [
-      'n8n as the workflow engine.',
-      'Timed triggers for review-request timing.',
-      'Response tracking built into the workflow.',
+      'GoHighLevel workflows with trigger-link tracking.',
+      'Conditional branches by link clicked.',
+      'Opportunity status updates and a Facebook Conversion API step.',
+      'A built-in review request action.',
     ],
     businessChallenges: [
-      'Asking for a review after every purchase meant remembering to follow up at the right time, every time.',
-      'Manual follow-up meant inconsistent timing and missed requests.',
+      'Asking for a review after every purchase meant remembering to follow up at the right time.',
+      'Requests sent to people who did not buy, or did not show, were wasted or awkward.',
     ],
     keyFeatures: [
-      'Automatic, timed review requests after every purchase.',
-      'Response tracking with no manual monitoring.',
-      'Consistent customer experience on every order.',
+      'Link-click tracking to identify the outcome.',
+      'Review request only after a confirmed purchase.',
+      'Automatic opportunity-won update and conversion event.',
     ],
   },
 
   'review-workflow': {
     operationalValue: [
-      'Saves the team from scanning through every review, since only the ones needing a response reach them.',
-      "Improves response time on reviews that matter, since they're surfaced automatically instead of buried in the full list.",
+      'Makes sure 30, 60, and 90-day account reviews happen on schedule without anyone tracking dates by hand.',
+      'Keeps the assigned account manager informed and prompted to act.',
     ],
     overview:
-      'Built for a business collecting customer reviews, this workflow filters incoming reviews so the team only sees the ones that actually need a reply.',
+      'Built for a business that reviews client accounts at fixed milestones, this GoHighLevel workflow triggers each review, sends the review email or form, and notifies the assigned account manager.',
     workflowProcess: [
-      'A new review comes in.',
-      'The n8n workflow evaluates whether it needs a response.',
-      'Reviews needing attention are routed to the team.',
-      "The rest are filtered out of the team's queue automatically.",
+      'One of three triggers fires: the 30-day, 60-day, or 90-day review.',
+      'A condition checks which milestone applies.',
+      'The review email or form is sent.',
+      'The assigned account manager is notified.',
+      'After a wait, the account manager is notified again if it has not been actioned.',
     ],
     automationSolution: [
-      'n8n as the workflow engine.',
-      'Filtering logic to separate reviews needing a response from the rest.',
+      'GoHighLevel workflows with multiple triggers and a condition split.',
+      'Account manager assignment and notification steps.',
+      'Timed waits between reminders.',
     ],
     businessChallenges: [
-      'All incoming reviews landed in one place with no way to prioritize them.',
-      'The team had to scan through everything to find the reviews that actually needed a reply.',
+      'Milestone reviews depended on someone remembering to send them.',
+      'Account managers were not always looped in at the right time.',
     ],
     keyFeatures: [
-      'Automatic filtering of incoming reviews.',
-      'Only reviews needing a response reach the team.',
-      'Reduces time spent scanning through reviews that do not need action.',
+      'Separate 30, 60, and 90-day review paths.',
+      'Automatic account manager assignment and notification.',
+      'A follow-up reminder after a wait.',
     ],
   },
 
