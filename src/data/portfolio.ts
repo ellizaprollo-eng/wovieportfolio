@@ -54,6 +54,35 @@ export const heroFlow = [
   },
 ]
 
+export const certBadges = [
+  {
+    name: 'GHL CRM Expert',
+    issuer: 'GoHighLevel',
+    image: '/certifications/ghl-crm-expert-badge.png',
+  },
+]
+
+export const certCertificates = [
+  {
+    title: 'Integrations: APIs & Connected Workflows',
+    issuer: 'n8n Academy',
+    date: 'July 5, 2026',
+    image: '/certifications/n8n-integrations-apis.png',
+  },
+  {
+    title: 'Essentials: Your First Workflows',
+    issuer: 'n8n Academy',
+    date: 'July 5, 2026',
+    image: '/certifications/n8n-essentials-first-workflows.png',
+  },
+  {
+    title: 'n8n Quickstart',
+    issuer: 'n8n Academy',
+    date: 'July 5, 2026',
+    image: '/certifications/n8n-quickstart.png',
+  },
+]
+
 /** Grounded in the actual clients/projects listed elsewhere in this file. */
 export const industriesBuiltFor = [
   {
