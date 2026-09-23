@@ -38,7 +38,7 @@ export function Aurora() {
             <path
               d="M 64 0 L 0 0 0 64"
               fill="none"
-              stroke="#9fe6d8"
+              style={{ stroke: 'var(--color-accent-soft)' }}
               strokeWidth="1"
             />
           </pattern>
@@ -47,7 +47,7 @@ export function Aurora() {
       </svg>
 
       {/* One restrained glow, upper right — not centered, not smeared */}
-      <div className="absolute inset-0 bg-[radial-gradient(38%_32%_at_82%_18%,rgba(63,199,176,0.14)_0%,rgba(63,199,176,0.05)_45%,transparent_72%)]" />
+      <div className="aurora-glow absolute inset-0" />
 
       {/* Sparse static nodes */}
       <svg
@@ -62,8 +62,10 @@ export function Aurora() {
             cx={n.cx}
             cy={n.cy}
             r={n.r}
-            fill="#6ee0cb"
-            style={{ animationDelay: n.delay }}
+            style={{
+              fill: 'var(--color-accent-bright)',
+              animationDelay: n.delay,
+            }}
           />
         ))}
       </svg>

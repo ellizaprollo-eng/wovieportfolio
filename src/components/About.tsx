@@ -4,7 +4,7 @@ import { aboutQuickFacts, industriesBuiltFor, profile } from '@/data/portfolio'
 
 const PARAGRAPHS = [
   "I'm Wovie, a GoHighLevel and AI Automation Specialist based in Butuan City, Philippines, working remotely with clients across every time zone.",
-  "For the past 3+ years I've built automation systems for businesses that were still running on manual processes, fragmented tools, and follow-ups that depended on someone remembering to do them. My work spans GoHighLevel CRM setup, AI chat and voice agents, and workflow automation built on n8n, Zapier, and Make.",
+  "For the past 4 years I've built automation systems for businesses that were still running on manual processes, fragmented tools, and follow-ups that depended on someone remembering to do them. My work spans GoHighLevel CRM setup, AI chat and voice agents, and workflow automation built on n8n, Zapier, and Make.",
   "I've run the full operational workflow behind two property management businesses, Press Haven Homes and Stay Classy Homes, handling tenant relations, guest communication, and reservation pipelines end to end. That hands-on experience shaped how I build: every automation gets tested in a sandbox against real data before it ever touches a client's live systems.",
   "My focus isn't just connecting apps together. It's building systems a business can actually rely on long after the handover.",
 ]
@@ -18,14 +18,14 @@ export function About() {
           kicker="About"
           title={
             <>
-              Three years building GoHighLevel systems and{' '}
+              Four years building GoHighLevel systems and{' '}
               <span className="heading-accent">AI automation</span>, shipped across multiple
               industries.
             </>
           }
         />
 
-        <div className="mx-auto mt-14 grid max-w-4xl gap-10 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-12">
+        <div className="mx-auto mt-14 grid max-w-4xl gap-10 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-12">
           <Reveal className="mx-auto sm:mx-0">
             <div className="w-40 overflow-hidden rounded-2xl border border-fg/10 bg-card/40 sm:w-48">
               <img
@@ -82,14 +82,17 @@ export function About() {
 
         <Reveal
           delay={140}
-          className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-6 border-t border-fg/10 pt-8 sm:grid-cols-4"
+          className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4"
         >
           {aboutQuickFacts.map((fact) => (
-            <div key={fact.label}>
-              <p className="text-xs tracking-[0.08em] text-body-dim uppercase">
+            <div
+              key={fact.label}
+              className="rounded-xl border border-fg/10 bg-card/60 p-4"
+            >
+              <p className="font-mono text-[0.65rem] tracking-[0.08em] text-body-dim uppercase">
                 {fact.label}
               </p>
-              <p className="heading-display mt-1 text-lg font-bold text-fg">
+              <p className="heading-display mt-1.5 text-base font-bold text-fg">
                 {fact.value}
               </p>
             </div>

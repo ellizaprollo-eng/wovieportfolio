@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
 import { Aurora } from '@/components/Aurora'
 import { Reveal } from '@/components/Reveal'
-import { heroStats, profile } from '@/data/portfolio'
+import { heroFlow, heroStats, profile } from '@/data/portfolio'
 
 export function Hero() {
   return (
@@ -73,8 +73,44 @@ export function Hero() {
         </Reveal>
 
         <Reveal
-          delay={220}
-          className="mx-auto mt-16 grid max-w-3xl grid-cols-2 gap-6 border-t border-fg/10 pt-10 sm:grid-cols-4 lg:mt-20"
+          delay={210}
+          className="mx-auto mt-10 max-w-3xl rounded-2xl border border-accent/25 p-3 shadow-[0_0_60px_-15px_var(--color-accent)] sm:p-5"
+        >
+          <div className="grid gap-3 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-center">
+            {heroFlow.flatMap((step, i) => {
+              const card = (
+                <div
+                  key={step.label}
+                  className="rounded-xl border border-fg/10 bg-card/80 p-4 text-left"
+                >
+                  <p className="flex items-center gap-2 font-mono text-[0.65rem] tracking-[0.06em] text-accent uppercase">
+                    <span className="inline-flex size-1.5 rounded-full bg-accent" />
+                    {step.label}
+                  </p>
+                  <p className="heading-display mt-2 text-sm font-bold text-fg">
+                    {step.title}
+                  </p>
+                  <p className="mt-1 font-mono text-[0.65rem] text-body-dim">
+                    {step.meta}
+                  </p>
+                </div>
+              )
+              if (i === heroFlow.length - 1) return [card]
+              return [
+                card,
+                <ArrowRight
+                  key={`${step.label}-arrow`}
+                  aria-hidden="true"
+                  className="mx-auto hidden size-4 rotate-90 text-accent/40 sm:block sm:rotate-0"
+                />,
+              ]
+            })}
+          </div>
+        </Reveal>
+
+        <Reveal
+          delay={250}
+          className="mx-auto mt-14 grid max-w-3xl grid-cols-2 gap-6 border-t border-fg/10 pt-10 sm:grid-cols-4 lg:mt-16"
         >
           {heroStats.map((stat) => (
             <div key={stat.label}>

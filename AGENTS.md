@@ -5,10 +5,11 @@ Context for AI agents working on this repository.
 ## What this is
 
 A single-page portfolio site for Wovie Prollo (Workflow and AI Automation
-Specialist): neutral charcoal background, a restrained blueprint-grid hero
-backdrop, solid display-type headings (no gradient text), and bordered
-translucent cards. Deliberately steers away from the generic dark-purple/
-magenta "AI page-builder" look — see the accent color and type choices below.
+Specialist): Quantum Blue (`#2457FF`) and Ice Glass (`#DFF7FF`) brand palette
+in both dark and light mode, a restrained blueprint-grid hero backdrop,
+solid display-type headings (no gradient text), and bordered translucent
+cards. Deliberately steers away from the generic dark-purple/magenta "AI
+page-builder" look — see the accent color and type choices below.
 
 Built with TanStack Start (React 19 + TanStack Router), Tailwind CSS 4, and
 deployed on Netlify.
@@ -47,9 +48,15 @@ Section `id`s must stay in sync with `navLinks` in `src/data/portfolio.ts`.
 - **Colors come from theme tokens**, not raw hex: `bg-ink`, `bg-surface`,
   `bg-card`, `text-body`, `text-body-dim`, `text-accent`, `accent-bright`,
   `accent-deep`, `accent-soft`. Raw hex is only acceptable inside
-  `Aurora.tsx`, where the gradients are hand-tuned. The accent is a muted
-  teal (`#3fc7b0`), used sparingly — CTAs and small highlights only, never as
-  a smeared background gradient.
+  `Aurora.tsx`, where the gradients are hand-tuned. The accent is used
+  sparingly — CTAs and small highlights only, never as a smeared background
+  gradient. **The accent stays Quantum Blue (`#2457FF`) in both themes** —
+  unlike the old teal system, it reads clearly on both a near-black page and
+  a pale one, so it doesn't need to flip. Dark surfaces ladder up from
+  near-black navy to a deep blue (`bg-card`); light surfaces are Ice Glass
+  (`#DFF7FF`)-tinted whites. Glows and shadows derive from
+  `var(--color-accent)` via `color-mix`, not hardcoded rgba, so they follow
+  the active theme.
 - **Two type roles**: `heading-display` (Archivo, via the `--font-heading`
   token) for H1/H2/H3-level headings and wordmarks, plain `font-sans` (Plus
   Jakarta Sans) for body copy. Headings never use `background-clip: text`

@@ -29,9 +29,31 @@ export const profile = {
   responseTime: 'Usually responds within 24 hours',
 }
 
+/**
+ * Hero pipeline strip: illustrates the real flow behind the Form Submission
+ * Lead Routing project (see `projects`), not a live feed.
+ */
+export const heroFlow = [
+  {
+    label: 'Form Submitted',
+    title: 'New lead captured',
+    meta: 'GoHighLevel · Web form',
+  },
+  {
+    label: 'AI Qualifies & Routes',
+    title: 'Scored, tagged, routed',
+    meta: 'AI Agent · Pipeline',
+  },
+  {
+    label: 'Follow-Up Sent',
+    title: 'SMS + Email + voice call',
+    meta: 'Automated sequence',
+  },
+]
+
 /** Grounded in real figures already stated in the experience/project data below. */
 export const heroStats = [
-  { value: '3+', label: 'Years as a GoHighLevel & AI Automation Specialist' },
+  { value: '4', label: 'Years as a GoHighLevel & AI Automation Specialist' },
   { value: '80%', label: 'Less manual work for clients' },
   { value: '4', label: 'Core platforms: GHL, Zapier, Make, n8n' },
   { value: '19', label: 'Automations delivered across client projects' },
@@ -66,10 +88,10 @@ export const industriesBuiltFor = [
 ]
 
 export const aboutQuickFacts = [
-  { label: 'Experience', value: '3+ years' },
-  { label: 'Industries', value: '6+' },
+  { label: 'Experience', value: '4 years' },
+  { label: 'Industries', value: 'Multiple' },
   { label: 'Based in', value: 'Butuan City, PH' },
-  { label: 'Working with', value: 'All time zones' },
+  { label: 'Working with', value: 'US, EU, APAC' },
 ]
 
 export const navLinks = [

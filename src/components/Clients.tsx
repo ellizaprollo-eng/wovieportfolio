@@ -10,7 +10,7 @@ import { clientLogos, type ClientLogo } from '@/data/portfolio'
  */
 function LogoCard({ item }: { item: ClientLogo }) {
   return (
-    <span className="flex h-24 w-48 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-[#12161f] px-6 shadow-lg shadow-black/20">
+    <span className="flex h-24 w-48 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-[#121a4a] px-6 shadow-lg shadow-black/20">
       <img
         src={item.logo}
         alt={item.name}

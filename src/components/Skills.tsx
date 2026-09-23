@@ -4,7 +4,7 @@ import { techStack, type TechStackItem } from '@/data/portfolio'
 
 function Pill({ item }: { item: TechStackItem }) {
   return (
-    <span className="flex shrink-0 items-center gap-2.5 rounded-full bg-white py-2 pr-5 pl-2 text-sm font-semibold text-[#0b0e14] shadow-lg shadow-black/20">
+    <span className="flex shrink-0 items-center gap-2.5 rounded-full bg-white py-2 pr-5 pl-2 text-sm font-semibold text-[#0a1030] shadow-lg shadow-black/20">
       <span className="flex size-7 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white ring-1 ring-black/[0.06]">
         <img
           src={item.logo}

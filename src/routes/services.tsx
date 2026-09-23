@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Navbar } from '@/components/Navbar'
 import { Services } from '@/components/Services'
 import { Process } from '@/components/Process'
+import { Certifications } from '@/components/Certifications'
 import { Footer } from '@/components/Footer'
 
 export const Route = createFileRoute('/services')({
@@ -18,6 +19,7 @@ function ServicesPage() {
       <main>
         <Services />
         <Process />
+        <Certifications />
       </main>
       <Footer />
     </>

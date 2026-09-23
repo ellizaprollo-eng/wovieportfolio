@@ -9,23 +9,25 @@
     sans-serif;
   --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
 
-  /* Brand: Cyber Teal #03313A + Aqua Foam #8FFFE0.
-     Dark mode ladders up from a near-black teal to Cyber Teal itself (cards);
-     Aqua Foam is the accent. Light mode inverts the roles below. */
-  --color-ink: #02191e;
-  --color-ink-2: #021f25;
-  --color-surface: #02272e;
-  --color-card: #03313a;
+  /* Brand: Quantum Blue #2457FF + Ice Glass #DFF7FF.
+     Quantum Blue reads clearly on both a near-black page and a pale one, so
+     unlike the old teal system it does not need to flip role per theme — it
+     stays the accent everywhere. Dark mode ladders up from a near-black
+     navy; light mode ladders down from Ice Glass itself. */
+  --color-ink: #05081a;
+  --color-ink-2: #080c24;
+  --color-surface: #0b1230;
+  --color-card: #121a4a;
 
-  /* Aqua Foam accent — used sparingly, never as a smeared gradient */
-  --color-accent: #8fffe0;
-  --color-accent-bright: #b5ffee;
-  --color-accent-deep: #45d8b8;
-  --color-accent-soft: #c9fff3;
+  /* Quantum Blue accent — used sparingly, never as a smeared gradient */
+  --color-accent: #2457ff;
+  --color-accent-bright: #6690ff;
+  --color-accent-deep: #17408f;
+  --color-accent-soft: #a9c2ff;
 
-  /* Type — teal-tinted greys so body copy sits in the same family as the page */
-  --color-body: #b4c9cc;
-  --color-body-dim: #87a2a6;
+  /* Type — blue-tinted greys so body copy sits in the same family as the page */
+  --color-body: #b7c4e8;
+  --color-body-dim: #8492bc;
 
   /* Foreground — flips per theme; used anywhere the old design hardcoded "white" */
   --color-fg: #ffffff;
@@ -36,28 +38,28 @@
    marquee-edge gradients, Aurora backdrop) reads these as CSS variables,
    so redeclaring them here is enough to flip the whole page. */
 html[data-theme='light'] {
-  /* Aqua Foam-tinted whites for the page ladder */
-  --color-ink: #f0fffb;
-  --color-ink-2: #e2fcf5;
-  --color-surface: #e8fdf8;
+  /* Ice Glass ladder for the page background */
+  --color-ink: #dff7ff;
+  --color-ink-2: #cdf0fb;
+  --color-surface: #e9fbff;
   --color-card: #ffffff;
 
-  /* Accent flips to the Cyber Teal side: the accent is used as text, and
-     Aqua Foam itself is unreadable on a pale page. */
-  --color-accent: #03313a;
-  --color-accent-bright: #0a5566;
-  --color-accent-deep: #02222a;
-  --color-accent-soft: #0a4d5c;
+  /* Quantum Blue stays the accent; bright/deep darken further for contrast
+     and hover states on a pale page instead of lightening. */
+  --color-accent: #2457ff;
+  --color-accent-bright: #1740c4;
+  --color-accent-deep: #0f2c85;
+  --color-accent-soft: #6690ff;
 
-  --color-body: #22393f;
-  --color-body-dim: #456167;
+  --color-body: #26314f;
+  --color-body-dim: #55618a;
 
-  --color-fg: #03313a;
+  --color-fg: #10173a;
 }
 
 html[data-theme='light'] ::selection {
-  background: #8fffe0;
-  color: #03313a;
+  background: #2457ff;
+  color: #ffffff;
 }
 
 @layer base {
