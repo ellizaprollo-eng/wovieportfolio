@@ -81,6 +81,12 @@ export const certCertificates = [
     date: 'July 5, 2026',
     image: '/certifications/n8n-quickstart.png',
   },
+  {
+    title: 'In Practice: AI, Testing & Best Practices',
+    issuer: 'n8n Academy',
+    date: 'July 5, 2026',
+    image: '/certifications/n8n-ai-testing-best-practices.png',
+  },
 ]
 
 /** Grounded in the actual clients/projects listed elsewhere in this file. */

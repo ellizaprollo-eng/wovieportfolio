@@ -55,11 +55,13 @@ function CertCard({
   image,
   label,
   sub,
+  aspect,
   onView,
 }: {
   image: string
   label: string
   sub: string
+  aspect: string
   onView: () => void
 }) {
   return (
@@ -69,12 +71,12 @@ function CertCard({
       aria-label={`View ${label}`}
       className="group relative overflow-hidden rounded-xl border border-fg/10 bg-card/60 text-left transition-all duration-300 hover:-translate-y-1 hover:border-accent/30"
     >
-      <div className="aspect-[4/3] w-full overflow-hidden bg-white">
+      <div className={`${aspect} w-full overflow-hidden bg-white`}>
         <img
           src={image}
           alt={label}
           loading="lazy"
-          className="size-full object-contain p-3 transition-transform duration-300 group-hover:scale-[1.03]"
+          className="size-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
         />
       </div>
       <span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition-opacity duration-300 group-hover:bg-ink/50 group-hover:opacity-100">
@@ -119,6 +121,7 @@ export function Certifications() {
                 image={badge.image}
                 label={badge.name}
                 sub={badge.issuer}
+                aspect="aspect-[3/4]"
                 onView={() => setActive({ image: badge.image, label: badge.name })}
               />
             ))}
@@ -136,6 +139,7 @@ export function Certifications() {
                 image={cert.image}
                 label={cert.title}
                 sub={`${cert.issuer} · ${cert.date}`}
+                aspect="aspect-[7/6]"
                 onView={() => setActive({ image: cert.image, label: cert.title })}
               />
             ))}
