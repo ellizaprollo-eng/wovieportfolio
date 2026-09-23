@@ -10,11 +10,11 @@ export function Certifications() {
           kicker="Badges & Certifications"
           title={
             <>
-              GoHighLevel <span className="heading-accent">badges and certifications</span>,
+              GoHighLevel and n8n <span className="heading-accent">badges and certifications</span>,
               on the way.
             </>
           }
-          subtitle="Official badges from GoHighLevel's certification program. This section goes live as soon as they're uploaded."
+          subtitle="Official badges from GoHighLevel and n8n. This section goes live as soon as they're uploaded."
         />
 
         <Reveal
