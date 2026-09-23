@@ -114,14 +114,14 @@ export function Certifications() {
           <p className="text-xs font-semibold tracking-[0.14em] text-body-dim uppercase">
             Official Badges · {certBadges.length}
           </p>
-          <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {certBadges.map((badge) => (
               <CertCard
                 key={badge.name}
                 image={badge.image}
                 label={badge.name}
                 sub={badge.issuer}
-                aspect="aspect-[3/4]"
+                aspect="aspect-[7/6]"
                 onView={() => setActive({ image: badge.image, label: badge.name })}
               />
             ))}
