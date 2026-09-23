@@ -35,23 +35,25 @@ export const profile = {
  */
 export const heroFlow = [
   {
+    icon: 'form' as const,
     label: 'Form Submitted',
     title: 'New lead captured',
     meta: 'GoHighLevel · Web form',
   },
   {
+    icon: 'ai' as const,
     label: 'AI Qualifies & Routes',
     title: 'Scored, tagged, routed',
     meta: 'AI Agent · Pipeline',
   },
   {
+    icon: 'send' as const,
     label: 'Follow-Up Sent',
     title: 'SMS + Email + voice call',
     meta: 'Automated sequence',
   },
 ]
 
-/** Grounded in real figures already stated in the experience/project data below. */
 /** Grounded in the actual clients/projects listed elsewhere in this file. */
 export const industriesBuiltFor = [
   {
@@ -140,6 +142,9 @@ export type ServiceIcon =
   | 'chart'
   | 'bot'
   | 'globe'
+  | 'route'
+  | 'mail'
+  | 'phone'
 
 export const services: Array<{
   icon: ServiceIcon
@@ -162,6 +167,13 @@ export const services: Array<{
     tags: ['Funnels', 'Websites', 'CRM Integration'],
   },
   {
+    icon: 'route',
+    title: 'CRM Workflows',
+    description:
+      'Build the GoHighLevel workflows that move contacts through your pipeline on their own: stage-progression triggers, tag-based routing, and follow-ups that adjust based on what a contact actually does.',
+    tags: ['GoHighLevel', 'Pipelines', 'Triggers'],
+  },
+  {
     icon: 'workflow',
     title: 'Workflow Automation',
     description:
@@ -169,11 +181,25 @@ export const services: Array<{
     tags: ['Zapier', 'Make', 'n8n'],
   },
   {
-    icon: 'bot',
-    title: 'AI & Voice Agents',
+    icon: 'mail',
+    title: 'Email & SMS Campaigns',
     description:
-      'Build AI chat and voice agents with Retell AI and OpenAI that qualify leads, answer inbound calls, and book appointments without a rep on the line.',
-    tags: ['Retell AI', 'OpenAI', 'Voice Agents'],
+      'Reactivation, nurture, and post-purchase follow-up sequences that stop on their own once a contact books, buys, or responds, so nobody gets a message they no longer need.',
+    tags: ['Email', 'SMS', 'GoHighLevel'],
+  },
+  {
+    icon: 'bot',
+    title: 'AI Chatbots & Assistants',
+    description:
+      'AI agents that read incoming messages, classify them, and route the reply automatically, trained on your own content and connected to your CRM.',
+    tags: ['AI Agent', 'OpenAI', 'n8n'],
+  },
+  {
+    icon: 'phone',
+    title: 'Voice AI Agents',
+    description:
+      'Voice agents on Retell AI that answer inbound calls, qualify leads, and run outbound demo calls, booking the follow-up directly on the call.',
+    tags: ['Retell AI', 'Voice Agents', 'Booking'],
   },
   {
     icon: 'zap',

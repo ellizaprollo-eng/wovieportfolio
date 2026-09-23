@@ -7,7 +7,10 @@ import {
   CalendarDays,
   Database,
   Globe,
+  Mail,
   MessageSquare,
+  Phone,
+  Route,
   Share2,
   Zap,
 } from 'lucide-react'
@@ -24,6 +27,9 @@ const ICONS: Record<ServiceIcon, typeof Zap> = {
   chart: BarChart3,
   bot: Bot,
   globe: Globe,
+  route: Route,
+  mail: Mail,
+  phone: Phone,
 }
 
 function ServiceCard({

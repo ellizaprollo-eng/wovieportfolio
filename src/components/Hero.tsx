@@ -1,8 +1,14 @@
 import { Link } from '@tanstack/react-router'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, FormInput, Send, Sparkles } from 'lucide-react'
 import { Aurora } from '@/components/Aurora'
 import { Reveal } from '@/components/Reveal'
 import { heroFlow, profile } from '@/data/portfolio'
+
+const FLOW_ICONS = {
+  form: FormInput,
+  ai: Sparkles,
+  send: Send,
+}
 
 export function Hero() {
   return (
@@ -74,35 +80,38 @@ export function Hero() {
 
         <Reveal
           delay={210}
-          className="mx-auto mt-10 max-w-3xl rounded-2xl border border-accent/25 p-3 shadow-[0_0_60px_-15px_var(--color-accent)] sm:p-5"
+          className="mx-auto mt-10 max-w-3xl rounded-2xl border border-accent/20 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-accent)_6%,transparent),transparent)] p-3 shadow-[0_0_70px_-20px_var(--color-accent)] sm:p-6"
         >
-          <div className="grid gap-3 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-center">
+          <div className="grid gap-4 sm:grid-cols-[1fr_2.5rem_1fr_2.5rem_1fr] sm:items-center">
             {heroFlow.flatMap((step, i) => {
+              const Icon = FLOW_ICONS[step.icon]
               const card = (
                 <div
                   key={step.label}
-                  className="rounded-xl border border-fg/10 bg-card/80 p-4 text-left"
+                  className="group rounded-xl border border-fg/10 bg-card/80 p-4 text-left transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-[0_8px_24px_-8px_var(--color-accent)]"
                 >
-                  <p className="flex items-center gap-2 font-mono text-[0.65rem] tracking-[0.06em] text-accent uppercase">
-                    <span className="inline-flex size-1.5 rounded-full bg-accent" />
+                  <span className="mb-3 flex size-8 items-center justify-center rounded-full bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent/20">
+                    <Icon className="size-4" />
+                  </span>
+                  <p className="font-mono text-[0.65rem] tracking-[0.06em] text-accent uppercase">
                     {step.label}
                   </p>
-                  <p className="heading-display mt-2 text-sm font-bold text-fg">
+                  <p className="heading-display mt-1.5 text-sm font-bold text-fg">
                     {step.title}
                   </p>
-                  <p className="mt-1 font-mono text-[0.65rem] text-body-dim">
-                    {step.meta}
-                  </p>
+                  <p className="mt-1 text-[0.7rem] text-body-dim">{step.meta}</p>
                 </div>
               )
               if (i === heroFlow.length - 1) return [card]
               return [
                 card,
-                <ArrowRight
-                  key={`${step.label}-arrow`}
+                <div
+                  key={`${step.label}-connector`}
                   aria-hidden="true"
-                  className="mx-auto hidden size-4 rotate-90 text-accent/40 sm:block sm:rotate-0"
-                />,
+                  className="flow-connector relative mx-auto h-6 w-px sm:h-px sm:w-full"
+                >
+                  <span className="flow-connector-dot" />
+                </div>,
               ]
             })}
           </div>

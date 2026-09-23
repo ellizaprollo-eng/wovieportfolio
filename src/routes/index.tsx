@@ -3,6 +3,7 @@ import { Navbar } from '@/components/Navbar'
 import { Hero } from '@/components/Hero'
 import { Skills } from '@/components/Skills'
 import { StatsBand } from '@/components/StatsBand'
+import { Certifications } from '@/components/Certifications'
 import { About } from '@/components/About'
 import { SkillsStack } from '@/components/SkillsStack'
 import { Clients } from '@/components/Clients'
@@ -21,6 +22,7 @@ function Home() {
         <Hero />
         <Skills />
         <StatsBand />
+        <Certifications />
         <About />
         <SkillsStack />
         <Clients />
