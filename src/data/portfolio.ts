@@ -9,6 +9,18 @@ export const profile = {
   headline: 'I build systems that automate your business operations.',
   /** Must be an exact substring of headline — Hero.tsx colors this part. */
   headlineHighlight: 'automate your business operations.',
+  /**
+   * Centered hero headline (Hero.tsx). Segments rendered in order; `accent:
+   * true` segments use the serif italic heading-accent treatment.
+   */
+  heroHeadline: [
+    { text: 'GoHighLevel Expert', accent: true },
+    { text: ' and ', accent: false },
+    { text: 'AI Automation', accent: true },
+    { text: ' Builder.', accent: false },
+  ],
+  /** Pill badge above the hero headline. */
+  heroTags: ['GoHighLevel', 'AI Automation', 'Workflow Automation'],
   intro:
     'I design and build reliable automation systems using GoHighLevel, Zapier, Make, and n8n. I connect the tools your business already uses to reduce manual work, streamline processes, and keep operations moving 24/7.',
   avatar: '/profile.jpg',
