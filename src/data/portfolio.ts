@@ -80,6 +80,14 @@ export const industriesBuiltFor = [
   },
 ]
 
+/** Counted directly from the `projects` array below, not invented. */
+export const byTheNumbers = [
+  { value: '22', label: 'Workflows Shipped' },
+  { value: '8', label: 'AI Agents in Production' },
+  { value: '6', label: 'Funnels & Websites' },
+  { value: '6', label: 'Industries Served' },
+]
+
 export const aboutQuickFacts = [
   { label: 'Experience', value: '4 years' },
   { label: 'Industries', value: 'Multiple' },
@@ -527,36 +535,6 @@ export const projects: Project[] = [
     image: '/projects/websites/disruptorsmedia.jpg',
     tags: ['Website & Funnel'],
     url: 'https://disruptorsmedia.com/',
-  },
-]
-
-export const experience = [
-  {
-    title: 'Workflow Automation Specialist',
-    meta: 'Freelance | Upwork & OnlineJobs.ph • Current',
-    points: [
-      'Designed and implemented automation workflows in n8n, Make, Zapier, and native GoHighLevel, reducing manual processes by 80%',
-      'Built AI chat and voice agents (OpenAI, Retell AI) for lead qualification, appointment booking, and inbound call handling',
-      'Set up lead sourcing and enrichment pipelines with Apollo and Apify, and automated content publishing to WordPress',
-    ],
-  },
-  {
-    title: 'System Builder | Automation Expert',
-    meta: 'Press Haven Homes | OnlineJobs.ph • Long-term Rental',
-    points: [
-      'Built and ran the operational workflows behind tenant relations, lease management, and day-to-day coordination',
-      'Standardized recurring admin processes for the CEO so nothing depended on manual follow-up',
-      'Kept mid/long-term rentals and sober living homes running smoothly across multiple properties',
-    ],
-  },
-  {
-    title: 'Automation Specialist',
-    meta: 'Stay Classy Homes | Short-term Rental',
-    points: [
-      'Owned the guest communication and reservation pipeline end to end, from inquiry to check-out',
-      'Coordinated maintenance, cleaning, and vendor scheduling as one repeatable process across listings',
-      'Processed invoices and reconciled discrepancies with vendors',
-    ],
   },
 ]
 
