@@ -1,5 +1,6 @@
 import { Reveal } from '@/components/Reveal'
-import { heroStats } from '@/data/portfolio'
+import { SectionHeading } from '@/components/SectionHeading'
+import { aboutQuickFacts, industriesBuiltFor, profile } from '@/data/portfolio'
 
 const PARAGRAPHS = [
   "I'm Wovie, a GoHighLevel and AI Automation Specialist based in Butuan City, Philippines, working remotely with clients across every time zone.",
@@ -11,47 +12,88 @@ const PARAGRAPHS = [
 export function About() {
   return (
     <section id="about" className="relative bg-surface py-24 sm:py-28">
-      <div className="container-x grid gap-10 lg:grid-cols-[0.55fr_1fr] lg:gap-16">
-        <Reveal>
+      <div className="container-x">
+        <SectionHeading
+          align="center"
+          kicker="About"
+          title={
+            <>
+              Three years building GoHighLevel systems and{' '}
+              <span className="heading-accent">AI automation</span>, shipped across multiple
+              industries.
+            </>
+          }
+        />
+
+        <div className="mx-auto mt-14 grid max-w-4xl gap-10 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-12">
+          <Reveal className="mx-auto sm:mx-0">
+            <div className="w-40 overflow-hidden rounded-2xl border border-fg/10 bg-card/40 sm:w-48">
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                width={192}
+                height={240}
+                className="aspect-[4/5] w-full object-cover object-top"
+              />
+            </div>
+          </Reveal>
+
+          <Reveal delay={60} className="flex flex-col gap-5">
+            {PARAGRAPHS.map((p) => (
+              <p key={p} className="text-[15px] leading-7 text-body sm:text-base">
+                {p}
+              </p>
+            ))}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-flex w-fit rounded-lg border border-fg/15 px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent/50 hover:text-accent-bright"
+            >
+              View Resume
+            </a>
+          </Reveal>
+        </div>
+
+        <Reveal delay={100} className="mx-auto mt-16 max-w-4xl">
           <p className="flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-accent uppercase">
             <span aria-hidden="true" className="text-accent/50">
               //
             </span>
-            About Me
+            Industries I&apos;ve built for
           </p>
-          <h2 className="heading-display mt-4 text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">
-            From manual work
-            <br />
-            to <span className="heading-accent">systems that run themselves.</span>
-          </h2>
-
-          <div className="mt-10 grid max-w-md grid-cols-2 gap-x-8 gap-y-6 border-t border-fg/10 pt-8">
-            {heroStats.map((stat) => (
-              <div key={stat.label}>
-                <p className="heading-display text-2xl font-bold text-fg">{stat.value}</p>
-                <p className="mt-1 text-xs leading-snug text-body-dim">{stat.label}</p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {industriesBuiltFor.map((industry) => (
+              <div
+                key={industry.name}
+                className="rounded-lg border border-fg/[0.07] bg-card/60 p-5"
+              >
+                <p className="flex items-center gap-2 text-sm font-bold text-fg">
+                  <span className="inline-flex size-1.5 rounded-full bg-accent" />
+                  {industry.name}
+                </p>
+                <p className="mt-2 text-xs leading-relaxed text-body-dim">
+                  {industry.note}
+                </p>
               </div>
             ))}
           </div>
         </Reveal>
 
-        <Reveal delay={60} className="flex flex-col gap-5">
-          {PARAGRAPHS.map((p) => (
-            <p key={p} className="text-[15px] leading-7 text-body sm:text-base">
-              {p}
-            </p>
+        <Reveal
+          delay={140}
+          className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-6 border-t border-fg/10 pt-8 sm:grid-cols-4"
+        >
+          {aboutQuickFacts.map((fact) => (
+            <div key={fact.label}>
+              <p className="text-xs tracking-[0.08em] text-body-dim uppercase">
+                {fact.label}
+              </p>
+              <p className="heading-display mt-1 text-lg font-bold text-fg">
+                {fact.value}
+              </p>
+            </div>
           ))}
-
-          <div className="mt-2 flex flex-wrap items-center gap-4">
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-fg/15 px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent/50 hover:text-accent-bright"
-            >
-              View Resume
-            </a>
-          </div>
         </Reveal>
       </div>
     </section>

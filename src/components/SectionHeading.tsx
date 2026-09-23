@@ -9,7 +9,7 @@ export function SectionHeading({
   /** Short eyebrow label, e.g. "01 · Services". Rendered as "// 01 · Services". */
   kicker?: string
   title: React.ReactNode
-  subtitle: string
+  subtitle?: string
   align?: 'left' | 'center'
 }) {
   return (
@@ -25,9 +25,11 @@ export function SectionHeading({
       <h2 className="heading-display text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">
         {title}
       </h2>
-      <p className="mt-4 max-w-xl text-base text-body-dim sm:text-lg [.text-center_&]:mx-auto">
-        {subtitle}
-      </p>
+      {subtitle && (
+        <p className="mt-4 max-w-xl text-base text-body-dim sm:text-lg [.text-center_&]:mx-auto">
+          {subtitle}
+        </p>
+      )}
     </Reveal>
   )
 }

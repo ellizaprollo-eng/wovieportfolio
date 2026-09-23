@@ -37,6 +37,41 @@ export const heroStats = [
   { value: '19', label: 'Automations delivered across client projects' },
 ]
 
+/** Grounded in the actual clients/projects listed elsewhere in this file. */
+export const industriesBuiltFor = [
+  {
+    name: 'Property Management',
+    note: 'Tenant relations, guest communication, reservation pipelines.',
+  },
+  {
+    name: 'Health & Wellness',
+    note: 'Patient intake, appointment reminders, care follow-up.',
+  },
+  {
+    name: 'Finance & Investment',
+    note: 'Lead qualification, client onboarding, follow-up sequences.',
+  },
+  {
+    name: 'Marketing & Agencies',
+    note: 'Funnels, CRM setup, and automation for other agencies.',
+  },
+  {
+    name: 'Automotive',
+    note: 'Lead capture and booking automation for service businesses.',
+  },
+  {
+    name: 'Technology',
+    note: 'API integrations and workflow automation for tech teams.',
+  },
+]
+
+export const aboutQuickFacts = [
+  { label: 'Experience', value: '3+ years' },
+  { label: 'Industries', value: '6+' },
+  { label: 'Based in', value: 'Butuan City, PH' },
+  { label: 'Working with', value: 'All time zones' },
+]
+
 export const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
