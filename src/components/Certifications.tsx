@@ -71,12 +71,12 @@ function CertCard({
       aria-label={`View ${label}`}
       className="group relative overflow-hidden rounded-xl border border-fg/10 bg-card/60 text-left transition-all duration-300 hover:-translate-y-1 hover:border-accent/30"
     >
-      <div className={`${aspect} w-full overflow-hidden bg-white`}>
+      <div className={`${aspect} w-full overflow-hidden bg-white p-2`}>
         <img
           src={image}
           alt={label}
           loading="lazy"
-          className="size-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+          className="size-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
         />
       </div>
       <span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition-opacity duration-300 group-hover:bg-ink/50 group-hover:opacity-100">
@@ -114,7 +114,7 @@ export function Certifications() {
           <p className="text-xs font-semibold tracking-[0.14em] text-body-dim uppercase">
             Official Badges · {certBadges.length}
           </p>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {certBadges.map((badge) => (
               <CertCard
                 key={badge.name}
@@ -132,7 +132,7 @@ export function Certifications() {
           <p className="text-xs font-semibold tracking-[0.14em] text-body-dim uppercase">
             Course Certificates · {certCertificates.length}
           </p>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {certCertificates.map((cert) => (
               <CertCard
                 key={cert.title}

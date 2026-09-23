@@ -64,10 +64,10 @@ export const certBadges = [
 
 export const certCertificates = [
   {
-    title: 'Integrations: APIs & Connected Workflows',
+    title: 'n8n Quickstart',
     issuer: 'n8n Academy',
     date: 'July 5, 2026',
-    image: '/certifications/n8n-integrations-apis.png',
+    image: '/certifications/n8n-quickstart.png',
   },
   {
     title: 'Essentials: Your First Workflows',
@@ -76,10 +76,10 @@ export const certCertificates = [
     image: '/certifications/n8n-essentials-first-workflows.png',
   },
   {
-    title: 'n8n Quickstart',
+    title: 'Integrations: APIs & Connected Workflows',
     issuer: 'n8n Academy',
     date: 'July 5, 2026',
-    image: '/certifications/n8n-quickstart.png',
+    image: '/certifications/n8n-integrations-apis.png',
   },
   {
     title: 'In Practice: AI, Testing & Best Practices',
