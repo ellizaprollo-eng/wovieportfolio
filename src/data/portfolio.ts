@@ -24,7 +24,6 @@ export const profile = {
   intro:
     'I design and build reliable automation systems using GoHighLevel, Zapier, Make, and n8n. I connect the tools your business already uses to reduce manual work, streamline processes, and keep operations moving 24/7.',
   avatar: '/profile.jpg',
-  videoIntroEmbedUrl: 'https://www.loom.com/embed/63f9d8ffb91740459ec9326c304bab69',
   location: 'Butuan City, Philippines',
   locationNote: 'Available for remote work across all time zones',
   responseTime: 'Usually responds within 24 hours',
