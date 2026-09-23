@@ -7,29 +7,34 @@ export function Process() {
     <section id="process" className="relative bg-surface py-24 sm:py-28">
       <div className="container-x">
         <SectionHeading
-          title="How We'd Work Together"
-          subtitle="A straightforward path from first call to a workflow running on its own"
+          kicker="How I Work"
+          title={
+            <>
+              Five steps from your <span className="heading-accent">messy ops</span> to a
+              working system.
+            </>
+          }
+          subtitle="No 30-page decks. No months of scoping calls. Map the system, build the smallest version that helps, then improve it based on how real users actually move through it."
         />
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {processSteps.map((step, i) => (
-            <Reveal
-              key={step.title}
-              delay={i * 70}
-              as="article"
-              className="rounded-lg border border-fg/[0.07] bg-card/60 p-6"
-            >
-              <span className="heading-display text-sm font-extrabold text-accent">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <h3 className="heading-display mt-3 text-lg font-bold text-fg">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-body-dim">
-                {step.description}
-              </p>
-            </Reveal>
-          ))}
+        <div className="relative mt-14 max-w-3xl">
+          <div className="absolute top-2 bottom-2 left-5 w-px bg-fg/10" aria-hidden="true" />
+
+          <ol className="flex flex-col gap-10">
+            {processSteps.map((step, i) => (
+              <Reveal key={step.title} delay={i * 70} as="li" className="relative pl-16">
+                <span className="heading-display absolute top-0 left-0 flex size-10 items-center justify-center rounded-full border border-accent/30 bg-card text-sm font-extrabold text-accent">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="heading-display text-xl font-bold text-fg">
+                  {step.title}
+                </h3>
+                <p className="mt-2 max-w-xl text-sm leading-relaxed text-body-dim">
+                  {step.description}
+                </p>
+              </Reveal>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

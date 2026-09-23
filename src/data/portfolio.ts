@@ -20,7 +20,7 @@ export const profile = {
     { text: ' Builder.', accent: false },
   ],
   /** Pill badge above the hero headline. */
-  heroTags: ['GoHighLevel', 'AI Automation', 'Workflow Automation'],
+  heroTags: ['GoHighLevel', 'AI Automation', 'CRM Automation'],
   intro:
     'I design and build reliable automation systems using GoHighLevel, Zapier, Make, and n8n. I connect the tools your business already uses to reduce manual work, streamline processes, and keep operations moving 24/7.',
   avatar: '/profile.jpg',
@@ -46,24 +46,29 @@ export const navLinks = [
 
 export const processSteps = [
   {
-    title: 'Discovery call',
+    title: 'Discover',
     description:
-      "We talk through the manual work that's costing you time and map out what a fix could look like.",
+      'Two short calls. I look at how things actually run today, where leads, appointments, or admin time are leaking out, and where automation would change the most.',
   },
   {
-    title: 'Workflow mapping',
+    title: 'Map',
     description:
-      'I document every step, tool, and handoff before building anything, so nothing gets missed.',
+      'Before anything gets built, I sketch the whole thing on one page. CRM, funnels, AI workflows, the handoffs in between. You see the system before you pay for it.',
   },
   {
-    title: 'Build & test',
+    title: 'Build',
     description:
-      'I build the automation in a sandbox and run it against real data before it touches your systems.',
+      "Build phase. Most of it lives inside GoHighLevel. The pieces that can't, Make, Zapier, n8n, AI APIs, webhooks, custom code, get wired in around it.",
   },
   {
-    title: 'Handover & support',
+    title: 'Test',
     description:
-      "You get a walkthrough, documentation, and support after launch — not just a workflow and a goodbye.",
+      'Forms, workflows, emails, SMS, triggers, webhooks, the full user path. Tested with real data, by me, before a single real visitor ever sees it.',
+  },
+  {
+    title: 'Launch & Optimize',
+    description:
+      'Go live. I watch how real users actually move through it, then tune the workflows, copy, and triggers based on what the data says, not what we assumed during build.',
   },
 ]
 
