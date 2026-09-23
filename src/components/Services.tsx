@@ -26,19 +26,40 @@ const ICONS: Record<ServiceIcon, typeof Zap> = {
   globe: Globe,
 }
 
-function ServiceCard({ service }: { service: (typeof services)[number] }) {
+function ServiceCard({
+  service,
+  index,
+}: {
+  service: (typeof services)[number]
+  index: number
+}) {
   const Icon = ICONS[service.icon]
   return (
     <article className="w-full max-w-md rounded-lg border border-fg/[0.07] bg-card/60 p-6">
-      <span className="inline-flex rounded-lg border border-fg/10 bg-fg/[0.03] p-2.5 text-accent">
-        <Icon className="size-5" />
-      </span>
+      <div className="flex items-center justify-between">
+        <span className="inline-flex rounded-lg border border-fg/10 bg-fg/[0.03] p-2.5 text-accent">
+          <Icon className="size-5" />
+        </span>
+        <span className="font-mono text-xs text-body-dim">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+      </div>
       <h3 className="heading-display mt-4 text-lg font-bold text-fg">
         {service.title}
       </h3>
       <p className="mt-2 text-sm leading-relaxed text-body-dim">
         {service.description}
       </p>
+      <ul className="mt-4 flex flex-wrap gap-2">
+        {service.tags.map((tag) => (
+          <li
+            key={tag}
+            className="rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-xs font-medium text-accent-soft"
+          >
+            {tag}
+          </li>
+        ))}
+      </ul>
       <Link
         to="/contact"
         className="btn-primary mt-5"
@@ -126,15 +147,16 @@ export function Services() {
     <section id="services" className="relative bg-ink py-24 sm:py-28">
       <div className="container-x">
         <SectionHeading
-          title="Services"
-          subtitle="Comprehensive automation solutions to transform your business operations"
+          kicker="Services"
+          title="Comprehensive automation solutions"
+          subtitle="End-to-end systems that transform how your business operates"
         />
 
         {/* Mobile / tablet: plain stacked list — the centerline timeline is a desktop pattern */}
         <div className="mx-auto mt-14 flex max-w-md flex-col gap-6 lg:hidden">
           {services.map((service, i) => (
             <Reveal key={service.title} delay={(i % 3) * 70}>
-              <ServiceCard service={service} />
+              <ServiceCard service={service} index={i} />
             </Reveal>
           ))}
         </div>
@@ -167,9 +189,9 @@ export function Services() {
                   />
 
                   <div className={isLeft ? 'flex justify-end' : ''}>
-                    {isLeft && <ServiceCard service={service} />}
+                    {isLeft && <ServiceCard service={service} index={i} />}
                   </div>
-                  <div>{!isLeft && <ServiceCard service={service} />}</div>
+                  <div>{!isLeft && <ServiceCard service={service} index={i} />}</div>
                 </Reveal>
               )
             })}

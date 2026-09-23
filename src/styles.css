@@ -7,6 +7,7 @@
     'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
   --font-heading: 'Archivo', 'Plus Jakarta Sans', ui-sans-serif, system-ui,
     sans-serif;
+  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
 
   /* Brand: Cyber Teal #03313A + Aqua Foam #8FFFE0.
      Dark mode ladders up from a near-black teal to Cyber Teal itself (cards);
@@ -96,6 +97,17 @@ html[data-theme='light'] ::selection {
 /* Display type — a distinct headline face, no gradient-filled text */
 @utility heading-display {
   font-family: var(--font-heading);
+}
+
+/* Editorial accent — an italic serif word or two inside a heading-display
+   line, echoing the reference layout's mixed-type headings. Solid color,
+   never background-clip gradient text. Use sparingly: one accent phrase
+   per heading, never the whole line. */
+@utility heading-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-accent-bright);
 }
 
 /* ---------- Scroll reveal ---------- */

@@ -17,15 +17,15 @@ export function Navbar() {
   }, [])
 
   return (
-    <header
-      className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-        scrolled || open
-          ? 'border-b border-fg/5 bg-ink/85 backdrop-blur-xl'
-          : 'border-b border-transparent',
-      )}
-    >
-      <nav className="container-x flex h-16 items-center justify-between gap-4">
+    <header className="fixed inset-x-0 top-4 z-50 px-4">
+      <nav
+        className={cn(
+          'container-x flex h-14 items-center justify-between gap-4 rounded-full border px-3 transition-all duration-300 sm:px-4',
+          scrolled || open
+            ? 'border-fg/10 bg-card/90 shadow-lg shadow-black/10 backdrop-blur-xl'
+            : 'border-fg/10 bg-card/70 backdrop-blur-xl',
+        )}
+      >
         <Link
           to="/"
           className="heading-display flex items-center gap-2.5 text-[15px] font-extrabold tracking-tight text-fg transition-colors hover:text-accent-bright"
@@ -69,7 +69,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
-            className="rounded-lg p-2 text-body transition-colors hover:bg-fg/5 hover:text-fg"
+            className="rounded-full p-2 text-body transition-colors hover:bg-fg/5 hover:text-fg"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -77,14 +77,14 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="container-x pb-5 lg:hidden">
-          <div className="flex flex-col gap-1">
+        <div className="container-x mt-2 lg:hidden">
+          <div className="flex flex-col gap-1 rounded-3xl border border-fg/10 bg-card/95 p-3 shadow-lg shadow-black/10 backdrop-blur-xl">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm text-body transition-colors hover:bg-fg/5 hover:text-fg"
+                className="rounded-full px-3 py-2.5 text-sm text-body transition-colors hover:bg-fg/5 hover:text-fg"
               >
                 {link.label}
               </Link>

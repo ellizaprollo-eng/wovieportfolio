@@ -70,48 +70,56 @@ export const services: Array<{
   icon: ServiceIcon
   title: string
   description: string
+  tags: string[]
 }> = [
   {
     icon: 'message',
     title: 'GoHighLevel CRM & Pipelines',
     description:
       'Set up and automate your GoHighLevel CRM, pipelines, and lead management so every contact moves through a clear, hands-off process.',
+    tags: ['GoHighLevel', 'CRM', 'Pipelines'],
   },
   {
     icon: 'globe',
     title: 'Funnels & Website Development',
     description:
       'Build conversion-focused funnels and websites, from a single landing page to a full multi-page site, that feed directly into your CRM and automations.',
+    tags: ['Funnels', 'Websites', 'CRM Integration'],
   },
   {
     icon: 'workflow',
     title: 'Workflow Automation',
     description:
       'Design and implement end-to-end automation workflows using Zapier, Make, and n8n to eliminate manual tasks and boost productivity.',
+    tags: ['Zapier', 'Make', 'n8n'],
   },
   {
     icon: 'bot',
     title: 'AI & Voice Agents',
     description:
       'Build AI chat and voice agents with Retell AI and OpenAI that qualify leads, answer inbound calls, and book appointments without a rep on the line.',
+    tags: ['Retell AI', 'OpenAI', 'Voice Agents'],
   },
   {
     icon: 'zap',
     title: 'API Integrations',
     description:
       'Seamlessly connect your apps and services with custom API integrations and webhooks for real-time data synchronization.',
+    tags: ['APIs', 'Webhooks', 'Real-time Sync'],
   },
   {
     icon: 'database',
     title: 'Data Management',
     description:
       'Optimize data workflows with Google Sheets, Airtable, and Monday integrations for efficient information management.',
+    tags: ['Google Sheets', 'Airtable', 'Monday'],
   },
   {
     icon: 'chart',
     title: 'Process Optimization',
     description:
       'Analyze and improve business processes through SOP creation, audit trails, and AI-driven automation strategies.',
+    tags: ['SOPs', 'Audit Trails', 'AI Strategy'],
   },
 ]
 

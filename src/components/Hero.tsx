@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/react-router'
 import { Aurora } from '@/components/Aurora'
-import { profile } from '@/data/portfolio'
+import { Reveal } from '@/components/Reveal'
+import { heroStats, profile } from '@/data/portfolio'
 
 function Headline() {
   const { headline, headlineHighlight } = profile
@@ -16,7 +17,7 @@ function Headline() {
   return (
     <>
       {before}
-      <span className="text-accent-bright">{headlineHighlight}</span>
+      <span className="heading-accent">{headlineHighlight}</span>
       {after}
     </>
   )
@@ -26,62 +27,80 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden pt-32 pb-20 lg:pt-36 lg:pb-28"
+      className="relative isolate overflow-hidden pt-36 pb-20 lg:pt-40 lg:pb-28"
     >
       <Aurora />
 
-      <div className="container-x relative z-10 grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
-        <div>
-          <p className="text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
-            {profile.role}
-          </p>
+      <div className="container-x relative z-10">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1.5 text-xs font-medium tracking-[0.02em] text-accent-soft">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full motion-safe:animate-ping rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-accent" />
+              </span>
+              {profile.role}
+            </div>
 
-          <h1 className="heading-display mt-5 max-w-xl text-[2.35rem] leading-[1.14] font-extrabold tracking-tight text-fg sm:text-5xl lg:text-[3.25rem]">
-            <Headline />
-          </h1>
+            <h1 className="heading-display mt-5 max-w-xl text-[2.35rem] leading-[1.14] font-extrabold tracking-tight text-fg sm:text-5xl lg:text-[3.25rem]">
+              <Headline />
+            </h1>
 
-          <p className="mt-6 max-w-lg text-[15px] leading-7 text-body sm:text-base">
-            {profile.intro}
-          </p>
+            <p className="mt-6 max-w-lg text-[15px] leading-7 text-body sm:text-base">
+              {profile.intro}
+            </p>
 
-          <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent-soft">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full motion-safe:animate-ping rounded-full bg-accent opacity-75" />
-              <span className="relative inline-flex size-2 rounded-full bg-accent" />
-            </span>
-            {profile.locationNote}
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link to="/contact" className="btn-primary">
+                <span className="btn-node" aria-hidden="true" />
+                Get In Touch
+              </Link>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg border border-fg/15 px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent/50 hover:text-accent-bright"
+              >
+                Resume
+              </a>
+            </div>
+
+            <p className="mt-6 text-xs text-body-dim">
+              {profile.locationNote} · {profile.responseTime}
+            </p>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Link to="/contact" className="btn-primary">
-              <span className="btn-node" aria-hidden="true" />
-              Get In Touch
-            </Link>
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-fg/15 px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent/50 hover:text-accent-bright"
-            >
-              Resume
-            </a>
+          <div className="relative mx-auto w-full max-w-xs lg:mx-0 lg:max-w-sm lg:justify-self-end">
+            <div className="overflow-hidden rounded-2xl border border-fg/10 bg-card/40">
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                width={480}
+                height={600}
+                className="aspect-[4/5] w-full object-cover object-top"
+              />
+            </div>
+            <div className="absolute -bottom-4 left-4 rounded-lg border border-fg/10 bg-ink/90 px-4 py-2.5 text-xs font-semibold text-body shadow-lg backdrop-blur-md">
+              {profile.locationNote}
+            </div>
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-xs lg:mx-0 lg:max-w-sm lg:justify-self-end">
-          <div className="overflow-hidden rounded-2xl border border-fg/10 bg-card/40">
-            <img
-              src={profile.avatar}
-              alt={profile.name}
-              width={480}
-              height={600}
-              className="aspect-[4/5] w-full object-cover object-top"
-            />
-          </div>
-          <div className="absolute -bottom-4 left-4 rounded-lg border border-fg/10 bg-ink/90 px-4 py-2.5 text-xs font-semibold text-body shadow-lg backdrop-blur-md">
-            {profile.locationNote}
-          </div>
-        </div>
+        <Reveal
+          delay={80}
+          className="mt-16 grid grid-cols-2 gap-4 border-t border-fg/10 pt-10 sm:grid-cols-4 lg:mt-20"
+        >
+          {heroStats.map((stat) => (
+            <div key={stat.label}>
+              <p className="heading-display text-3xl font-extrabold text-accent-bright sm:text-4xl">
+                {stat.value}
+              </p>
+              <p className="mt-1 max-w-[14rem] text-xs leading-snug text-body-dim">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </Reveal>
       </div>
     </section>
   )
