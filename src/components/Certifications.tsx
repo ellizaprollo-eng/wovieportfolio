@@ -56,12 +56,14 @@ function CertCard({
   label,
   sub,
   aspect,
+  fit = 'cover',
   onView,
 }: {
   image: string
   label: string
   sub: string
   aspect: string
+  fit?: 'cover' | 'contain'
   onView: () => void
 }) {
   return (
@@ -71,12 +73,14 @@ function CertCard({
       aria-label={`View ${label}`}
       className="group relative overflow-hidden rounded-xl border border-fg/10 bg-card/60 text-left transition-all duration-300 hover:-translate-y-1 hover:border-accent/30"
     >
-      <div className={`${aspect} w-full overflow-hidden bg-white p-2`}>
+      <div
+        className={`${aspect} w-full overflow-hidden bg-white ${fit === 'contain' ? 'p-2' : ''}`}
+      >
         <img
           src={image}
           alt={label}
           loading="lazy"
-          className="size-full object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+          className={`size-full ${fit === 'cover' ? 'object-cover' : 'object-contain'} transition-transform duration-300 group-hover:scale-[1.03]`}
         />
       </div>
       <span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition-opacity duration-300 group-hover:bg-ink/50 group-hover:opacity-100">
@@ -122,6 +126,7 @@ export function Certifications() {
                 label={badge.name}
                 sub={badge.issuer}
                 aspect="aspect-[7/6]"
+                fit="contain"
                 onView={() => setActive({ image: badge.image, label: badge.name })}
               />
             ))}
