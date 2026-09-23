@@ -24,7 +24,7 @@ export const profile = {
   intro:
     'I design and build reliable automation systems using GoHighLevel, Zapier, Make, and n8n. I connect the tools your business already uses to reduce manual work, streamline processes, and keep operations moving 24/7.',
   avatar: '/profile.jpg',
-  location: 'Butuan City, Philippines',
+  location: 'Manila, Philippines',
   locationNote: 'Available for remote work across all time zones',
   responseTime: 'Usually responds within 24 hours',
 }
@@ -52,13 +52,6 @@ export const heroFlow = [
 ]
 
 /** Grounded in real figures already stated in the experience/project data below. */
-export const heroStats = [
-  { value: '4', label: 'Years as a GoHighLevel & AI Automation Specialist' },
-  { value: '80%', label: 'Less manual work for clients' },
-  { value: '4', label: 'Core platforms: GHL, Zapier, Make, n8n' },
-  { value: '19', label: 'Automations delivered across client projects' },
-]
-
 /** Grounded in the actual clients/projects listed elsewhere in this file. */
 export const industriesBuiltFor = [
   {
@@ -90,12 +83,13 @@ export const industriesBuiltFor = [
 export const aboutQuickFacts = [
   { label: 'Experience', value: '4 years' },
   { label: 'Industries', value: 'Multiple' },
-  { label: 'Based in', value: 'Butuan City, PH' },
+  { label: 'Based in', value: 'Manila, PH' },
   { label: 'Working with', value: 'US, EU, APAC' },
 ]
 
 export const navLinks = [
   { label: 'Home', href: '/' },
+  { label: 'About', href: '/#about' },
   { label: 'Services', href: '/services' },
   { label: 'Systems', href: '/systems' },
   { label: 'Contact', href: '/contact' },

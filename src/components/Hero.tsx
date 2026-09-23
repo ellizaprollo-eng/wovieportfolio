@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router'
 import { ArrowRight } from 'lucide-react'
 import { Aurora } from '@/components/Aurora'
 import { Reveal } from '@/components/Reveal'
-import { heroFlow, heroStats, profile } from '@/data/portfolio'
+import { heroFlow, profile } from '@/data/portfolio'
 
 export function Hero() {
   return (
@@ -106,22 +106,6 @@ export function Hero() {
               ]
             })}
           </div>
-        </Reveal>
-
-        <Reveal
-          delay={250}
-          className="mx-auto mt-14 grid max-w-3xl grid-cols-2 gap-6 border-t border-fg/10 pt-10 sm:grid-cols-4 lg:mt-16"
-        >
-          {heroStats.map((stat) => (
-            <div key={stat.label}>
-              <p className="heading-display text-3xl font-extrabold text-accent-bright sm:text-4xl">
-                {stat.value}
-              </p>
-              <p className="mt-1 text-xs leading-snug text-body-dim">
-                {stat.label}
-              </p>
-            </div>
-          ))}
         </Reveal>
       </div>
     </section>

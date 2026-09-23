@@ -41,16 +41,26 @@ export function Navbar() {
         </Link>
 
         <div className="hidden items-center gap-1 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              activeOptions={{ exact: true }}
-              className="rounded-full px-3 py-2 text-sm text-body/90 transition-colors hover:bg-fg/5 hover:text-fg [&.active]:text-fg"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+            link.href.includes('#') ? (
+              <a
+                key={link.href}
+                href={link.href}
+                className="rounded-full px-3 py-2 text-sm text-body/90 transition-colors hover:bg-fg/5 hover:text-fg"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                to={link.href}
+                activeOptions={{ exact: true }}
+                className="rounded-full px-3 py-2 text-sm text-body/90 transition-colors hover:bg-fg/5 hover:text-fg [&.active]:text-fg"
+              >
+                {link.label}
+              </Link>
+            ),
+          )}
           <ThemeToggle className="ml-1" />
           <Link
             to="/contact"
@@ -79,16 +89,27 @@ export function Navbar() {
       {open && (
         <div className="container-x mt-2 lg:hidden">
           <div className="flex flex-col gap-1 rounded-3xl border border-fg/10 bg-card/95 p-3 shadow-lg shadow-black/10 backdrop-blur-xl">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={() => setOpen(false)}
-                className="rounded-full px-3 py-2.5 text-sm text-body transition-colors hover:bg-fg/5 hover:text-fg"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.href.includes('#') ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-full px-3 py-2.5 text-sm text-body transition-colors hover:bg-fg/5 hover:text-fg"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setOpen(false)}
+                  className="rounded-full px-3 py-2.5 text-sm text-body transition-colors hover:bg-fg/5 hover:text-fg"
+                >
+                  {link.label}
+                </Link>
+              ),
+            )}
             <Link
               to="/contact"
               onClick={() => setOpen(false)}

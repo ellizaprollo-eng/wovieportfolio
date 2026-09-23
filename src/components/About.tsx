@@ -3,7 +3,7 @@ import { SectionHeading } from '@/components/SectionHeading'
 import { aboutQuickFacts, industriesBuiltFor, profile } from '@/data/portfolio'
 
 const PARAGRAPHS = [
-  "I'm Wovie, a GoHighLevel and AI Automation Specialist based in Butuan City, Philippines, working remotely with clients across every time zone.",
+  "I'm Wovie, a GoHighLevel and AI Automation Specialist based in Manila, Philippines, working remotely with clients across every time zone.",
   "For the past 4 years I've built automation systems for businesses that were still running on manual processes, fragmented tools, and follow-ups that depended on someone remembering to do them. My work spans GoHighLevel CRM setup, AI chat and voice agents, and workflow automation built on n8n, Zapier, and Make.",
   "I've run the full operational workflow behind two property management businesses, Press Haven Homes and Stay Classy Homes, handling tenant relations, guest communication, and reservation pipelines end to end. That hands-on experience shaped how I build: every automation gets tested in a sandbox against real data before it ever touches a client's live systems.",
   "My focus isn't just connecting apps together. It's building systems a business can actually rely on long after the handover.",
@@ -25,8 +25,8 @@ export function About() {
           }
         />
 
-        <div className="mx-auto mt-14 grid max-w-4xl gap-10 sm:grid-cols-[auto_1fr] sm:items-center sm:gap-12">
-          <Reveal className="mx-auto sm:mx-0">
+        <div className="mx-auto mt-14 grid max-w-4xl gap-10 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-12">
+          <Reveal className="mx-auto sm:sticky sm:top-28 sm:mx-0">
             <div className="w-40 overflow-hidden rounded-2xl border border-fg/10 bg-card/40 sm:w-48">
               <img
                 src={profile.avatar}
