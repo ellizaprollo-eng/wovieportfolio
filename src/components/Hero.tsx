@@ -78,17 +78,14 @@ export function Hero() {
           <span>Engagement · Sprint-based</span>
         </Reveal>
 
-        <Reveal
-          delay={210}
-          className="mx-auto mt-10 max-w-3xl rounded-2xl border border-accent/20 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-accent)_6%,transparent),transparent)] p-3 shadow-[0_0_70px_-20px_var(--color-accent)] sm:p-6"
-        >
+        <Reveal delay={210} className="mx-auto mt-10 max-w-3xl">
           <div className="grid gap-4 sm:grid-cols-[1fr_2.5rem_1fr_2.5rem_1fr] sm:items-center">
             {heroFlow.flatMap((step, i) => {
               const Icon = FLOW_ICONS[step.icon]
               const card = (
                 <div
                   key={step.label}
-                  className="group rounded-xl border border-fg/10 bg-card/80 p-4 text-left transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-[0_8px_24px_-8px_var(--color-accent)]"
+                  className="group rounded-xl border border-fg/10 bg-card/80 p-4 text-left shadow-[0_0_30px_-14px_var(--color-accent)] transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-[0_8px_28px_-10px_var(--color-accent)]"
                 >
                   <span className="mb-3 flex size-8 items-center justify-center rounded-full bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent/20">
                     <Icon className="size-4" />
