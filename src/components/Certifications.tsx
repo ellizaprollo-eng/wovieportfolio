@@ -71,10 +71,10 @@ function CertCard({
       type="button"
       onClick={onView}
       aria-label={`View ${label}`}
-      className="group relative overflow-hidden rounded-xl border border-fg/10 bg-card/60 text-left transition-all duration-300 hover:-translate-y-1 hover:border-accent/30"
+      className="group relative flex flex-col overflow-hidden rounded-xl border border-fg/10 bg-card/60 text-left transition-all duration-300 hover:-translate-y-1 hover:border-accent/30"
     >
       <div
-        className={`${aspect} w-full overflow-hidden bg-white ${fit === 'contain' ? 'p-2' : ''}`}
+        className={`${aspect} w-full shrink-0 overflow-hidden bg-white ${fit === 'contain' ? 'p-2' : ''}`}
       >
         <img
           src={image}
