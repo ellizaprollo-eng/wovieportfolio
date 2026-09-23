@@ -5,6 +5,7 @@ import { Skills } from '@/components/Skills'
 import { StatsBand } from '@/components/StatsBand'
 import { Certifications } from '@/components/Certifications'
 import { About } from '@/components/About'
+import { FinalCta } from '@/components/FinalCta'
 import { Clients } from '@/components/Clients'
 import { Testimonials } from '@/components/Testimonials'
 import { Footer } from '@/components/Footer'
@@ -23,6 +24,7 @@ function Home() {
         <StatsBand />
         <Certifications />
         <About />
+        <FinalCta />
         <Clients />
         <Testimonials />
       </main>
