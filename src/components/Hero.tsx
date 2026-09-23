@@ -66,10 +66,10 @@ export function Hero() {
         >
           <span className="inline-flex items-center gap-2">
             <span className="inline-flex size-1.5 rounded-full bg-accent" />
-            Available for new projects
+            Available for work &amp; projects
           </span>
-          <span>Reply · &lt;24h</span>
-          <span>Remote · All time zones</span>
+          <span>Reply · &lt; 24h</span>
+          <span>Engagement · Sprint-based</span>
         </Reveal>
 
         <Reveal
