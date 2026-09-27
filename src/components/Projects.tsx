@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Backdrop } from '@/components/Backdrop'
-import { ArrowRight, LayoutGrid, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight, LayoutGrid, Maximize2, X, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { cn } from '@/lib/utils'
 import { projects, type Project } from '@/data/portfolio'
@@ -404,6 +404,13 @@ export function Projects() {
   const automations = rest.filter((project) => !isSite(project))
   const sites = rest.filter(isSite)
 
+  // Collapsed: only the first few cards show, the rest drop down on demand.
+  const [expanded, setExpanded] = useState(false)
+  const PREVIEW = 3
+  const shownAutomations = expanded ? automations : automations.slice(0, PREVIEW)
+  const shownSites = expanded ? sites : automations.length === 0 ? sites.slice(0, PREVIEW) : []
+  const hiddenCount = automations.length + sites.length - shownAutomations.length - shownSites.length
+
   function showRelative(offset: number) {
     setActiveProject((current) => {
       if (!current) return current
@@ -438,7 +445,10 @@ export function Projects() {
             <button
               key={f.key}
               type="button"
-              onClick={() => setFilter(f.key)}
+              onClick={() => {
+                setFilter(f.key)
+                setExpanded(false)
+              }}
               aria-pressed={filter === f.key}
               className={cn(
                 'inline-flex items-center gap-1.5 rounded-lg border px-3.5 py-2 text-sm font-medium transition-colors',
@@ -467,13 +477,13 @@ export function Projects() {
           </div>
         )}
 
-        {automations.length > 0 && (
+        {shownAutomations.length > 0 && (
           <>
             <h3 className="heading-display mt-16 text-lg font-bold text-fg">
               More automations
             </h3>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {automations.map((project, i) => (
+              {shownAutomations.map((project, i) => (
                 <ProjectCard
                   key={project.title}
                   project={project}
@@ -486,13 +496,13 @@ export function Projects() {
           </>
         )}
 
-        {sites.length > 0 && (
+        {shownSites.length > 0 && (
           <>
             <h3 className="heading-display mt-16 text-lg font-bold text-fg">
               Websites &amp; Funnels
             </h3>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {sites.map((project, i) => (
+              {shownSites.map((project, i) => (
                 <ProjectCard
                   key={project.title}
                   project={project}
@@ -503,6 +513,28 @@ export function Projects() {
               ))}
             </div>
           </>
+        )}
+
+        {(hiddenCount > 0 || expanded) && automations.length + sites.length > PREVIEW && (
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => {
+                if (expanded) document.getElementById('sample-works')?.scrollIntoView({ behavior: 'smooth' })
+                setExpanded((v) => !v)
+              }}
+              aria-expanded={expanded}
+              className="group inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-6 py-3 text-sm font-semibold text-accent-bright transition-colors hover:bg-accent hover:text-white"
+            >
+              {expanded ? 'Show less' : `More Sample Works (${hiddenCount})`}
+              <ChevronDown
+                aria-hidden="true"
+                className={`size-4 transition-transform duration-300 ${
+                  expanded ? 'rotate-180' : 'group-hover:translate-y-0.5'
+                }`}
+              />
+            </button>
+          </div>
         )}
 
         {visible.length === 0 && (
