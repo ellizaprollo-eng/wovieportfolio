@@ -622,3 +622,39 @@ html[data-theme='light'] .aurora-glow {
     animation: none;
   }
 }
+
+/* ---------- Nav section-jump cover (see Navbar.tsx) ---------- */
+.nav-cover-in {
+  animation: nav-cover-in 0.28s ease-out both;
+}
+.nav-cover-out {
+  animation: nav-cover-out 0.38s ease-in both;
+}
+.nav-cover-logo {
+  animation: nav-cover-logo 0.66s ease-in-out both;
+}
+
+@keyframes nav-cover-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes nav-cover-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes nav-cover-logo {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  45% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0;
+  }
+}
