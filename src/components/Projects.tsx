@@ -432,11 +432,10 @@ export function Projects() {
             Sample Works
           </p>
           <h2 className="heading-display text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">
-            Automations I&rsquo;ve actually shipped.
+            Systems and sites I&rsquo;ve actually shipped.
           </h2>
           <p className="mt-3 max-w-2xl text-base text-body-dim">
-            Every project below is real work built for a real
-            business, not a demo. Click any screenshot to view it in full.
+            Automations, AI agents, websites, and funnels, all real work built for real businesses. Click any screenshot to view it in full.
           </p>
         </Reveal>
 

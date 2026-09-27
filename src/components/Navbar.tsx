@@ -26,8 +26,8 @@ export function Navbar() {
             : 'border-fg/10 bg-card/70 backdrop-blur-xl',
         )}
       >
-        <Link
-          to="/"
+        <a
+          href="/#home"
           className="heading-display flex items-center gap-2.5 text-[15px] font-extrabold tracking-tight text-fg transition-colors hover:text-accent-bright"
         >
           <img
@@ -38,7 +38,7 @@ export function Navbar() {
             className="size-8 rounded-full"
           />
           {profile.shortName}
-        </Link>
+        </a>
 
         <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) =>

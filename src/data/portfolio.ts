@@ -142,7 +142,7 @@ export const aboutMastery = [
 ]
 
 export const navLinks = [
-  { label: 'Home', href: '/' },
+  { label: 'Home', href: '/#home' },
   { label: 'About', href: '/#about' },
   { label: 'Services', href: '/#services' },
   { label: 'Sample Works', href: '/#sample-works' },
