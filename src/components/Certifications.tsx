@@ -103,7 +103,7 @@ export function Certifications() {
 
   return (
     <section id="certifications" className="relative isolate overflow-clip bg-ink py-24 sm:py-28">
-      <Backdrop id="certs" variant="grid" glow="top-left" />
+      <Backdrop id="certs" variant="flow" glow="top-left" />
       <div className="container-x">
         <SectionHeading
           kicker="Badges & Certifications"

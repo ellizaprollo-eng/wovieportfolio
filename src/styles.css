@@ -586,3 +586,39 @@ html[data-theme='light'] .aurora-glow {
     transform: translate(20px, 8px) !important;
   }
 }
+
+/* ---------- Circuit backdrop (see Backdrop.tsx) ---------- */
+.circuit-pulse {
+  stroke-dasharray: 70 2000;
+  stroke-dashoffset: 2070;
+  opacity: 0.55;
+  filter: drop-shadow(0 0 4px currentColor);
+  animation: circuit-flow 8s linear infinite;
+}
+
+@keyframes circuit-flow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.circuit-led {
+  opacity: 0.25;
+  animation: circuit-blink 2.4s ease-in-out infinite;
+}
+
+@keyframes circuit-blink {
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circuit-pulse {
+    animation: none;
+    opacity: 0;
+  }
+  .circuit-led {
+    animation: none;
+  }
+}

@@ -29,8 +29,8 @@ function Home() {
         <Certifications />
         <About />
         <FinalCta />
-        <Clients />
         <Testimonials />
+        <Clients />
       </main>
       <Footer />
     </>

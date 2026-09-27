@@ -24,36 +24,104 @@ const GLOW_POS: Record<GlowAt, string> = {
 /** Fades the pattern out toward the edges so it never frames the content. */
 const EDGE_MASK = 'radial-gradient(ellipse 75% 70% at 50% 45%, #000 20%, transparent 85%)'
 
+/**
+ * Circuit-board traces: 45-degree bends, vias at the ends, two chip outlines,
+ * and light pulses that travel along the traces like data moving through a
+ * system. Pulses stop under prefers-reduced-motion.
+ */
+const TRACES = [
+  'M0 150 H220 L260 190 H470 L510 150 H640',
+  'M640 150 H760 L800 110 H1010 L1050 150 H1440',
+  'M0 330 H120 L160 370 H330 L370 330 H560',
+  'M860 330 H1040 L1080 290 H1260 L1300 330 H1440',
+  'M0 560 H180 L220 520 H420 L460 560 H600',
+  'M840 560 H980 L1020 600 H1240 L1280 560 H1440',
+  'M0 700 H300 L340 660 H520',
+  'M920 700 H1120 L1160 660 H1440',
+  'M330 370 V470 L370 510 V520',
+  'M1080 290 V200 L1120 160',
+  'M220 520 V420 L180 380',
+  'M1240 600 V700',
+]
+
+const VIAS: [number, number][] = [
+  [640, 150], [560, 330], [860, 330], [600, 560], [840, 560], [520, 660],
+  [920, 700], [1120, 160], [180, 380], [1240, 700], [370, 520], [260, 190],
+]
+
+/** Chip outlines with pins on the long sides. */
+const CHIPS = [
+  { x: 60, y: 400, w: 150, h: 70 },
+  { x: 1230, y: 420, w: 150, h: 70 },
+]
+
+function Circuit() {
+  return (
+    <svg
+      className="absolute inset-0 h-full w-full text-accent-soft"
+      viewBox="0 0 1440 800"
+      preserveAspectRatio="xMidYMid slice"
+      style={{ maskImage: EDGE_MASK, WebkitMaskImage: EDGE_MASK }}
+    >
+      <g fill="none" stroke="currentColor" strokeWidth="1.25" opacity="0.13">
+        {TRACES.map((d) => (
+          <path key={d} d={d} />
+        ))}
+        {CHIPS.map((c) => (
+          <g key={`${c.x}-${c.y}`}>
+            <rect x={c.x} y={c.y} width={c.w} height={c.h} rx="10" />
+            <rect x={c.x + 14} y={c.y + 14} width={c.w - 28} height={c.h - 28} rx="6" strokeDasharray="3 5" />
+            {Array.from({ length: Math.floor(c.w / 24) - 1 }, (_, i) => c.x + 24 + i * 24).map((px) => (
+              <g key={px}>
+                <path d={`M${px} ${c.y} v-10`} />
+                <path d={`M${px} ${c.y + c.h} v10`} />
+              </g>
+            ))}
+          </g>
+        ))}
+      </g>
+
+      <g fill="currentColor" opacity="0.22">
+        {VIAS.map(([x, y]) => (
+          <g key={`${x}-${y}`}>
+            <circle cx={x} cy={y} r="5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+            <circle cx={x} cy={y} r="1.8" />
+          </g>
+        ))}
+      </g>
+
+      {/* Data pulses riding the traces */}
+      <g fill="none" strokeWidth="2" strokeLinecap="round" className="text-accent-bright">
+        {TRACES.slice(0, 8).map((d, i) => (
+          <path
+            key={d}
+            d={d}
+            stroke="currentColor"
+            className="circuit-pulse"
+            style={{ animationDelay: `${i * -1.3}s`, animationDuration: `${7 + (i % 3) * 2}s` }}
+          />
+        ))}
+      </g>
+
+      {/* Status LEDs on the chips */}
+      {CHIPS.map((c, i) => (
+        <circle
+          key={`led-${c.x}`}
+          cx={c.x + c.w - 22}
+          cy={c.y + 22}
+          r="3"
+          className="circuit-led fill-accent-bright"
+          style={{ animationDelay: `${i * 0.9}s` }}
+        />
+      ))}
+    </svg>
+  )
+}
+
 function Pattern({ variant, id }: { variant: Variant; id: string }) {
   if (variant === 'glow') return null
 
-  if (variant === 'flow') {
-    return (
-      <svg
-        className="absolute inset-0 h-full w-full text-accent-soft opacity-[0.09]"
-        viewBox="0 0 1440 800"
-        preserveAspectRatio="xMidYMid slice"
-        style={{ maskImage: EDGE_MASK, WebkitMaskImage: EDGE_MASK }}
-      >
-        <g fill="none" stroke="currentColor" strokeWidth="1.25">
-          <path d="M40 180 H300 C360 180 360 300 420 300 H640" />
-          <path d="M420 300 C480 300 480 460 540 460 H760 C820 460 820 360 880 360 H1100" />
-          <path d="M1100 360 C1160 360 1160 200 1220 200 H1420" />
-          <path d="M1100 360 C1160 360 1160 540 1220 540 H1420" />
-          <path d="M20 620 H260 C320 620 320 520 380 520 H540" strokeDasharray="4 6" />
-          <path d="M760 460 C820 460 820 660 880 660 H1060" strokeDasharray="4 6" />
-        </g>
-        <g fill="currentColor">
-          {[
-            [300, 180], [640, 300], [540, 460], [760, 460], [880, 360],
-            [1100, 360], [1220, 200], [1220, 540], [260, 620], [540, 520], [1060, 660],
-          ].map(([x, y]) => (
-            <rect key={`${x}-${y}`} x={x - 7} y={y - 7} width="14" height="14" rx="4" />
-          ))}
-        </g>
-      </svg>
-    )
-  }
+  if (variant === 'flow') return <Circuit />
 
   const patterns = {
     grid: (

@@ -388,7 +388,7 @@ export function Projects() {
       id="portfolio"
       className="relative isolate overflow-clip bg-surface py-24 sm:py-28"
     >
-      <Backdrop id="projects" variant="grid" glow="top-left" />
+      <Backdrop id="projects" variant="flow" glow="top-left" />
       <div className="container-x">
         <Reveal>
           <p className="text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
@@ -511,7 +511,7 @@ export function SampleWorksPreview({ count = 6 }: { count?: number }) {
       id="sample-works"
       className="relative isolate overflow-clip bg-surface py-24 sm:py-28"
     >
-      <Backdrop id="sample-works" variant="grid" glow="top-left" />
+      <Backdrop id="sample-works" variant="flow" glow="top-left" />
       <div className="container-x">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <Reveal className="max-w-2xl">

@@ -56,7 +56,7 @@ function CalendlyEmbed() {
 export function Contact() {
   return (
     <section id="contact" className="relative isolate overflow-clip bg-ink py-24 sm:py-28">
-      <Backdrop id="contact" variant="grid" glow="top-right" />
+      <Backdrop id="contact" variant="flow" glow="top-right" />
       <div className="container-x">
         <SectionHeading
           title="Get In Touch"
