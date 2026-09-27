@@ -8,6 +8,8 @@ import { About } from '@/components/About'
 import { FinalCta } from '@/components/FinalCta'
 import { Clients } from '@/components/Clients'
 import { Testimonials } from '@/components/Testimonials'
+import { SampleWorksPreview } from '@/components/Projects'
+import { CaseStudyPreview } from '@/components/CaseStudyPreview'
 import { Footer } from '@/components/Footer'
 
 export const Route = createFileRoute('/')({
@@ -21,6 +23,8 @@ function Home() {
       <main>
         <Hero />
         <Skills />
+        <SampleWorksPreview />
+        <CaseStudyPreview />
         <StatsBand />
         <Certifications />
         <About />
