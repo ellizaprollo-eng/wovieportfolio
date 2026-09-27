@@ -136,7 +136,7 @@ export const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/#about' },
   { label: 'Services', href: '/services' },
-  { label: 'Systems', href: '/systems' },
+  { label: 'Sample Works', href: '/systems' },
   { label: 'Contact', href: '/contact' },
 ]
 
