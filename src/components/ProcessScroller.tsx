@@ -1,4 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+
+// Measure before paint on the client so the page height is final before any
+// #hash jump; plain useEffect on the server where layout effects warn.
+const useIsoLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
 import { FlaskConical, Map, Rocket, Search, Wrench } from 'lucide-react'
 import { Backdrop } from '@/components/Backdrop'
 import { processSteps } from '@/data/portfolio'
@@ -19,7 +23,7 @@ export function ProcessScroller() {
   const [progress, setProgress] = useState(0)
   const [pinned, setPinned] = useState(true)
 
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setPinned(false)
       return

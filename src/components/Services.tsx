@@ -68,7 +68,7 @@ function ServiceCard({
         ))}
       </ul>
       <Link
-        to="/contact"
+        to="/" hash="contact"
         className="btn-primary mt-5 w-fit"
         style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
       >

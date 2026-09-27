@@ -63,7 +63,7 @@ export function Navbar() {
           )}
           <ThemeToggle className="ml-1" />
           <Link
-            to="/contact"
+            to="/" hash="contact"
             className="btn-primary ml-2"
             style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
           >
@@ -111,7 +111,7 @@ export function Navbar() {
               ),
             )}
             <Link
-              to="/contact"
+              to="/" hash="contact"
               onClick={() => setOpen(false)}
               className="btn-primary mt-2 justify-center"
             >

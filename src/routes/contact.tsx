@@ -1,23 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Navbar } from '@/components/Navbar'
-import { Contact } from '@/components/Contact'
-import { Footer } from '@/components/Footer'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 
+/** The booking calendar now lives on the home page; keep old /contact links working. */
 export const Route = createFileRoute('/contact')({
-  head: () => ({
-    meta: [{ title: 'Contact | Wovie Prollo' }],
-  }),
-  component: ContactPage,
+  beforeLoad: () => {
+    throw redirect({ to: '/', hash: 'contact', replace: true })
+  },
 })
-
-function ContactPage() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Contact />
-      </main>
-      <Footer />
-    </>
-  )
-}

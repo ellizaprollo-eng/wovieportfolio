@@ -51,7 +51,7 @@ export function Hero() {
 
         <Reveal delay={140} className="mt-9 flex flex-wrap items-center justify-center gap-4">
           <Link
-            to="/contact"
+            to="/" hash="contact"
             className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-ink shadow-lg shadow-accent/20 transition-transform hover:-translate-y-0.5"
           >
             Get In Touch

@@ -321,7 +321,7 @@ function CaseStudyPage() {
                 I build the same system inside your GoHighLevel account, tuned to your offer.
               </p>
             </div>
-            <Link to="/contact" className="btn-primary shrink-0">
+            <Link to="/" hash="contact" className="btn-primary shrink-0">
               <span className="btn-node" aria-hidden="true" />
               Get In Touch
             </Link>
