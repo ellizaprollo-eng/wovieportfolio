@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Backdrop } from '@/components/Backdrop'
 import { Globe, Linkedin, Mail, MessageCircle } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
@@ -13,23 +13,43 @@ const CHANNEL_ICONS: Record<ContactIcon, typeof Mail> = {
 }
 
 const CALENDLY_URL = 'https://calendly.com/wovieprollo42/30min'
-const CALENDLY_SCRIPT_SRC = 'https://assets.calendly.com/assets/external/widget.js'
 
+/**
+ * Plain iframe instead of Calendly's widget.js: the script only scans the
+ * page once, so after a client-side navigation to /contact the box stayed
+ * blank. An iframe loads on every mount.
+ */
 function CalendlyEmbed() {
+  const [loaded, setLoaded] = useState(false)
+  const [src, setSrc] = useState<string | null>(null)
+
+  // embed_domain must be the real host, so build the URL on the client.
   useEffect(() => {
-    if (document.querySelector(`script[src="${CALENDLY_SCRIPT_SRC}"]`)) return
-    const script = document.createElement('script')
-    script.src = CALENDLY_SCRIPT_SRC
-    script.async = true
-    document.body.appendChild(script)
+    const params = new URLSearchParams({
+      embed_domain: window.location.hostname,
+      embed_type: 'Inline',
+      primary_color: '3fc7b0',
+    })
+    setSrc(`${CALENDLY_URL}?${params}`)
   }, [])
 
   return (
-    <div
-      className="calendly-inline-widget overflow-hidden rounded-lg"
-      data-url={`${CALENDLY_URL}?primary_color=3fc7b0`}
-      style={{ minWidth: '280px', height: '650px' }}
-    />
+    <div className="relative overflow-hidden rounded-lg" style={{ minWidth: '280px', height: '650px' }}>
+      {!loaded && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-sm text-body-dim">
+          <span className="size-8 animate-spin rounded-full border-2 border-accent/25 border-t-accent" />
+          Loading calendar&hellip;
+        </div>
+      )}
+      {src && (
+        <iframe
+          src={src}
+          title="Book a call with Wovie"
+          onLoad={() => setLoaded(true)}
+          className="relative h-full w-full border-0"
+        />
+      )}
+    </div>
   )
 }
 

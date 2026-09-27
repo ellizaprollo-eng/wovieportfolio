@@ -23,9 +23,9 @@ function Home() {
       <main>
         <Hero />
         <Skills />
+        <StatsBand />
         <SampleWorksPreview />
         <CaseStudyPreview />
-        <StatsBand />
         <Certifications />
         <About />
         <FinalCta />
