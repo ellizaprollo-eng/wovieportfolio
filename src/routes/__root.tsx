@@ -22,9 +22,9 @@ export const Route = createRootRoute({
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
     links: [
-      { rel: 'icon', href: '/favicon.ico?v=2', sizes: 'any' },
-      { rel: 'icon', href: '/favicon.png?v=2', type: 'image/png' },
-      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png?v=2' },
+      { rel: 'icon', href: '/favicon.ico?v=3', sizes: 'any' },
+      { rel: 'icon', href: '/favicon.png?v=3', type: 'image/png' },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png?v=3' },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       {
         rel: 'preconnect',

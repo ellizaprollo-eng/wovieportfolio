@@ -111,7 +111,7 @@ export function Navbar() {
             className="heading-display flex items-center gap-2.5 text-[15px] font-extrabold tracking-tight text-fg transition-colors hover:text-accent-bright"
           >
             <img
-              src="/favicon.png?v=2"
+              src="/brand/avatar.png"
               alt=""
               width={32}
               height={32}
@@ -208,7 +208,9 @@ export function Navbar() {
             cover === 'in' ? 'nav-cover-in' : 'nav-cover-out',
           )}
         >
-          <img src="/favicon.png?v=2" alt="" className="nav-cover-logo size-16 rounded-full" />
+          <span className="nav-cover-logo grid size-24 place-items-center rounded-3xl bg-white p-3 shadow-2xl shadow-accent/30">
+            <img src="/brand/logo-mark.png" alt="" className="size-full object-contain" />
+          </span>
         </div>
       )}
     </>
