@@ -55,31 +55,6 @@ function CalendlyEmbed() {
 }
 
 export function Contact() {
-  // Sections above (the pinned How I Work scroller, images, fonts) settle
-  // their height after the router has already jumped to #contact, which
-  // leaves the visitor short of the booking form. For a couple of seconds
-  // after arriving, re-align whenever the page height changes, and stop the
-  // moment the visitor scrolls on their own.
-  useEffect(() => {
-    if (window.location.hash !== '#contact') return
-    const section = document.getElementById('contact')
-    if (!section) return
-
-    const align = () => section.scrollIntoView()
-    const ro = new ResizeObserver(align)
-    ro.observe(document.body)
-    const stop = () => {
-      ro.disconnect()
-      window.clearTimeout(timer)
-      for (const e of ['wheel', 'touchstart', 'keydown'] as const) window.removeEventListener(e, stop)
-    }
-    const timer = window.setTimeout(stop, 2500)
-    for (const e of ['wheel', 'touchstart', 'keydown'] as const)
-      window.addEventListener(e, stop, { passive: true })
-    align()
-    return stop
-  }, [])
-
   return (
     <section id="contact" className="relative isolate overflow-clip bg-ink py-24 sm:py-28">
       <Backdrop id="contact" variant="flow" glow="top-right" />

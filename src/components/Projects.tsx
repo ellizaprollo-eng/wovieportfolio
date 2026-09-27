@@ -411,18 +411,21 @@ export function Projects() {
 
   return (
     <section
-      id="portfolio"
+      id="sample-works"
       className="relative isolate overflow-clip bg-surface py-24 sm:py-28"
     >
       <Backdrop id="projects" variant="flow" glow="top-left" />
       <div className="container-x">
         <Reveal>
-          <p className="text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">
-            Featured Systems
+          <p className="mb-3 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-accent uppercase">
+            <span aria-hidden="true" className="text-accent/50">
+              //
+            </span>
+            Sample Works
           </p>
-          <h1 className="heading-display mt-4 text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">
+          <h2 className="heading-display text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">
             Automations I&rsquo;ve actually shipped.
-          </h1>
+          </h2>
           <p className="mt-3 max-w-2xl text-base text-body-dim">
             Every project below is real work built for a real
             business, not a demo. Click any screenshot to view it in full.
@@ -517,73 +520,3 @@ export function Projects() {
   )
 }
 
-/** Home page teaser: a handful of automation cards plus a link to the full list. */
-export function SampleWorksPreview({ count = 6 }: { count?: number }) {
-  const [activeProject, setActiveProject] = useState<Project | null>(null)
-  const picks = projects
-    .filter((p) => !p.featured && !p.tags.includes('Website & Funnel') && p.problem)
-    .slice(0, count)
-
-  function showRelative(offset: number) {
-    setActiveProject((current) => {
-      if (!current) return current
-      const index = picks.indexOf(current)
-      return picks[(index + offset + picks.length) % picks.length]
-    })
-  }
-
-  return (
-    <section
-      id="sample-works"
-      className="relative isolate overflow-clip bg-surface py-24 sm:py-28"
-    >
-      <Backdrop id="sample-works" variant="flow" glow="top-left" />
-      <div className="container-x">
-        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-          <Reveal className="max-w-2xl">
-            <p className="mb-3 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-accent uppercase">
-              <span aria-hidden="true" className="text-accent/50">
-                //
-              </span>
-              Sample Works
-            </p>
-            <h2 className="heading-display text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">
-              Automations I&rsquo;ve actually shipped.
-            </h2>
-            <p className="mt-4 text-base text-body-dim sm:text-lg">
-              Real work built for real businesses. Click any screenshot to see the full workflow.
-            </p>
-          </Reveal>
-          <Link
-            to="/systems"
-            className="btn-primary shrink-0"
-            style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
-          >
-            View All Sample Works
-            <ArrowRight className="btn-arrow size-4" />
-          </Link>
-        </div>
-
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {picks.map((project, i) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              delay={(i % 3) * 90}
-              onView={() => setActiveProject(project)}
-            />
-          ))}
-        </div>
-      </div>
-
-      {activeProject && (
-        <ProjectLightbox
-          project={activeProject}
-          onClose={() => setActiveProject(null)}
-          onPrev={() => showRelative(-1)}
-          onNext={() => showRelative(1)}
-        />
-      )}
-    </section>
-  )
-}

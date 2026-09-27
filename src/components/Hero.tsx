@@ -58,7 +58,7 @@ export function Hero() {
             <ArrowRight className="size-4" />
           </Link>
           <Link
-            to="/systems"
+            to="/" hash="sample-works"
             className="inline-flex items-center gap-2 rounded-full border border-fg/15 bg-fg/[0.03] px-6 py-3.5 text-sm font-semibold text-fg transition-colors hover:border-accent/40 hover:text-accent-bright"
           >
             View my work

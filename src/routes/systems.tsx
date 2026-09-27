@@ -1,23 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Navbar } from '@/components/Navbar'
-import { Projects } from '@/components/Projects'
-import { Footer } from '@/components/Footer'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 
+/** Sample Works now lives on the home page; keep old /systems links working. */
 export const Route = createFileRoute('/systems')({
-  head: () => ({
-    meta: [{ title: 'Systems | Wovie Prollo' }],
-  }),
-  component: SystemsPage,
+  beforeLoad: () => {
+    throw redirect({ to: '/', hash: 'sample-works', replace: true })
+  },
 })
-
-function SystemsPage() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Projects />
-      </main>
-      <Footer />
-    </>
-  )
-}

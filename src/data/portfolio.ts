@@ -145,7 +145,7 @@ export const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/#about' },
   { label: 'Services', href: '/services' },
-  { label: 'Sample Works', href: '/systems' },
+  { label: 'Sample Works', href: '/#sample-works' },
   { label: 'Case Study', href: '/case-study' },
   { label: 'Contact', href: '/#contact' },
 ]
@@ -279,7 +279,6 @@ export const projects: Project[] = [
       'n8n workflow that turns a topic into a ready-to-post social package: caption, hashtags, and an AI image',
     image: '/projects/social-content-generator.jpg',
     tags: ['n8n', 'OpenAI', 'Google Sheets', 'Webhook'],
-    featured: true,
     problem:
       'Turning a topic into a finished social post meant writing the caption, hashtags, and an image brief by hand every time.',
     approach:
