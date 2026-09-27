@@ -137,6 +137,7 @@ export const navLinks = [
   { label: 'About', href: '/#about' },
   { label: 'Services', href: '/services' },
   { label: 'Sample Works', href: '/systems' },
+  { label: 'Case Study', href: '/case-study' },
   { label: 'Contact', href: '/contact' },
 ]
 
