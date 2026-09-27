@@ -28,8 +28,8 @@ export function About() {
         />
 
         <div className="mt-12 grid gap-8 sm:grid-cols-[auto_minmax(0,1fr)] sm:gap-10 lg:gap-12">
-          {/* Small portrait */}
-          <Reveal>
+          {/* Small portrait, sticks while the text scrolls past */}
+          <Reveal className="sm:sticky sm:top-28 sm:self-start">
             <div className="w-36 overflow-hidden rounded-2xl border border-fg/10 bg-white shadow-xl shadow-black/30 sm:w-40 lg:w-44">
               <img
                 src={profile.avatar}
@@ -49,17 +49,8 @@ export function About() {
               </p>
             ))}
 
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex w-fit rounded-lg border border-fg/15 px-5 py-2.5 text-sm font-semibold text-fg transition-colors hover:border-accent/50 hover:text-accent-bright"
-            >
-              View Resume
-            </a>
 
-
-            <dl className="mt-10 grid grid-cols-2 gap-3">
+            <dl className="mt-8 grid grid-cols-2 gap-3">
               {aboutQuickFacts.map((fact) => (
                 <div key={fact.label} className="rounded-xl border border-fg/[0.08] bg-card/60 p-4">
                   <dt className="font-mono text-[0.65rem] tracking-[0.12em] text-body-dim uppercase">
