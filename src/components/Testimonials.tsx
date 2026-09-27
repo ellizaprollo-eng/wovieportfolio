@@ -5,14 +5,6 @@ import { testimonials, videoTestimonial } from '@/data/portfolio'
 
 type Testimonial = (typeof testimonials)[number]
 
-function initials(name: string) {
-  return name
-    .split(' ')
-    .map((p) => p[0])
-    .join('')
-    .slice(0, 2)
-}
-
 function QuoteMark({ className = '' }: { className?: string }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 32 24" fill="currentColor" className={className}>
@@ -21,12 +13,50 @@ function QuoteMark({ className = '' }: { className?: string }) {
   )
 }
 
+function Chip({ label }: { label: string }) {
+  return (
+    <span className="absolute top-4 left-4 z-10 flex items-center gap-1.5 rounded-md bg-black/45 px-2.5 py-1 font-mono text-[0.65rem] font-semibold tracking-[0.12em] text-white uppercase backdrop-blur-sm">
+      <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-white" />
+      {label}
+    </span>
+  )
+}
+
+/** Shared card shell: media area on top, name bar below. */
+function Card({
+  name,
+  delay,
+  children,
+}: {
+  name: string
+  delay: number
+  children: React.ReactNode
+}) {
+  return (
+    <Reveal
+      as="article"
+      delay={delay}
+      className="group/card flex w-[82%] shrink-0 snap-center flex-col overflow-hidden rounded-2xl border border-fg/[0.08] bg-card/60 transition-colors duration-300 hover:border-accent/40 sm:w-[60%] md:w-auto"
+    >
+      <div className="relative flex flex-1 flex-col overflow-hidden">{children}</div>
+      <div className="border-t border-fg/[0.07] px-5 py-4">
+        <div>
+          <p className="text-base font-bold text-fg">{name}</p>
+          <p className="mt-1 font-mono text-[0.65rem] tracking-[0.14em] text-body-dim uppercase">
+            Client testimonial
+          </p>
+        </div>
+      </div>
+    </Reveal>
+  )
+}
+
 /**
- * Self-hosted video with a poster overlay (play button + name). Native
- * controls appear once playback starts; the overlay returns when it ends.
+ * Self-hosted video with a poster overlay. Native controls appear once
+ * playback starts; the overlay returns when it ends.
  */
-function VideoCard() {
-  const { src, poster, name, title, duration } = videoTestimonial
+function VideoMedia() {
+  const { src, poster, name, duration } = videoTestimonial
   const ref = useRef<HTMLVideoElement>(null)
   const [started, setStarted] = useState(false)
 
@@ -36,10 +66,7 @@ function VideoCard() {
   }
 
   return (
-    <Reveal
-      as="article"
-      className="relative mx-auto w-full max-w-[22rem] overflow-hidden rounded-2xl border border-fg/10 bg-ink shadow-[0_30px_60px_-30px_rgb(36_87_255/0.55)] lg:row-span-2 lg:mx-0 lg:max-w-none"
-    >
+    <div className="relative aspect-[3/4] flex-1">
       <video
         ref={ref}
         src={src}
@@ -49,73 +76,49 @@ function VideoCard() {
         preload="metadata"
         onEnded={() => setStarted(false)}
         aria-label={`Video testimonial from ${name}`}
-        className="block aspect-[9/16] h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full bg-ink object-cover"
       />
-
       {!started && (
         <button
           type="button"
           onClick={play}
           aria-label={`Play video testimonial from ${name}`}
-          className="group absolute inset-0 flex flex-col justify-between p-5 text-left"
+          className="group absolute inset-0 grid place-items-center"
         >
-          <span className="absolute inset-0 bg-gradient-to-t from-[#05081a] via-[#05081a]/10 to-[#05081a]/40" />
-
-          <span className="relative flex items-center justify-between">
-            <span className="rounded-full bg-white/10 px-3 py-1 text-[0.65rem] font-semibold tracking-[0.14em] text-white uppercase backdrop-blur-sm">
-              Client video
+          <span className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/30" />
+          <Chip label="Video" />
+          {duration && (
+            <span className="absolute top-4 right-4 rounded-md bg-black/45 px-2 py-1 font-mono text-[0.65rem] text-white tabular-nums backdrop-blur-sm">
+              {duration}
             </span>
-            {duration && (
-              <span className="rounded-full bg-black/40 px-2.5 py-1 text-xs font-medium text-white tabular-nums">
-                {duration}
-              </span>
-            )}
-          </span>
-
-          <span className="relative">
-            <span className="mb-5 grid h-14 w-14 place-items-center rounded-full bg-accent text-white ring-[6px] ring-accent/25 transition-transform duration-300 group-hover:scale-110">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="ml-1 h-6 w-6">
-                <path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5Z" />
-              </svg>
-            </span>
-            <span className="heading-display block text-2xl leading-tight font-extrabold text-white">
-              {name}
-            </span>
-            <span className="mt-1 block text-sm text-white/70">{title}</span>
+          )}
+          <span className="relative grid h-16 w-16 place-items-center rounded-full bg-accent text-white shadow-[0_10px_30px_-6px_rgb(36_87_255/0.8)] transition-transform duration-300 group-hover:scale-110">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" className="ml-1 h-6 w-6">
+              <path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5Z" />
+            </svg>
           </span>
         </button>
       )}
-    </Reveal>
+    </div>
   )
 }
 
-function Person({ item, photo }: { item: Testimonial; photo?: string }) {
+function QuoteMedia({ item }: { item: Testimonial }) {
   return (
-    <div className="flex items-center gap-3">
-      {photo ? (
-        <img
-          src={photo}
-          alt=""
-          className="h-10 w-10 shrink-0 rounded-full object-cover object-[50%_30%] ring-2 ring-accent/40"
-        />
-      ) : (
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-accent/15 text-xs font-bold text-accent-soft ring-1 ring-accent/30">
-          {initials(item.name)}
-        </span>
-      )}
-      <div>
-        <p className="text-sm font-bold text-fg">{item.name}</p>
-        <p className="mt-0.5 text-xs text-body-dim">{item.title}</p>
-      </div>
+    <div className="relative flex min-h-full flex-1 flex-col bg-gradient-to-br from-accent/[0.12] via-transparent to-transparent p-6 pt-16 lg:p-7 lg:pt-16">
+      <Chip label="Review" />
+      <QuoteMark className="h-7 w-10 shrink-0 text-accent" />
+      <blockquote className="mt-5 text-sm leading-relaxed text-body/90 sm:text-base md:text-sm lg:text-base xl:text-[1.05rem]">
+        {item.quote}
+      </blockquote>
+      <p className="mt-auto pt-4 text-sm text-body-dim">{item.title}</p>
     </div>
   )
 }
 
 export function Testimonials() {
-  const featured = videoTestimonial.src
-    ? testimonials.find((t) => t.name === videoTestimonial.name)
-    : undefined
-  const rest = testimonials.filter((t) => t !== featured)
+  const hasVideo = !!videoTestimonial.src
+  const quotes = testimonials.filter((t) => !hasVideo || t.name !== videoTestimonial.name)
 
   return (
     <section id="testimonials" className="relative bg-surface py-24 sm:py-28">
@@ -125,52 +128,16 @@ export function Testimonials() {
           subtitle="What clients say about working with me"
         />
 
-        <div
-          className={`mt-14 grid gap-5 ${
-            featured
-              ? 'md:grid-cols-2 lg:grid-cols-[20rem_minmax(0,1fr)_minmax(0,1fr)]'
-              : 'md:grid-cols-3'
-          }`}
-        >
-          {featured && (
-            <>
-              <div className="md:col-span-2 lg:col-span-1 lg:row-span-2 lg:flex">
-                <VideoCard />
-              </div>
-
-              <Reveal
-                as="article"
-                delay={90}
-                className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/[0.14] via-card/70 to-card/60 p-7 md:col-span-2 lg:p-9"
-              >
-                <div>
-                  <QuoteMark className="h-7 w-10 text-accent" />
-                  <blockquote className="heading-display mt-5 max-w-2xl text-xl leading-snug font-semibold text-fg sm:text-2xl">
-                    {featured.quote}
-                  </blockquote>
-                </div>
-                <div className="mt-8">
-                  <Person item={featured} photo={videoTestimonial.poster} />
-                </div>
-              </Reveal>
-            </>
+        <div className="-mx-6 mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0">
+          {hasVideo && (
+            <Card name={videoTestimonial.name} delay={0}>
+              <VideoMedia />
+            </Card>
           )}
-
-          {rest.map((item, i) => (
-            <Reveal
-              key={item.name}
-              delay={(i + 2) * 90}
-              as="article"
-              className="flex flex-col rounded-2xl border border-fg/[0.07] bg-card/60 p-7 transition-colors duration-300 hover:border-accent/35"
-            >
-              <QuoteMark className="h-5 w-7 text-accent/70" />
-              <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-body/90">
-                {item.quote}
-              </blockquote>
-              <div className="mt-6 border-t border-fg/[0.07] pt-5">
-                <Person item={item} />
-              </div>
-            </Reveal>
+          {quotes.map((item, i) => (
+            <Card key={item.name} name={item.name} delay={(i + (hasVideo ? 1 : 0)) * 90}>
+              <QuoteMedia item={item} />
+            </Card>
           ))}
         </div>
       </div>
