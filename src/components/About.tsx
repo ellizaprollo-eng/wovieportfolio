@@ -1,7 +1,7 @@
 import { Reveal } from '@/components/Reveal'
 import { Backdrop } from '@/components/Backdrop'
 import { SectionHeading } from '@/components/SectionHeading'
-import { aboutQuickFacts, industriesBuiltFor, profile } from '@/data/portfolio'
+import { aboutQuickFacts, profile } from '@/data/portfolio'
 
 const LEAD =
   "I'm Wovie, a GoHighLevel and AI Automation Specialist based in Manila, Philippines, working remotely with clients across every time zone. For the past 4 years I've built automation systems for businesses that were still running on manual processes, fragmented tools, and follow-ups that depended on someone remembering to do them."
@@ -58,26 +58,8 @@ export function About() {
               View Resume
             </a>
 
-            <p className="mt-10 flex items-center gap-3 font-mono text-xs tracking-[0.14em] text-body-dim uppercase">
-              <span aria-hidden="true" className="h-px w-8 bg-accent" />
-              Industries I&apos;ve built for
-            </p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {industriesBuiltFor.map((industry) => (
-                <div
-                  key={industry.name}
-                  className="rounded-xl border border-fg/[0.08] bg-card/60 p-4 transition-colors duration-300 hover:border-accent/40"
-                >
-                  <p className="flex items-center gap-2 text-sm font-bold text-fg">
-                    <span className="inline-flex size-1.5 rounded-full bg-accent" />
-                    {industry.name}
-                  </p>
-                  <p className="mt-1.5 text-xs leading-relaxed text-body-dim">{industry.note}</p>
-                </div>
-              ))}
-            </div>
 
-            <dl className="mt-6 grid grid-cols-2 gap-3">
+            <dl className="mt-10 grid grid-cols-2 gap-3">
               {aboutQuickFacts.map((fact) => (
                 <div key={fact.label} className="rounded-xl border border-fg/[0.08] bg-card/60 p-4">
                   <dt className="font-mono text-[0.65rem] tracking-[0.12em] text-body-dim uppercase">
