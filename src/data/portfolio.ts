@@ -212,18 +212,11 @@ export const services: Array<{
     tags: ['Funnels', 'Websites', 'CRM Integration'],
   },
   {
-    icon: 'route',
-    title: 'CRM Workflows',
-    description:
-      'Build the GoHighLevel workflows that move contacts through your pipeline on their own: stage-progression triggers, tag-based routing, and follow-ups that adjust based on what a contact actually does.',
-    tags: ['GoHighLevel', 'Pipelines', 'Triggers'],
-  },
-  {
     icon: 'workflow',
     title: 'Workflow Automation',
     description:
-      'Design and implement end-to-end automation workflows using Zapier, Make, and n8n to eliminate manual tasks and boost productivity.',
-    tags: ['Zapier', 'Make', 'n8n'],
+      'GoHighLevel workflows that move contacts through your pipeline on their own, plus Zapier, Make, and n8n automations that connect the rest of your tools, so manual tasks and missed follow-ups disappear.',
+    tags: ['GoHighLevel', 'Zapier', 'Make', 'n8n'],
   },
   {
     icon: 'mail',
@@ -234,17 +227,10 @@ export const services: Array<{
   },
   {
     icon: 'bot',
-    title: 'AI Chatbots & Assistants',
+    title: 'AI Chat & Voice Agents',
     description:
-      'AI agents that read incoming messages, classify them, and route the reply automatically, trained on your own content and connected to your CRM.',
-    tags: ['AI Agent', 'OpenAI', 'n8n'],
-  },
-  {
-    icon: 'phone',
-    title: 'Voice AI Agents',
-    description:
-      'Voice agents on Retell AI that answer inbound calls, qualify leads, and run outbound demo calls, booking the follow-up directly on the call.',
-    tags: ['Retell AI', 'Voice Agents', 'Booking'],
+      'AI agents that answer chats, texts, and phone calls for you: they read each message or call, qualify the lead, and book the follow-up, trained on your own content and connected to your CRM.',
+    tags: ['AI Agent', 'Retell AI', 'OpenAI', 'n8n'],
   },
   {
     icon: 'zap',
