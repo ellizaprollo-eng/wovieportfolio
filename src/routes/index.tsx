@@ -30,9 +30,9 @@ function Home() {
         <CaseStudyPreview />
         <Certifications />
         <About />
-        <FinalCta />
         <Testimonials />
         <Clients />
+        <FinalCta />
       </main>
       <Footer />
     </>
