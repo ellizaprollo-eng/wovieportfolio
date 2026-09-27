@@ -108,15 +108,8 @@ export function Navbar() {
           <a
             href="/#home"
             onClick={(e) => onNav(e, '/#home')}
-            className="heading-display flex items-center gap-2.5 text-[15px] font-extrabold tracking-tight text-fg transition-colors hover:text-accent-bright"
+            className="heading-display pl-2 text-base font-extrabold tracking-tight text-fg transition-colors hover:text-accent-bright"
           >
-            <img
-              src="/brand/avatar.png"
-              alt=""
-              width={32}
-              height={32}
-              className="size-8 rounded-full"
-            />
             {profile.shortName}
           </a>
 
