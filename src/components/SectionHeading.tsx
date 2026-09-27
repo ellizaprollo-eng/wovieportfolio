@@ -6,7 +6,7 @@ export function SectionHeading({
   subtitle,
   align = 'left',
 }: {
-  /** Short eyebrow label, e.g. "01 · Services". Rendered as "// 01 · Services". */
+  /** Short eyebrow label, e.g. "01 · Services". Rendered as an uppercase accent label. */
   kicker?: string
   title: React.ReactNode
   subtitle?: string
@@ -16,9 +16,6 @@ export function SectionHeading({
     <Reveal className={align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}>
       {kicker && (
         <p className="mb-3 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-accent uppercase [.text-center_&]:justify-center">
-          <span aria-hidden="true" className="text-accent/50">
-            //
-          </span>
           {kicker}
         </p>
       )}

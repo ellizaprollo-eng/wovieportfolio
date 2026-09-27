@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Backdrop } from '@/components/Backdrop'
-import { Link } from '@tanstack/react-router'
 import { ArrowRight, LayoutGrid, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { cn } from '@/lib/utils'
 import { projects, type Project } from '@/data/portfolio'
-import { slugify } from '@/lib/slug'
-import { caseStudies } from '@/data/caseStudies'
+import { ProjectDetails, hasDetails } from '@/components/ProjectDetails'
 
 type FilterKey =
   | 'all'
@@ -48,10 +47,12 @@ function CaseStudy({
   project,
   delay,
   onView,
+  onDetails,
 }: {
   project: Project
   delay: number
   onView: () => void
+  onDetails: () => void
 }) {
   // Walkthrough videos are shown on their own: just the player, no text.
   if (project.videoId) {
@@ -145,16 +146,16 @@ function CaseStudy({
           </div>
         </dl>
 
-        {slugify(project.title) in caseStudies && (
-          <Link
-            to="/case-studies/$slug"
-            params={{ slug: slugify(project.title) }}
+        {hasDetails(project) && (
+          <button
+            type="button"
+            onClick={onDetails}
             className="btn-primary mt-6"
             style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
           >
             View Case Study Details
             <ArrowRight className="btn-arrow size-4" />
-          </Link>
+          </button>
         )}
       </div>
     </Reveal>
@@ -165,10 +166,12 @@ function ProjectCard({
   project,
   delay,
   onView,
+  onDetails,
 }: {
   project: Project
   delay: number
   onView: () => void
+  onDetails: () => void
 }) {
   return (
     <Reveal
@@ -257,17 +260,17 @@ function ProjectCard({
             Visit Site
             <ArrowRight className="btn-arrow size-4" />
           </a>
-        ) : (
-          <Link
-            to="/case-studies/$slug"
-            params={{ slug: slugify(project.title) }}
+        ) : hasDetails(project) ? (
+          <button
+            type="button"
+            onClick={onDetails}
             className="btn-primary mt-5"
             style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
           >
             View Case Study Details
             <ArrowRight className="btn-arrow size-4" />
-          </Link>
-        )}
+          </button>
+        ) : null}
       </div>
     </Reveal>
   )
@@ -391,6 +394,7 @@ function ProjectLightbox({
 
 export function Projects() {
   const [activeProject, setActiveProject] = useState<Project | null>(null)
+  const [detailsProject, setDetailsProject] = useState<Project | null>(null)
   const [filter, setFilter] = useState<FilterKey>('all')
 
   const visible = projects.filter((project) => matchesFilter(project, filter))
@@ -418,9 +422,6 @@ export function Projects() {
       <div className="container-x">
         <Reveal>
           <p className="mb-3 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-accent uppercase">
-            <span aria-hidden="true" className="text-accent/50">
-              //
-            </span>
             Sample Works
           </p>
           <h2 className="heading-display text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">
@@ -460,6 +461,7 @@ export function Projects() {
                 project={project}
                 delay={i * 90}
                 onView={() => setActiveProject(project)}
+                  onDetails={() => setDetailsProject(project)}
               />
             ))}
           </div>
@@ -477,6 +479,7 @@ export function Projects() {
                   project={project}
                   delay={(i % 3) * 90}
                   onView={() => setActiveProject(project)}
+                  onDetails={() => setDetailsProject(project)}
                 />
               ))}
             </div>
@@ -495,6 +498,7 @@ export function Projects() {
                   project={project}
                   delay={(i % 3) * 90}
                   onView={() => setActiveProject(project)}
+                  onDetails={() => setDetailsProject(project)}
                 />
               ))}
             </div>
@@ -508,14 +512,20 @@ export function Projects() {
         )}
       </div>
 
-      {activeProject && (
-        <ProjectLightbox
-          project={activeProject}
-          onClose={() => setActiveProject(null)}
-          onPrev={() => showRelative(-1)}
-          onNext={() => showRelative(1)}
-        />
+      {detailsProject && (
+        <ProjectDetails project={detailsProject} onClose={() => setDetailsProject(null)} />
       )}
+
+      {activeProject &&
+        createPortal(
+          <ProjectLightbox
+            project={activeProject}
+            onClose={() => setActiveProject(null)}
+            onPrev={() => showRelative(-1)}
+            onNext={() => showRelative(1)}
+          />,
+          document.body,
+        )}
     </section>
   )
 }

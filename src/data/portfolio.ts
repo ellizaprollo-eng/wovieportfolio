@@ -144,9 +144,9 @@ export const aboutMastery = [
 export const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/#about' },
-  { label: 'Services', href: '/services' },
+  { label: 'Services', href: '/#services' },
   { label: 'Sample Works', href: '/#sample-works' },
-  { label: 'Case Study', href: '/case-study' },
+  { label: 'Case Study', href: '/#case-study' },
   { label: 'Contact', href: '/#contact' },
 ]
 

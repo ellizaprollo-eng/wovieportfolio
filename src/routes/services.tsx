@@ -1,27 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Navbar } from '@/components/Navbar'
-import { Services } from '@/components/Services'
-import { Process } from '@/components/Process'
-import { TechStackGrid } from '@/components/TechStackGrid'
-import { Footer } from '@/components/Footer'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 
+/** The site is one page now; keep old /services links working. */
 export const Route = createFileRoute('/services')({
-  head: () => ({
-    meta: [{ title: 'Services | Wovie Prollo' }],
-  }),
-  component: ServicesPage,
+  beforeLoad: () => {
+    throw redirect({ to: '/', hash: 'services', replace: true })
+  },
 })
-
-function ServicesPage() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Services />
-        <Process />
-        <TechStackGrid />
-      </main>
-      <Footer />
-    </>
-  )
-}

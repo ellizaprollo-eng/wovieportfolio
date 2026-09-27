@@ -90,9 +90,6 @@ export function ProcessScroller() {
         <div className="container-x flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
           <div className="max-w-2xl">
             <p className="mb-3 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-accent uppercase">
-              <span aria-hidden="true" className="text-accent/50">
-                //
-              </span>
               How I Work
             </p>
             <h2 className="heading-display text-3xl leading-[1.15] font-extrabold tracking-tight text-fg sm:text-4xl">

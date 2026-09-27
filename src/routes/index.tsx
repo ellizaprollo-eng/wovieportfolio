@@ -11,8 +11,9 @@ import { Clients } from '@/components/Clients'
 import { Testimonials } from '@/components/Testimonials'
 import { ProcessScroller } from '@/components/ProcessScroller'
 import { Services } from '@/components/Services'
+import { TechStackGrid } from '@/components/TechStackGrid'
 import { Projects } from '@/components/Projects'
-import { CaseStudyPreview } from '@/components/CaseStudyPreview'
+import { LeadsJourney } from '@/components/LeadsJourney'
 import { Footer } from '@/components/Footer'
 import { useHashAlign } from '@/lib/useHashAlign'
 
@@ -31,9 +32,10 @@ function Home() {
         <Skills />
         <StatsBand />
         <Services />
+        <TechStackGrid />
         <ProcessScroller />
         <Projects />
-        <CaseStudyPreview />
+        <LeadsJourney />
         <Certifications />
         <About />
         <Testimonials />
