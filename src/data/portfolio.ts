@@ -132,6 +132,15 @@ export const aboutQuickFacts = [
   { label: 'Working with', value: 'US, EU, APAC' },
 ]
 
+/** About section skill bars. Levels are self-assessed; adjust freely. */
+export const aboutMastery = [
+  { skill: 'GoHighLevel CRM, pipelines & workflows', level: 95 },
+  { skill: 'AI chat & voice agents', level: 90 },
+  { skill: 'n8n, Make & Zapier automation', level: 90 },
+  { skill: 'Funnels & websites', level: 85 },
+  { skill: 'APIs, webhooks & integrations', level: 85 },
+]
+
 export const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/#about' },
