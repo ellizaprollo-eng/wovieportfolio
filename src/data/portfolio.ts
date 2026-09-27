@@ -134,11 +134,11 @@ export const aboutQuickFacts = [
 
 /** About section skill bars. Levels are self-assessed; adjust freely. */
 export const aboutMastery = [
-  { skill: 'GoHighLevel CRM, pipelines & workflows', level: 95 },
-  { skill: 'AI chat & voice agents', level: 90 },
-  { skill: 'n8n, Make & Zapier automation', level: 90 },
-  { skill: 'Funnels & websites', level: 85 },
-  { skill: 'APIs, webhooks & integrations', level: 85 },
+  { skill: 'GoHighLevel CRM, pipelines & workflows', level: 100 },
+  { skill: 'AI chat & voice agents', level: 100 },
+  { skill: 'n8n, Make & Zapier automation', level: 100 },
+  { skill: 'Funnels & websites', level: 100 },
+  { skill: 'APIs, webhooks & integrations', level: 100 },
 ]
 
 export const navLinks = [
@@ -194,12 +194,14 @@ export type ServiceIcon =
 export const services: Array<{
   icon: ServiceIcon
   title: string
+  image: string
   description: string
   tags: string[]
 }> = [
   {
     icon: 'message',
     title: 'GoHighLevel CRM & Pipelines',
+    image: '/services/01-crm.jpg',
     description:
       'Set up and automate your GoHighLevel CRM, pipelines, and lead management so every contact moves through a clear, hands-off process.',
     tags: ['GoHighLevel', 'CRM', 'Pipelines'],
@@ -207,6 +209,7 @@ export const services: Array<{
   {
     icon: 'globe',
     title: 'Funnels & Website Development',
+    image: '/services/02-websites.jpg',
     description:
       'Build conversion-focused funnels and websites, from a single landing page to a full multi-page site, that feed directly into your CRM and automations.',
     tags: ['Funnels', 'Websites', 'CRM Integration'],
@@ -214,6 +217,7 @@ export const services: Array<{
   {
     icon: 'route',
     title: 'CRM Workflows',
+    image: '/services/03-crm-workflows.jpg',
     description:
       'Build the GoHighLevel workflows that move contacts through your pipeline on their own: stage-progression triggers, tag-based routing, and follow-ups that adjust based on what a contact actually does.',
     tags: ['GoHighLevel', 'Pipelines', 'Triggers'],
@@ -221,6 +225,7 @@ export const services: Array<{
   {
     icon: 'workflow',
     title: 'Workflow Automation',
+    image: '/services/04-automation.jpg',
     description:
       'Design and implement end-to-end automation workflows using Zapier, Make, and n8n to eliminate manual tasks and boost productivity.',
     tags: ['Zapier', 'Make', 'n8n'],
@@ -228,6 +233,7 @@ export const services: Array<{
   {
     icon: 'mail',
     title: 'Email & SMS Campaigns',
+    image: '/services/05-email-sms.jpg',
     description:
       'Reactivation, nurture, and post-purchase follow-up sequences that stop on their own once a contact books, buys, or responds, so nobody gets a message they no longer need.',
     tags: ['Email', 'SMS', 'GoHighLevel'],
@@ -235,6 +241,7 @@ export const services: Array<{
   {
     icon: 'bot',
     title: 'AI Chatbots & Assistants',
+    image: '/services/06-ai-chatbots.jpg',
     description:
       'AI agents that read incoming messages, classify them, and route the reply automatically, trained on your own content and connected to your CRM.',
     tags: ['AI Agent', 'OpenAI', 'n8n'],
@@ -242,6 +249,7 @@ export const services: Array<{
   {
     icon: 'phone',
     title: 'Voice AI Agents',
+    image: '/services/07-voice-ai.jpg',
     description:
       'Voice agents on Retell AI that answer inbound calls, qualify leads, and run outbound demo calls, booking the follow-up directly on the call.',
     tags: ['Retell AI', 'Voice Agents', 'Booking'],
@@ -249,6 +257,7 @@ export const services: Array<{
   {
     icon: 'zap',
     title: 'API Integrations',
+    image: '/services/08-api.jpg',
     description:
       'Seamlessly connect your apps and services with custom API integrations and webhooks for real-time data synchronization.',
     tags: ['APIs', 'Webhooks', 'Real-time Sync'],
@@ -256,6 +265,7 @@ export const services: Array<{
   {
     icon: 'database',
     title: 'Data Management',
+    image: '/services/09-data.jpg',
     description:
       'Optimize data workflows with Google Sheets, Airtable, and Monday integrations for efficient information management.',
     tags: ['Google Sheets', 'Airtable', 'Monday'],
@@ -263,6 +273,7 @@ export const services: Array<{
   {
     icon: 'chart',
     title: 'Process Optimization',
+    image: '/services/10-process.jpg',
     description:
       'Analyze and improve business processes through SOP creation, audit trails, and AI-driven automation strategies.',
     tags: ['SOPs', 'Audit Trails', 'AI Strategy'],
@@ -282,6 +293,8 @@ export type Project = {
   problem?: string
   approach?: string
   result?: string
+  /** Google Drive file id of a walkthrough video, shown as an embedded player in the featured card. */
+  videoId?: string
 }
 
 export const projects: Project[] = [
@@ -306,6 +319,7 @@ export const projects: Project[] = [
     image: '/projects/onboarding-ad-copy-pipeline.jpg',
     tags: ['n8n', 'OpenAI', 'Google Sheets'],
     featured: true,
+    videoId: '1AqeuL_jirkqUth2MI8fJHqlhDvdTfw39',
     problem:
       'Onboarding a new client, then writing their ad copy and follow-up messages, was a chain of manual steps.',
     approach:

@@ -53,6 +53,31 @@ function CaseStudy({
   delay: number
   onView: () => void
 }) {
+  // Walkthrough videos are shown on their own: just the player, no text.
+  if (project.videoId) {
+    return (
+      <Reveal delay={delay} as="article">
+        <p className="mb-3 flex items-center justify-between gap-4 text-xs font-semibold tracking-[0.16em] text-accent-bright uppercase">
+          <span className="flex items-center gap-2">
+            <span className="size-1.5 rounded-full bg-accent-bright" aria-hidden="true" />
+            Video walkthrough
+          </span>
+          <span className="truncate text-body-dim">{project.title}</span>
+        </p>
+        <div className="aspect-video w-full overflow-hidden rounded-2xl border border-fg/[0.07] shadow-2xl">
+          <iframe
+            src={`https://drive.google.com/file/d/${project.videoId}/preview`}
+            title={`${project.title} walkthrough video`}
+            loading="lazy"
+            allow="fullscreen; autoplay"
+            allowFullScreen
+            className="h-full w-full"
+          />
+        </div>
+      </Reveal>
+    )
+  }
+
   return (
     <Reveal
       delay={delay}
@@ -378,8 +403,9 @@ export function Projects() {
   function showRelative(offset: number) {
     setActiveProject((current) => {
       if (!current) return current
-      const index = projects.indexOf(current)
-      return projects[(index + offset + projects.length) % projects.length]
+      const viewable = projects.filter((p) => !p.videoId)
+      const index = viewable.indexOf(current)
+      return viewable[(index + offset + viewable.length) % viewable.length]
     })
   }
 

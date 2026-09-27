@@ -73,15 +73,15 @@ export function About() {
       <div className="container-x">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:gap-16">
           {/* Left: portrait card + at-a-glance stats */}
-          <Reveal className="mx-auto flex w-full max-w-md flex-col gap-5 lg:mx-0 lg:max-w-none">
-            <div className="rounded-2xl border border-fg/10 bg-card/70 p-3 shadow-2xl shadow-black/30">
-              <div className="relative overflow-hidden rounded-xl bg-white">
+          <Reveal className="mx-auto flex w-full max-w-md flex-col gap-5 lg:mx-0 lg:h-full lg:max-w-none">
+            <div className="flex flex-col rounded-2xl border border-fg/10 bg-card/70 p-3 shadow-2xl shadow-black/30 lg:flex-1">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-white lg:aspect-auto lg:min-h-[28rem] lg:flex-1">
                 <img
                   src={profile.avatar}
                   alt={profile.name}
                   width={600}
                   height={600}
-                  className="aspect-[4/5] w-full object-cover object-top"
+                  className="absolute inset-0 h-full w-full object-cover object-top"
                 />
                 <p className="absolute inset-x-3 bottom-3 rounded-lg bg-[#05081a]/80 px-4 py-2.5 font-mono text-xs text-white backdrop-blur-sm">
                   {profile.name} &middot; GoHighLevel Expert
