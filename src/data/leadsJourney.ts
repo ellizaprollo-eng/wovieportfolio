@@ -13,15 +13,17 @@ export type JourneyStep = {
   tags: string[]
   trigger: string
   actions: string[]
+  /** Smaller automations that run as part of this step. */
+  systems?: { title: string; text: string }[]
 }
 
 export const journeyIntro = {
   eyebrow: 'Case Study',
   title: 'The Leads Journey',
-  subtitle: 'From first form fill to closed deal, one connected system.',
+  subtitle: 'How one system takes a lead from first click to closed deal.',
   description:
-    'Five GoHighLevel workflows that capture every lead, let an AI bot qualify and book them, confirm and remind them before the call, rescue no-shows, and keep cold leads warm with monthly nurture. Nobody copies data by hand and no lead is left waiting.',
-  stack: ['GoHighLevel', 'Conversation AI', 'Calendars', 'SMS', 'Email', 'Pipelines'],
+    'This is one connected system built with GoHighLevel and AI. It catches leads from a funnel, lets an AI bot check if they are a good fit, and books them on a call. After that, it keeps them moving with reminders, follow-ups, and nurture messages. From the first form to the final deal, no lead gets forgotten.',
+  stack: ['GoHighLevel', 'AI Bot', 'Calendar', 'Email', 'SMS'],
 }
 
 export const journeySteps: JourneyStep[] = [
@@ -29,85 +31,109 @@ export const journeySteps: JourneyStep[] = [
     id: 'lead-capture',
     title: 'Lead Capture',
     summary:
-      'Every lead lands in one place, no matter where it came from. Website forms, Facebook lead ads, live chat replies, inbound calls and manual referrals all fire the same workflow. It tags the lead, records the source, creates the opportunity in the pipeline, sends a starter SMS and hands the conversation to the AI bot.',
+      'Someone visits the funnel and fills out the form. GoHighLevel saves them as a contact, adds them to the pipeline, and tags them so they are ready for the next step. Nobody has to type anything or keep checking the inbox.',
     image: '/case-study/01-lead-capture.png',
-    imageLabel: 'Step 1: Lead Capture',
+    imageLabel: 'New lead entry, GoHighLevel workflow',
     stages: ['New Lead'],
-    tags: ['new lead', 'lead source', 'conversation ai: on'],
-    trigger: 'Website form, Facebook lead form, live chat reply, inbound call, or manual add',
+    tags: ['source: funnel', 'channel: web', 'status: waiting for review'],
+    trigger: 'A form is filled out on the funnel',
     actions: [
-      'Tag the contact as a new lead',
-      'Branch by trigger and tag the lead source',
-      'Create or update the pipeline opportunity',
-      'Send a starter SMS and switch on the AI bot',
+      'Save the lead as a new contact',
+      'Add the lead to the pipeline',
+      'Tag where the lead came from',
+      'Start the AI bot to check the lead',
     ],
   },
   {
     id: 'qualification',
     title: 'Qualification with an AI Bot',
     summary:
-      'The AI bot picks up the conversation over chat or SMS in real time. It asks the qualifying questions, branches on every answer and routes the lead. Qualified leads move straight toward booking. Leads that are not a fit get a polite reply and are tagged so nobody spends time chasing them.',
+      'An AI bot starts chatting with the lead by chat or SMS right away. It asks simple questions to find out if the lead is a good fit and ready to buy. Good leads move forward. Leads that are not a fit get a kind "not right now" message, so nobody wastes time.',
     image: '/case-study/02-qualification.png',
-    imageLabel: 'Lead qualification to booking, end-to-end',
+    imageLabel: 'Lead qualification to booking, full workflow',
     stages: ['New Lead', 'Qualified'],
-    tags: ['qualified', 'not a fit', 'bot status'],
-    trigger: 'AI bot conversation started by the capture workflow',
+    tags: ['score: 1 to 10', 'interest: hot / warm / cold', 'good fit: yes / no'],
+    trigger: 'The AI bot gets the new lead from step 1',
     actions: [
-      'Ask qualifying questions over chat or SMS',
-      'Branch on each answer and update contact fields',
-      'Move qualified leads to booking',
-      'Tag and close out leads that are not a fit',
+      'Ask the lead a few simple questions',
+      'Give the lead a score based on the answers',
+      'Send good leads to booking',
+      'Send a polite reply to leads that are not a fit',
     ],
   },
   {
-    id: 'booking',
-    title: 'Booking Confirmation and Reminders',
+    id: 'appointment',
+    title: 'Appointment Booking with an AI Bot',
     summary:
-      'The moment a call is booked, the lead gets a confirmation SMS and email and the team is notified. The opportunity moves to Booked, then a reminder sequence runs one day before, two hours before and one hour before the call so the lead actually shows up.',
+      'When the lead is a good fit, the bot shows open times from the GoHighLevel calendar and books the call right in the chat. The lead gets a confirmation by SMS and email, with any helpful files, before they even close the chat.',
     image: '/case-study/03-booking-reminders.png',
-    imageLabel: 'Calendar booking confirmation + reminders',
+    imageLabel: 'Calendar booking and confirmation',
     stages: ['Qualified', 'Booked'],
-    tags: ['booked', 'reminder: 1 day', 'reminder: 2 hours'],
-    trigger: 'Customer booked appointment',
+    tags: ['calendar: GoHighLevel', 'confirmation: SMS + email', 'booked by: bot'],
+    trigger: 'The lead picks a time in the chat',
     actions: [
-      'Send confirmation SMS and email',
-      'Notify the team and tag the contact',
-      'Move the opportunity to Booked',
-      'Send reminders 1 day, 2 hours and 1 hour before',
+      'Book the call in the GoHighLevel calendar',
+      'Send a confirmation SMS and email',
+      'Let the team know about the new call',
+      'Move the lead to Booked in the pipeline',
     ],
   },
   {
-    id: 'no-show',
-    title: 'No-Show Recovery',
+    id: 'post-booking',
+    title: 'After the Booking',
     summary:
-      'If the lead misses the call, the system tries to win them back on its own. Fifteen minutes after the no-show it sends a reschedule SMS and email, then checks at 24 and 72 hours whether they rebooked. Leads that never come back are tagged as cold and handed to nurture.',
+      'Booking the call is only half the job. Two automations run in the background to make sure the lead actually shows up and stays interested in the days before the call.',
     image: '/case-study/04-no-show-recovery.png',
-    imageLabel: 'No-show, reschedule sequence',
-    stages: ['Booked', 'No Show', 'Rebooked or Nurture'],
-    tags: ['no show', 'needs rebook', 'cold lead'],
-    trigger: 'Appointment status changed to no-show',
+    imageLabel: 'Reminders and pre-call messages',
+    stages: ['Booked', 'Confirmed', 'Showed Up'],
+    tags: ['reminder: 1 day before', 'reminder: 1 hour before', 'pre-call messages'],
+    trigger: 'A call is booked on the calendar',
     actions: [
-      'Tag No Show and Needs Rebook, remove Discovery Scheduled',
-      'Send a reschedule SMS and email after 15 minutes',
-      'Check for a new booking at 24 and 72 hours',
-      'Tag as cold lead and move to nurture if still not booked',
+      'Send reminders before the call',
+      'Share helpful info so the lead comes prepared',
+      'Check if the lead showed up',
+      'Help the lead rebook if they missed the call',
+    ],
+    systems: [
+      {
+        title: 'Call reminders',
+        text: 'SMS and email reminders go out 1 day, 1 hour, and 15 minutes before the call, so fewer people miss it.',
+      },
+      {
+        title: 'Pre-call messages',
+        text: 'A few short messages with useful info, results from past clients, and a simple plan for the call.',
+      },
     ],
   },
   {
-    id: 'nurture',
-    title: 'Lead Nurture',
+    id: 'post-call',
+    title: 'After the Call',
     summary:
-      'Leads that are not ready yet stay warm for months without anyone lifting a finger. Every 30 days the workflow checks the current month and sends that month’s SMS and email, with fresh context loaded into the AI bot so any reply picks the conversation right back up.',
+      'After the call, the lead goes into one of three paths based on how it went. Ready to buy? They move toward the sale. Need more time? They get nurture messages. Went quiet? They are saved for a check-in later. No lead is forgotten.',
     image: '/case-study/05-lead-nurture.png',
-    imageLabel: 'A. Lead Nurture, monthly sequence',
-    stages: ['Nurture', 'Re-engaged'],
-    tags: ['nurture: active', 'stop bot removed'],
-    trigger: 'Opportunity created or moved to the nurture stage in the marketing pipeline',
+    imageLabel: 'Lead nurture, after-call sequence',
+    stages: ['Showed Up', 'Won / Not Yet / Lost'],
+    tags: ['result: won / not yet / lost', 'nurture: on', 'check-in: planned'],
+    trigger: 'The call result is updated in the pipeline',
     actions: [
-      'Remove the lead from other active workflows',
-      'Wait 30 days, then branch by current month',
-      'Send that month’s nurture SMS and email',
-      'Update the AI bot conversation history for replies',
+      'Send a thank-you with a short recap',
+      'Pick the right path based on the call result',
+      'Send monthly SMS and email to leads who need time',
+      'Bring old leads back with a check-in',
+    ],
+    systems: [
+      {
+        title: 'After-call follow-up',
+        text: 'A thank-you, a short recap, and a clear next step, based on how the call went.',
+      },
+      {
+        title: 'Lead nurture',
+        text: 'Monthly messages for leads who are not ready yet, with tips, results, and offers to keep them warm.',
+      },
+      {
+        title: 'Win-back',
+        text: 'Every few months, old or cold leads get a check-in. If they reply, they go back into the pipeline.',
+      },
     ],
   },
 ]

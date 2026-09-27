@@ -204,6 +204,29 @@ function Step({
             </ul>
           </div>
         </div>
+
+        {step.systems && (
+          <div
+            className={`grid gap-3 bg-ink/30 px-6 pt-1 pb-6 sm:px-8 lg:px-10 ${
+              step.systems.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'
+            }`}
+          >
+            {step.systems.map((system, i) => (
+              <div
+                key={system.title}
+                className="rounded-xl border border-fg/[0.07] bg-card/70 p-5"
+              >
+                <p className="flex items-center gap-2.5 text-sm font-bold text-fg">
+                  <span className="grid size-6 shrink-0 place-items-center rounded-md bg-accent font-mono text-[0.65rem] text-white">
+                    {String.fromCharCode(65 + i)}
+                  </span>
+                  {system.title}
+                </p>
+                <p className="mt-2.5 text-sm leading-relaxed text-body-dim">{system.text}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </Reveal>
 
       {next && (
