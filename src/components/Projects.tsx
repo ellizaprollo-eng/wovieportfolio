@@ -6,6 +6,7 @@ import { Reveal } from '@/components/Reveal'
 import { cn } from '@/lib/utils'
 import { projects, type Project } from '@/data/portfolio'
 import { slugify } from '@/lib/slug'
+import { caseStudies } from '@/data/caseStudies'
 
 type FilterKey =
   | 'all'
@@ -52,31 +53,6 @@ function CaseStudy({
   delay: number
   onView: () => void
 }) {
-  // Walkthrough videos are shown on their own: just the player, no text.
-  if (project.videoId) {
-    return (
-      <Reveal delay={delay} as="article">
-        <p className="mb-3 flex items-center justify-between gap-4 text-xs font-semibold tracking-[0.16em] text-accent-bright uppercase">
-          <span className="flex items-center gap-2">
-            <span className="size-1.5 rounded-full bg-accent-bright" aria-hidden="true" />
-            Video walkthrough
-          </span>
-          <span className="truncate text-body-dim">{project.title}</span>
-        </p>
-        <div className="aspect-video w-full overflow-hidden rounded-2xl border border-fg/[0.07] shadow-2xl">
-          <iframe
-            src={`https://drive.google.com/file/d/${project.videoId}/preview`}
-            title={`${project.title} walkthrough video`}
-            loading="lazy"
-            allow="fullscreen; autoplay"
-            allowFullScreen
-            className="h-full w-full"
-          />
-        </div>
-      </Reveal>
-    )
-  }
-
   return (
     <Reveal
       delay={delay}
@@ -144,15 +120,17 @@ function CaseStudy({
           </div>
         </dl>
 
-        <Link
-          to="/case-studies/$slug"
-          params={{ slug: slugify(project.title) }}
-          className="btn-primary mt-6"
-          style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
-        >
-          View Case Study Details
-          <ArrowRight className="btn-arrow size-4" />
-        </Link>
+        {slugify(project.title) in caseStudies && (
+          <Link
+            to="/case-studies/$slug"
+            params={{ slug: slugify(project.title) }}
+            className="btn-primary mt-6"
+            style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
+          >
+            View Case Study Details
+            <ArrowRight className="btn-arrow size-4" />
+          </Link>
+        )}
       </div>
     </Reveal>
   )
@@ -400,9 +378,8 @@ export function Projects() {
   function showRelative(offset: number) {
     setActiveProject((current) => {
       if (!current) return current
-      const viewable = projects.filter((p) => !p.videoId)
-      const index = viewable.indexOf(current)
-      return viewable[(index + offset + viewable.length) % viewable.length]
+      const index = projects.indexOf(current)
+      return projects[(index + offset + projects.length) % projects.length]
     })
   }
 

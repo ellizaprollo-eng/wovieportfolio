@@ -266,8 +266,6 @@ export type Project = {
   image: string
   tags: string[]
   featured?: boolean
-  /** Google Drive file id of a walkthrough video, shown as an embedded player in the featured card. */
-  videoId?: string
   /** Which part of a tall screenshot the card thumbnail should show. */
   imagePosition?: 'top'
   /** Live site link, for website and funnel projects. */
@@ -285,7 +283,6 @@ export const projects: Project[] = [
     image: '/projects/social-content-generator.jpg',
     tags: ['n8n', 'OpenAI', 'Google Sheets', 'Webhook'],
     featured: true,
-    videoId: '19w2ZZaaKs8N8io1pz7q3CVmTzddvVm8X',
     problem:
       'Turning a topic into a finished social post meant writing the caption, hashtags, and an image brief by hand every time.',
     approach:
@@ -300,7 +297,6 @@ export const projects: Project[] = [
     image: '/projects/onboarding-ad-copy-pipeline.jpg',
     tags: ['n8n', 'OpenAI', 'Google Sheets'],
     featured: true,
-    videoId: '1AqeuL_jirkqUth2MI8fJHqlhDvdTfw39',
     problem:
       'Onboarding a new client, then writing their ad copy and follow-up messages, was a chain of manual steps.',
     approach:
