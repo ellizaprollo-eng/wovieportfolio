@@ -9,6 +9,7 @@ import { FinalCta } from '@/components/FinalCta'
 import { Clients } from '@/components/Clients'
 import { Testimonials } from '@/components/Testimonials'
 import { ProcessScroller } from '@/components/ProcessScroller'
+import { Services } from '@/components/Services'
 import { SampleWorksPreview } from '@/components/Projects'
 import { CaseStudyPreview } from '@/components/CaseStudyPreview'
 import { Footer } from '@/components/Footer'
@@ -25,6 +26,7 @@ function Home() {
         <Hero />
         <Skills />
         <StatsBand />
+        <Services />
         <ProcessScroller />
         <SampleWorksPreview />
         <CaseStudyPreview />

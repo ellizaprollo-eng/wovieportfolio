@@ -42,34 +42,39 @@ function ServiceCard({
 }) {
   const Icon = ICONS[service.icon]
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-fg/[0.08] bg-card/70 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/10">
-      <div className="relative aspect-[16/10] overflow-hidden bg-ink">
-        <img
-          src={service.image}
-          alt=""
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
-        />
-        <span className="absolute inset-0 bg-gradient-to-t from-[#05081a]/60 via-transparent to-transparent" />
-        <span className="absolute top-3 left-3 rounded-md bg-black/55 px-2 py-1 font-mono text-[0.65rem] font-bold text-white backdrop-blur-sm">
-          {String(index + 1).padStart(2, '0')}
-        </span>
-        <span className="absolute bottom-3 left-3 grid size-10 place-items-center rounded-xl bg-white text-accent shadow-lg">
+    <article className="flex h-full flex-col rounded-lg border border-fg/[0.07] bg-card/60 p-6 transition-colors duration-300 hover:border-accent/40">
+      <div className="flex items-center justify-between">
+        <span className="inline-flex rounded-lg border border-fg/10 bg-fg/[0.03] p-2.5 text-accent">
           <Icon className="size-5" />
         </span>
+        <span className="font-mono text-xs text-body-dim">
+          {String(index + 1).padStart(2, '0')}
+        </span>
       </div>
-
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="heading-display text-lg font-bold text-fg">{service.title}</h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-body-dim">{service.description}</p>
-        <Link
-          to="/contact"
-          className="mt-4 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-accent-bright transition-colors hover:text-fg"
-        >
-          Discuss this service
-          <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-0.5" />
-        </Link>
-      </div>
+      <h3 className="heading-display mt-4 text-lg font-bold text-fg">
+        {service.title}
+      </h3>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-body-dim">
+        {service.description}
+      </p>
+      <ul className="mt-4 flex flex-wrap gap-2">
+        {service.tags.map((tag) => (
+          <li
+            key={tag}
+            className="rounded-full border border-accent/25 bg-accent/10 px-3 py-1 text-xs font-medium text-accent-soft"
+          >
+            {tag}
+          </li>
+        ))}
+      </ul>
+      <Link
+        to="/contact"
+        className="btn-primary mt-5 w-fit"
+        style={{ '--btn-px': '1rem', '--btn-py': '0.5rem' } as React.CSSProperties}
+      >
+        Discuss this service
+        <ArrowRight className="btn-arrow size-4" />
+      </Link>
     </article>
   )
 }
