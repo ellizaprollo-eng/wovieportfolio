@@ -416,7 +416,7 @@ export function Projects() {
   return (
     <section
       id="sample-works"
-      className="relative isolate overflow-clip bg-surface py-24 sm:py-28"
+      className="relative isolate overflow-clip bg-ink py-24 sm:py-28"
     >
       <Backdrop id="projects" variant="flow" glow="top-left" />
       <div className="container-x">

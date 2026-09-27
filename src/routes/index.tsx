@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Navbar } from '@/components/Navbar'
 import { Hero } from '@/components/Hero'
-import { Skills } from '@/components/Skills'
 import { StatsBand } from '@/components/StatsBand'
 import { Certifications } from '@/components/Certifications'
 import { About } from '@/components/About'
@@ -14,6 +13,7 @@ import { Services } from '@/components/Services'
 import { TechStackGrid } from '@/components/TechStackGrid'
 import { Projects } from '@/components/Projects'
 import { LeadsJourney } from '@/components/LeadsJourney'
+import { Faq } from '@/components/Faq'
 import { Footer } from '@/components/Footer'
 import { useHashAlign } from '@/lib/useHashAlign'
 
@@ -29,17 +29,17 @@ function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Skills />
         <StatsBand />
         <Services />
         <TechStackGrid />
-        <ProcessScroller />
         <Projects />
         <LeadsJourney />
-        <Certifications />
-        <About />
+        <ProcessScroller />
         <Testimonials />
         <Clients />
+        <Certifications />
+        <About />
+        <Faq />
         <FinalCta />
         <Contact />
       </main>

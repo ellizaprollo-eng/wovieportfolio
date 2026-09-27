@@ -14,7 +14,7 @@ export function TechStackGrid() {
       <Backdrop id="stack" variant="dots" glow="bottom-left" />
       <div className="container-x">
         <SectionHeading
-          kicker="Tech Stack"
+          kicker="Skills & Tools"
           title={
             <>
               The stack I use to <span className="heading-accent">build and connect</span>{' '}

@@ -746,3 +746,31 @@ export const contactChannels: Array<{
     href: 'https://www.onlinejobs.ph/jobseekers/info/2977654',
   },
 ]
+
+/** FAQ section. Answers only restate what the rest of the site already says. */
+export const faqs = [
+  {
+    q: 'What exactly do you build?',
+    a: 'GoHighLevel CRM setups, pipelines, and workflows, funnels and websites, AI chat and voice agents, and automations on n8n, Make, and Zapier that connect the rest of your tools.',
+  },
+  {
+    q: 'Do you work inside my existing GoHighLevel account?',
+    a: 'Yes. Most of the build lives inside your own GoHighLevel account. The pieces GoHighLevel cannot do are wired in around it with Make, Zapier, n8n, AI APIs, and webhooks.',
+  },
+  {
+    q: 'How does a project start?',
+    a: 'With two short discovery calls. I look at how things run today and where leads or time are leaking out, then sketch the whole system on one page so you see it before you pay for it.',
+  },
+  {
+    q: 'Will the automations break my live system?',
+    a: 'Every automation is tested in a sandbox against real data first. Forms, workflows, emails, SMS, triggers, and webhooks are all checked before a real visitor ever sees them.',
+  },
+  {
+    q: 'What happens after launch?',
+    a: 'I watch how real users move through the system, then tune the workflows, copy, and triggers based on what the data shows.',
+  },
+  {
+    q: 'Which time zones do you work with?',
+    a: "I'm based in Manila, Philippines, and work remotely with clients in the US, EU, and APAC.",
+  },
+]

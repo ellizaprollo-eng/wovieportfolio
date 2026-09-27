@@ -75,7 +75,7 @@ export function ProcessScroller() {
       ref={sectionRef}
       id="process"
       aria-label="How I work"
-      className="relative isolate bg-surface"
+      className="relative isolate bg-ink"
       style={pinned ? { height: `calc(100vh + ${distance}px)` } : undefined}
     >
       <div

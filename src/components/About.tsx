@@ -13,7 +13,7 @@ const PARAGRAPHS = [
 
 export function About() {
   return (
-    <section id="about" className="relative isolate overflow-clip bg-surface py-24 sm:py-28">
+    <section id="about" className="relative isolate overflow-clip bg-ink py-24 sm:py-28">
       <Backdrop id="about" variant="flow" glow="bottom-left" />
       <div className="container-x">
         <SectionHeading

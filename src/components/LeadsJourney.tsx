@@ -238,7 +238,7 @@ export function LeadsJourney() {
 
   return (
     <>
-      <section id="case-study" className="relative isolate overflow-clip bg-ink py-24 sm:py-28">
+      <section id="case-study" className="relative isolate overflow-clip bg-surface py-24 sm:py-28">
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[60rem]">
           <Backdrop id="case-study" variant="grid" glow="top-right" />
         </div>
