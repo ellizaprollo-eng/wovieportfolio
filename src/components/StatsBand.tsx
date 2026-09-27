@@ -1,9 +1,11 @@
 import { SectionHeading } from '@/components/SectionHeading'
+import { Backdrop } from '@/components/Backdrop'
 import { byTheNumbers } from '@/data/portfolio'
 
 export function StatsBand() {
   return (
-    <section className="relative bg-surface py-20 sm:py-24">
+    <section className="relative isolate overflow-clip bg-surface py-20 sm:py-24">
+      <Backdrop id="stats" variant="lines" glow="bottom-right" />
       <div className="container-x">
         <SectionHeading
           kicker="By the Numbers"

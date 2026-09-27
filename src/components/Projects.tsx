@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Backdrop } from '@/components/Backdrop'
 import { Link } from '@tanstack/react-router'
 import { ArrowRight, LayoutGrid, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
@@ -408,8 +409,9 @@ export function Projects() {
   return (
     <section
       id="portfolio"
-      className="relative bg-surface py-24 sm:py-28"
+      className="relative isolate overflow-clip bg-surface py-24 sm:py-28"
     >
+      <Backdrop id="projects" variant="grid" glow="top-left" />
       <div className="container-x">
         <Reveal>
           <p className="text-xs font-semibold tracking-[0.2em] text-accent-bright uppercase">

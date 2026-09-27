@@ -1,10 +1,12 @@
 import { Reveal } from '@/components/Reveal'
+import { Backdrop } from '@/components/Backdrop'
 import { SectionHeading } from '@/components/SectionHeading'
 import { processSteps } from '@/data/portfolio'
 
 export function Process() {
   return (
-    <section id="process" className="relative bg-surface py-24 sm:py-28">
+    <section id="process" className="relative isolate overflow-clip bg-surface py-24 sm:py-28">
+      <Backdrop id="process" variant="flow" glow="top-left" />
       <div className="container-x">
         <SectionHeading
           kicker="How I Work"

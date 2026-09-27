@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Backdrop } from '@/components/Backdrop'
 import { X, ZoomIn } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
@@ -101,7 +102,8 @@ export function Certifications() {
   const [active, setActive] = useState<Cert | null>(null)
 
   return (
-    <section id="certifications" className="relative bg-ink py-24 sm:py-28">
+    <section id="certifications" className="relative isolate overflow-clip bg-ink py-24 sm:py-28">
+      <Backdrop id="certs" variant="grid" glow="top-left" />
       <div className="container-x">
         <SectionHeading
           kicker="Badges & Certifications"

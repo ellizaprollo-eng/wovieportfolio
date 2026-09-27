@@ -1,4 +1,5 @@
 import { SectionHeading } from '@/components/SectionHeading'
+import { Backdrop } from '@/components/Backdrop'
 import { cn } from '@/lib/utils'
 import { techStack, type TechStackItem } from '@/data/portfolio'
 
@@ -51,7 +52,8 @@ export function Skills() {
   const rowTwo = techStack.slice(mid)
 
   return (
-    <section id="skills" className="relative bg-ink py-24 sm:py-28">
+    <section id="skills" className="relative isolate overflow-clip bg-ink py-24 sm:py-28">
+      <Backdrop id="skills" variant="dots" glow="center" />
       <div className="container-x flex justify-center text-center">
         <SectionHeading
           title="My Tech Stack"

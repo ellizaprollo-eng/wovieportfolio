@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { Backdrop } from '@/components/Backdrop'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { testimonials, videoTestimonial } from '@/data/portfolio'
@@ -121,7 +122,8 @@ export function Testimonials() {
   const quotes = testimonials.filter((t) => !hasVideo || t.name !== videoTestimonial.name)
 
   return (
-    <section id="testimonials" className="relative bg-surface py-24 sm:py-28">
+    <section id="testimonials" className="relative isolate overflow-clip bg-surface py-24 sm:py-28">
+      <Backdrop id="testimonials" variant="glow" glow="top" />
       <div className="container-x">
         <SectionHeading
           title="Testimonials"

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Backdrop } from '@/components/Backdrop'
 import { Link } from '@tanstack/react-router'
 import {
   ArrowRight,
@@ -150,7 +151,8 @@ export function Services() {
   )
 
   return (
-    <section id="services" className="relative bg-ink py-24 sm:py-28">
+    <section id="services" className="relative isolate overflow-clip bg-ink py-24 sm:py-28">
+      <Backdrop id="services" variant="grid" glow="top-right" />
       <div className="container-x">
         <SectionHeading
           kicker="Services"

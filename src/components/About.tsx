@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/Reveal'
+import { Backdrop } from '@/components/Backdrop'
 import { SectionHeading } from '@/components/SectionHeading'
 import { aboutQuickFacts, industriesBuiltFor, profile } from '@/data/portfolio'
 
@@ -11,7 +12,8 @@ const PARAGRAPHS = [
 
 export function About() {
   return (
-    <section id="about" className="relative bg-surface py-24 sm:py-28">
+    <section id="about" className="relative isolate overflow-clip bg-surface py-24 sm:py-28">
+      <Backdrop id="about" variant="flow" glow="bottom-left" />
       <div className="container-x">
         <SectionHeading
           align="center"

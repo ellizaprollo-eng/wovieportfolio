@@ -4,6 +4,7 @@ import { ArrowDown, ArrowRight, Check, Maximize2, X, Zap } from 'lucide-react'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { Reveal } from '@/components/Reveal'
+import { Backdrop } from '@/components/Backdrop'
 import { journeyIntro, journeySteps, type JourneyStep } from '@/data/leadsJourney'
 
 export const Route = createFileRoute('/case-study')({
@@ -252,7 +253,10 @@ function CaseStudyPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-ink pt-32 pb-24 sm:pt-36">
+      <main className="relative isolate overflow-clip bg-ink pt-32 pb-24 sm:pt-36">
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[60rem]">
+          <Backdrop id="case-study" variant="grid" glow="top-right" />
+        </div>
         <div className="container-x">
           {/* Intro */}
           <Reveal className="max-w-3xl">

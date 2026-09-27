@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Backdrop } from '@/components/Backdrop'
 import { Globe, Linkedin, Mail, MessageCircle } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
@@ -34,7 +35,8 @@ function CalendlyEmbed() {
 
 export function Contact() {
   return (
-    <section id="contact" className="relative bg-ink py-24 sm:py-28">
+    <section id="contact" className="relative isolate overflow-clip bg-ink py-24 sm:py-28">
+      <Backdrop id="contact" variant="grid" glow="top-right" />
       <div className="container-x">
         <SectionHeading
           title="Get In Touch"

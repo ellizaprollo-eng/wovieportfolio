@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/Reveal'
+import { Backdrop } from '@/components/Backdrop'
 import { SectionHeading } from '@/components/SectionHeading'
 import { skillGroups, techStack } from '@/data/portfolio'
 
@@ -6,7 +7,8 @@ const LOGO_BY_NAME = new Map(techStack.map((t) => [t.name, t.logo]))
 
 export function TechStackGrid() {
   return (
-    <section className="relative bg-ink py-24 sm:py-28">
+    <section className="relative isolate overflow-clip bg-ink py-24 sm:py-28">
+      <Backdrop id="stack" variant="dots" glow="bottom-left" />
       <div className="container-x">
         <SectionHeading
           kicker="Tech Stack"
