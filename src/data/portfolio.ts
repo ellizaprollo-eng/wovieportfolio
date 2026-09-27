@@ -704,6 +704,15 @@ export const testimonials = [
   },
 ]
 
+/** Self-hosted video testimonial in /public/testimonials. Set src to '' to hide it. */
+export const videoTestimonial = {
+  src: '/testimonials/john-pancerzewski.mp4',
+  poster: '/testimonials/john-pancerzewski-poster.jpg',
+  name: 'John Pancerzewski',
+  title: 'Property Manager',
+  duration: '0:44',
+}
+
 export type ContactIcon = 'whatsapp' | 'mail' | 'linkedin' | 'globe'
 
 export const contactChannels: Array<{
